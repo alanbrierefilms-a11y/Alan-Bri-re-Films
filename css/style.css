@@ -378,6 +378,64 @@ section {
   margin-bottom: 36px;
 }
 
+/* --- Hero centré (variante pleine largeur, image + titre centré) ------------- */
+.hero-centered {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 90vh;
+}
+
+.hero-centered .hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-centered .lead {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-centered .eyebrow {
+  justify-content: center;
+}
+
+.hero-centered .btn-row {
+  justify-content: center;
+}
+
+.hero-centered .scroll-cue {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* --- Icon badge (rond avec icône, centré au-dessus d'un titre) --------------- */
+.icon-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  color: var(--accent-deep);
+}
+
+.icon-badge svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* --- Single film showcase (un seul film mis en avant) ------------------------- */
+.single-film {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .page-hero {
   min-height: 46vh;
   display: flex;

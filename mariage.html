@@ -33,7 +33,7 @@
 
 <main>
 
-  <section class="hero">
+  <section class="hero hero-centered">
     <div class="hero-bg">
       <img src="assets/mariage-hero-bg.svg" alt="" role="presentation">
     </div>
@@ -44,7 +44,7 @@
         <p class="lead">Alan Brière filme les mariages avec discrétion et sensibilité, pour vous offrir un souvenir que vous regarderez encore dans vingt ans — du cocktail à la dernière danse.</p>
         <div class="btn-row">
           <a href="devis.html" class="btn btn-primary">Demande de devis</a>
-          <a href="#films" class="btn btn-ghost">Voir les films</a>
+          <a href="#films" class="btn btn-ghost">Voir le film</a>
         </div>
       </div>
     </div>
@@ -53,49 +53,24 @@
 
   <section id="films">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">Sélection</div>
-          <h2>Quelques films de mariage</h2>
+      <div class="single-film reveal" style="text-align: center;">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
         </div>
-        <p class="lead">Trois mariages, trois ambiances différentes — le point commun : des émotions vraies, captées sans mise en scène.</p>
+        <div class="eyebrow" style="justify-content: center;">Sélection</div>
+        <h2>Un film de mariage</h2>
+        <p class="lead" style="margin: 0 auto 40px;">Un aperçu du travail d'Alan Brière — une histoire racontée avec des émotions vraies, captées sans mise en scène.</p>
+        <div class="player">
+          <img src="assets/wedding-1.svg" alt="Film de mariage">
+          <button class="player-play" type="button" aria-label="Lire le film">
+            <span class="play-circle">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <span class="caption">Lire le film</span>
+          </button>
+        </div>
+        <p class="player-note">Emplacement réservé — remplacez cette vignette par le lien Vimeo/YouTube du film.</p>
       </div>
-      <div class="film-grid reveal">
-        <div class="film-card">
-          <div class="film-thumb">
-            <span class="film-tag">Mariage</span>
-            <img src="assets/wedding-1.svg" alt="Film de mariage 01">
-          </div>
-          <div class="film-body">
-            <h3>Mariage de A. &amp; L.</h3>
-            <div class="film-meta">Film complet · 2024</div>
-            <p>Un mariage champêtre en Charente-Maritime — à remplacer par le vrai récit du jour.</p>
-          </div>
-        </div>
-        <div class="film-card">
-          <div class="film-thumb">
-            <span class="film-tag">Mariage</span>
-            <img src="assets/wedding-2.svg" alt="Film de mariage 02">
-          </div>
-          <div class="film-body">
-            <h3>Mariage de M. &amp; T.</h3>
-            <div class="film-meta">Film complet · 2023</div>
-            <p>Une cérémonie intime suivie d'une grande fête familiale — synopsis à personnaliser.</p>
-          </div>
-        </div>
-        <div class="film-card">
-          <div class="film-thumb">
-            <span class="film-tag">Mariage</span>
-            <img src="assets/wedding-3.svg" alt="Film de mariage 03">
-          </div>
-          <div class="film-body">
-            <h3>Mariage de C. &amp; J.</h3>
-            <div class="film-meta">Film complet · 2023</div>
-            <p>Un mariage face à l'océan, entre tradition et modernité — synopsis à personnaliser.</p>
-          </div>
-        </div>
-      </div>
-      <p class="player-note" style="margin-top: 8px;">Emplacement réservé — remplacez chaque vignette par le lien Vimeo/YouTube du film correspondant.</p>
     </div>
   </section>
 
