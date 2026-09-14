@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750">
   <defs>
     <linearGradient id="aboutGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#191614"/>
-      <stop offset="100%" stop-color="#0a0a0c"/>
+      <stop offset="0%" stop-color="#fbf5e6"/>
+      <stop offset="100%" stop-color="#eef2f0"/>
     </linearGradient>
   </defs>
   <rect width="1000" height="750" fill="url(#aboutGrad)"/>
-  <g stroke="#c9a961" stroke-opacity="0.2" stroke-width="1">
+  <g stroke="#4c8892" stroke-opacity="0.25" stroke-width="1">
     <rect x="120" y="110" width="760" height="530" fill="none"/>
   </g>
-  <path d="M420 335h100l24-40h32l24 40h-204z M420 335v170h240V335" fill="none" stroke="#c9a961" stroke-opacity="0.45" stroke-width="1.5" stroke-linejoin="round"/>
-  <circle cx="540" cy="425" r="38" fill="none" stroke="#c9a961" stroke-opacity="0.45" stroke-width="1.5"/>
-  <text x="500" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" letter-spacing="3" fill="#6b675f">
+  <path d="M420 335h100l24-40h32l24 40h-204z M420 335v170h240V335" fill="none" stroke="#a85d15" stroke-opacity="0.5" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle cx="540" cy="425" r="38" fill="none" stroke="#a85d15" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="500" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" letter-spacing="3" fill="#8a7a5c">
     IMAGE DE TOURNAGE — À REMPLACER
   </text>
 </svg>

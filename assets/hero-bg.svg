@@ -1,26 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <radialGradient id="heroGlow" cx="72%" cy="30%" r="75%">
-      <stop offset="0%" stop-color="#3a2f16"/>
-      <stop offset="45%" stop-color="#181410"/>
-      <stop offset="100%" stop-color="#0a0a0c"/>
+    <radialGradient id="heroGold" cx="78%" cy="18%" r="60%">
+      <stop offset="0%" stop-color="#d9b402" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#d9b402" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="heroLines" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#c9a961" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#c9a961" stop-opacity="0"/>
-    </linearGradient>
+    <radialGradient id="heroTerracotta" cx="58%" cy="55%" r="55%">
+      <stop offset="0%" stop-color="#ce751c" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ce751c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="heroPowder" cx="18%" cy="82%" r="55%">
+      <stop offset="0%" stop-color="#8ec5ce" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#8ec5ce" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="1920" height="1080" fill="url(#heroGlow)"/>
-  <g stroke="#c9a961" stroke-opacity="0.08" stroke-width="1">
-    <line x1="0" y1="120" x2="1920" y2="120"/>
-    <line x1="0" y1="960" x2="1920" y2="960"/>
+  <rect width="1920" height="1080" fill="#ffffff"/>
+  <rect width="1920" height="1080" fill="url(#heroGold)"/>
+  <rect width="1920" height="1080" fill="url(#heroTerracotta)"/>
+  <rect width="1920" height="1080" fill="url(#heroPowder)"/>
+  <g fill="none" stroke="#2a2013" stroke-opacity="0.06" stroke-width="1">
+    <circle cx="1500" cy="300" r="220"/>
+    <circle cx="1500" cy="300" r="140"/>
   </g>
-  <g fill="none" stroke="#c9a961" stroke-opacity="0.15" stroke-width="1.5">
-    <circle cx="1450" cy="360" r="220"/>
-    <circle cx="1450" cy="360" r="140"/>
-  </g>
-  <rect width="1920" height="1080" fill="url(#heroLines)"/>
-  <g fill="#ffffff" fill-opacity="0.035">
+  <g fill="#2a2013" fill-opacity="0.05">
     <circle cx="220" cy="180" r="2"/>
     <circle cx="640" cy="90" r="2"/>
     <circle cx="980" cy="260" r="2"/>

@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
   <defs>
     <linearGradient id="portGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1d1a13"/>
-      <stop offset="100%" stop-color="#0a0a0c"/>
+      <stop offset="0%" stop-color="#fbf5e6"/>
+      <stop offset="100%" stop-color="#f3e6c8"/>
     </linearGradient>
   </defs>
   <rect width="900" height="1200" fill="url(#portGrad)"/>
-  <circle cx="450" cy="470" r="150" fill="none" stroke="#c9a961" stroke-opacity="0.35" stroke-width="1.5"/>
-  <path d="M450 400a70 70 0 1 1 0 140 70 70 0 0 1 0-140z" fill="none" stroke="#c9a961" stroke-opacity="0.5" stroke-width="1.5"/>
-  <path d="M330 700c0-70 54-120 120-120s120 50 120 120" fill="none" stroke="#c9a961" stroke-opacity="0.5" stroke-width="1.5"/>
-  <text x="450" y="900" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" letter-spacing="3" fill="#6b675f">
+  <circle cx="450" cy="470" r="150" fill="none" stroke="#a85d15" stroke-opacity="0.4" stroke-width="1.5"/>
+  <path d="M450 400a70 70 0 1 1 0 140 70 70 0 0 1 0-140z" fill="none" stroke="#a85d15" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M330 700c0-70 54-120 120-120s120 50 120 120" fill="none" stroke="#a85d15" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="450" y="900" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" letter-spacing="3" fill="#8a7a5c">
     PORTRAIT — À REMPLACER
   </text>
 </svg>
