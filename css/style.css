@@ -410,6 +410,14 @@ section {
   transform: translateX(-50%);
 }
 
+.hero-centered .hero-bg img {
+  opacity: 1;
+}
+
+.hero-centered .hero-bg::after {
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.75) 55%, rgba(255, 255, 255, 0.88) 100%);
+}
+
 /* --- Icon badge (rond avec icône, centré au-dessus d'un titre) --------------- */
 .icon-badge {
   width: 56px;
