@@ -47,12 +47,37 @@ document.addEventListener("DOMContentLoaded", () => {
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
-  /* Showreel play button placeholder */
+  /* Lecture de la vidéo au clic (fichier local indiqué par data-video) */
   document.querySelectorAll(".player-play").forEach((btn) => {
     btn.addEventListener("click", () => {
-      alert(
-        "Emplacement du showreel.\n\nRemplacez ce bloc par une vidéo (YouTube, Vimeo ou fichier MP4) dans le fichier HTML correspondant."
-      );
+      const player = btn.closest(".player");
+      const src = player && player.dataset.video;
+
+      if (!src) {
+        alert(
+          "Emplacement du showreel.\n\nRemplacez ce bloc par une vidéo (YouTube, Vimeo ou fichier MP4) dans le fichier HTML correspondant."
+        );
+        return;
+      }
+
+      const video = document.createElement("video");
+      video.src = src;
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.style.width = "100%";
+      video.style.height = "100%";
+      video.style.objectFit = "cover";
+
+      video.addEventListener("error", () => {
+        player.innerHTML =
+          '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-faint);font-size:13px;text-align:center;padding:20px;">Vidéo introuvable — déposez le fichier à l\'emplacement&nbsp;<strong>' +
+          src +
+          "</strong></div>";
+      });
+
+      player.innerHTML = "";
+      player.appendChild(video);
     });
   });
 
