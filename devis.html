@@ -4,13 +4,44 @@
 <meta charset="UTF-8">
 <script>document.documentElement.classList.add('js-reveal');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Alan Brière Films</title>
-<meta name="description" content="Contactez Alan Brière pour discuter de votre prochain projet de film.">
+<title>Demande de devis — Alan Brière Films</title>
+<meta name="description" content="Demandez votre devis gratuit et sans engagement pour un film de mariage ou une vidéo professionnelle avec Alan Brière Films. Réponse sous 48h.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+  .devis-form-wrap { max-width: 760px; margin: 0 auto; }
+  .reassurance-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 760px;
+    margin: 0 auto 56px;
+  }
+  @media (max-width: 640px) {
+    .reassurance-row { grid-template-columns: 1fr; }
+  }
+  .reassurance-item {
+    text-align: center;
+    padding: 22px 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+  }
+  .reassurance-item strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .reassurance-item span {
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+</style>
 </head>
 <body>
 
@@ -22,8 +53,8 @@
       <a href="a-propos.html">À propos</a>
       <a href="prestations.html">Prestations</a>
       <a href="mariage.html">Mariage</a>
-      <a href="contact.html" class="active">Contact</a>
-      <a href="devis.html" class="nav-devis">Demande de devis</a>
+      <a href="contact.html">Contact</a>
+      <a href="devis.html" class="nav-devis active">Demande de devis</a>
     </nav>
     <button class="nav-toggle" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -35,41 +66,32 @@
 
   <section class="page-hero">
     <div class="container">
-      <div class="eyebrow">Contact</div>
+      <div class="eyebrow">Demande de devis</div>
       <h1>Parlons de votre projet</h1>
-      <p class="lead">Une question, un projet en tête ou simplement envie d'échanger ? N'hésitez pas à écrire.</p>
+      <p class="lead">Mariage, entreprise, immobilier ou tout autre projet vidéo : décrivez-le en quelques lignes, Alan Brière vous répond avec un devis sur-mesure.</p>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <div class="placeholder-note">Formulaire de démonstration — à connecter à Formspree, Netlify Forms ou votre propre service d'envoi d'e-mails.</div>
-      <p style="margin-top: -14px; margin-bottom: 40px; font-size: 14px;">Une demande de devis pour votre mariage ou un autre projet ? Rendez-vous sur la page <a href="devis.html" style="color: var(--accent);">Demande de devis</a>. Ce formulaire est réservé aux questions générales.</p>
 
-      <div class="contact-grid">
-        <div class="reveal">
-          <div class="contact-info-item">
-            <span class="label">Email</span>
-            <a href="mailto:bonjour@alanbrierefilms.com">bonjour@alanbrierefilms.com</a>
-          </div>
-          <div class="contact-info-item">
-            <span class="label">Téléphone</span>
-            <span class="value">+33 0 00 00 00 00</span>
-          </div>
-          <div class="contact-info-item">
-            <span class="label">Localisation</span>
-            <span class="value">France</span>
-          </div>
-          <div class="contact-info-item">
-            <span class="label">Disponibilité</span>
-            <span class="value">Nouveaux projets 2026</span>
-          </div>
-          <div class="social-row">
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.06 1.1.05 1.8.22 2.5.47.7.26 1.2.6 1.8 1.15.5.55.9 1.1 1.15 1.8.25.7.42 1.4.47 2.5C22 8.7 22 9 22 12s0 3-.06 4.1c-.05 1.1-.22 1.8-.47 2.5-.26.7-.6 1.2-1.15 1.8-.55.5-1.1.9-1.8 1.15-.7.25-1.4.42-2.5.47C15 22 14.7 22 12 22s-3 0-4.1-.06c-1.1-.05-1.8-.22-2.5-.47-.7-.26-1.2-.6-1.8-1.15-.5-.55-.9-1.1-1.15-1.8-.25-.7-.42-1.4-.47-2.5C2 15.3 2 15 2 12s0-3 .06-4.1c.05-1.1.22-1.8.47-2.5.26-.7.6-1.2 1.15-1.8.55-.5 1.1-.9 1.8-1.15.7-.25 1.4-.42 2.5-.47C8.7 2 9 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
-            <a href="#" aria-label="Vimeo"><svg viewBox="0 0 24 24"><path d="M22 7.1c-.1 2-1.5 4.7-4.2 8.1-2.8 3.5-5.1 5.3-7.1 5.3-1.2 0-2.2-1.1-3.1-3.4L6 12.1C5.3 9.8 4.6 8.7 3.8 8.7c-.2 0-.7.3-1.6 1l-.9-1.2c1-.9 2-1.8 3-2.7 1.3-1.1 2.3-1.7 3-1.8 1.5-.1 2.5.9 2.8 3 .4 2.3.6 3.7.9 4.3.5 1.2 1 1.8 1.6 1.8.5 0 1.2-.7 2.1-2.1.9-1.4 1.4-2.5 1.5-3.2.1-1.2-.4-1.8-1.5-1.8-.5 0-1.1.1-1.6.4 1.1-3.4 3.1-5.1 6.1-5 2.2.1 3.2 1.5 3.1 4.2z"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2 3.76-2 4 0 4.7 2.6 4.7 6v6.3H18v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.7H10V9z"/></svg></a>
-          </div>
+      <div class="reassurance-row reveal">
+        <div class="reassurance-item">
+          <strong>Réponse sous 48h</strong>
+          <span>Un premier retour rapide, toujours</span>
         </div>
+        <div class="reassurance-item">
+          <strong>Devis gratuit</strong>
+          <span>Sans engagement de votre part</span>
+        </div>
+        <div class="reassurance-item">
+          <strong>Échange avant chiffrage</strong>
+          <span>Pour un devis vraiment adapté</span>
+        </div>
+      </div>
+
+      <div class="devis-form-wrap">
+        <div class="placeholder-note">Formulaire de démonstration — à connecter à Formspree, Netlify Forms ou votre propre service d'envoi d'e-mails.</div>
 
         <form class="contact-form reveal" novalidate>
           <div class="form-row">
@@ -82,16 +104,66 @@
               <input type="email" id="email" name="email" placeholder="vous@exemple.com" required>
             </div>
           </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" name="phone" placeholder="06 00 00 00 00">
+            </div>
+            <div class="field">
+              <label for="prestation">Type de prestation</label>
+              <select id="prestation" name="prestation">
+                <option>Mariage</option>
+                <option>Corporate</option>
+                <option>Tourisme &amp; Territoires</option>
+                <option>Restauration &amp; Hôtellerie</option>
+                <option>Beauté &amp; Bien-être</option>
+                <option>Immobilier</option>
+                <option>Événementiel &amp; Festivals</option>
+                <option>Interviews</option>
+                <option>Sport</option>
+                <option>Événements privés</option>
+                <option>Danse</option>
+                <option>Mode</option>
+                <option>Autre</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="date">Date de l'événement (si applicable)</label>
+              <input type="date" id="date" name="date">
+            </div>
+            <div class="field">
+              <label for="location">Lieu / région</label>
+              <input type="text" id="location" name="location" placeholder="Ville ou région">
+            </div>
+          </div>
+
           <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Votre question ou votre message…" required></textarea>
+            <label for="budget">Budget approximatif</label>
+            <select id="budget" name="budget">
+              <option>Je ne sais pas encore</option>
+              <option>Moins de 1 000 €</option>
+              <option>1 000 € – 2 000 €</option>
+              <option>2 000 € – 3 500 €</option>
+              <option>Plus de 3 500 €</option>
+            </select>
           </div>
+
+          <div class="field">
+            <label for="message">Décrivez votre projet</label>
+            <textarea id="message" name="message" placeholder="Contexte, nombre d'invités ou de personnes, style recherché, contraintes particulières…" required></textarea>
+          </div>
+
           <div>
-            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+            <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
           </div>
-          <p class="form-note">En envoyant ce formulaire, vous acceptez d'être recontacté au sujet de votre demande.</p>
+          <p class="form-note">En envoyant ce formulaire, vous acceptez d'être recontacté au sujet de votre demande de devis.</p>
         </form>
       </div>
+
     </div>
   </section>
 

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <script>document.documentElement.classList.add('js-reveal');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alan Brière Films — Vidéaste mariage &amp; professionnel</title>
-<meta name="description" content="Alan Brière Films — films de mariage sensibles et vidéos professionnelles (corporate, immobilier, événementiel…). Showreel, prestations et devis en ligne.">
+<title>Prestations — Alan Brière Films</title>
+<meta name="description" content="Films de mariage, vidéos corporate, immobilier, événementiel, interviews, sport, danse, mode… découvrez toutes les prestations d'Alan Brière Films.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +18,9 @@
   <div class="container">
     <a href="index.html" class="brand">Alan Brière<span>FILMS</span></a>
     <nav class="nav-links">
-      <a href="index.html" class="active">Accueil</a>
+      <a href="index.html">Accueil</a>
       <a href="a-propos.html">À propos</a>
-      <a href="prestations.html">Prestations</a>
+      <a href="prestations.html" class="active">Prestations</a>
       <a href="mariage.html">Mariage</a>
       <a href="contact.html">Contact</a>
       <a href="devis.html" class="nav-devis">Demande de devis</a>
@@ -33,78 +33,33 @@
 
 <main>
 
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="assets/hero-bg.svg" alt="" role="presentation">
-    </div>
+  <section class="page-hero">
     <div class="container">
-      <div class="hero-content reveal is-visible">
-        <div class="eyebrow">Vidéaste — Mariages &amp; films professionnels</div>
-        <h1>Raconter des histoires qui <em>marquent les esprits</em></h1>
-        <p class="lead">Alan Brière filme les mariages avec sensibilité et réalise aussi des vidéos pour les entreprises, l'immobilier, l'événementiel et bien d'autres univers — du premier échange à la livraison du film.</p>
-        <div class="btn-row">
-          <a href="devis.html" class="btn btn-primary">Demande de devis</a>
-          <a href="mariage.html" class="btn btn-ghost">Films de mariage</a>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-cue">Découvrir</div>
-  </section>
-
-  <section class="showreel">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">Showreel</div>
-          <h2>Un aperçu en mouvement</h2>
-        </div>
-        <p class="lead">Quelques secondes pour saisir le ton, la lumière et le rythme du travail d'Alan Brière.</p>
-      </div>
-      <div class="reveal">
-        <div class="player">
-          <img src="assets/showreel-poster.svg" alt="Aperçu du showreel">
-          <button class="player-play" type="button" aria-label="Lire le showreel">
-            <span class="play-circle">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-            <span class="caption">Lire le showreel</span>
-          </button>
-        </div>
-        <p class="player-note">Emplacement réservé — intégrez ici votre vidéo YouTube, Vimeo ou un fichier MP4.</p>
-      </div>
+      <div class="eyebrow">Prestations</div>
+      <h1>Un film pour chaque univers</h1>
+      <p class="lead">Du mariage à l'entreprise, en passant par l'immobilier, l'événementiel ou la mode — chaque projet a son propre langage visuel. Voici les prestations proposées par Alan Brière Films.</p>
     </div>
   </section>
 
-  <section class="wedding-spotlight">
+  <section>
     <div class="container">
-      <div class="split reveal">
-        <div class="split-media">
-          <img src="assets/wedding-1.svg" alt="Vignette d'un film de mariage">
-          <span class="frame-label">Film de mariage</span>
-        </div>
-        <div>
-          <div class="eyebrow">Spécialité</div>
-          <h2>Le film de votre mariage, raconté avec émotion</h2>
-          <p>C'est le cœur du travail d'Alan Brière : capter la journée la plus importante de votre vie avec discrétion, pour vous offrir un film que vous regarderez encore dans vingt ans. Du cocktail à la soirée dansante, chaque instant compte.</p>
-          <div class="btn-row">
-            <a href="mariage.html" class="btn btn-primary">Découvrir les films de mariage</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="placeholder-note">Contenu provisoire — textes et visuels à affiner au fil des projets réalisés dans chaque catégorie.</div>
 
-  <section class="prestations-teaser">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">Prestations</div>
-          <h2>Et bien d'autres univers</h2>
-        </div>
-        <p class="lead">Corporate, immobilier, événementiel, interviews… chaque projet a son propre langage visuel.</p>
-      </div>
       <div class="film-grid reveal">
-        <a class="film-card" href="prestations.html">
+
+        <a class="film-card badge-highlight" href="mariage.html">
+          <div class="film-thumb">
+            <span class="film-tag">Spécialité</span>
+            <img src="assets/wedding-1.svg" alt="Films de mariage">
+          </div>
+          <div class="film-body">
+            <h3>Mariage</h3>
+            <div class="film-meta">Page dédiée</div>
+            <p>Films de mariage sensibles et cinématographiques, du cocktail à la soirée dansante.</p>
+          </div>
+        </a>
+
+        <a class="film-card" href="devis.html">
           <div class="film-thumb">
             <span class="film-tag">Corporate</span>
             <img src="assets/film-1.svg" alt="Vidéo corporate">
@@ -115,7 +70,44 @@
             <p>Vidéos institutionnelles et de présentation d'entreprise, pour valoriser votre culture de marque.</p>
           </div>
         </a>
-        <a class="film-card" href="prestations.html">
+
+        <a class="film-card" href="devis.html">
+          <div class="film-thumb">
+            <span class="film-tag">Tourisme</span>
+            <img src="assets/film-6.svg" alt="Vidéo tourisme et territoires">
+          </div>
+          <div class="film-body">
+            <h3>Tourisme &amp; Territoires</h3>
+            <div class="film-meta">Offices de tourisme &amp; collectivités</div>
+            <p>Films de valorisation de destinations, de territoires et d'offices de tourisme.</p>
+          </div>
+        </a>
+
+        <a class="film-card" href="devis.html">
+          <div class="film-thumb">
+            <span class="film-tag">Restauration &amp; Hôtellerie</span>
+            <img src="assets/film-2.svg" alt="Vidéo restauration et hôtellerie">
+          </div>
+          <div class="film-body">
+            <h3>Restauration &amp; Hôtellerie</h3>
+            <div class="film-meta">Restaurants &amp; hôtels</div>
+            <p>Mise en valeur de lieux, de plats et d'ambiances pour restaurants et établissements hôteliers.</p>
+          </div>
+        </a>
+
+        <a class="film-card" href="devis.html">
+          <div class="film-thumb">
+            <span class="film-tag">Beauté &amp; Bien-être</span>
+            <img src="assets/wedding-2.svg" alt="Vidéo beauté et bien-être">
+          </div>
+          <div class="film-body">
+            <h3>Beauté &amp; Bien-être</h3>
+            <div class="film-meta">Instituts &amp; spas</div>
+            <p>Contenus vidéo pour instituts, spas et professionnels du bien-être.</p>
+          </div>
+        </a>
+
+        <a class="film-card" href="devis.html">
           <div class="film-thumb">
             <span class="film-tag">Immobilier</span>
             <img src="assets/film-3.svg" alt="Vidéo immobilière">
@@ -126,7 +118,8 @@
             <p>Vidéos de biens immobiliers, visites immersives, valorisation d'intérieur et d'extérieur.</p>
           </div>
         </a>
-        <a class="film-card" href="prestations.html">
+
+        <a class="film-card" href="devis.html">
           <div class="film-thumb">
             <span class="film-tag">Événementiel</span>
             <img src="assets/film-5.svg" alt="Vidéo événementielle">
@@ -137,34 +130,67 @@
             <p>Aftermovies, vidéos promotionnelles, captation d'événements privés ou publics.</p>
           </div>
         </a>
-      </div>
-      <div class="btn-row reveal" style="margin-top: 44px; justify-content: center;">
-        <a href="prestations.html" class="btn btn-ghost">Voir toutes les prestations</a>
-      </div>
-    </div>
-  </section>
 
-  <section class="about-teaser">
-    <div class="container">
-      <div class="split reverse reveal">
-        <div class="split-media">
-          <img src="assets/about-detail.svg" alt="Image de tournage">
-          <span class="frame-label">Sur le tournage</span>
-        </div>
-        <div>
-          <div class="eyebrow">Portrait</div>
-          <h2>Un regard sensible sur chaque histoire</h2>
-          <p>Alan Brière est réalisateur, spécialisé dans le récit visuel au service des marques, des institutions et des artistes. Son approche : écouter avant de filmer, pour capter ce qui est vraiment singulier dans chaque projet.</p>
-          <p>Texte de présentation à personnaliser — parcours, influences, méthode de travail et valeurs qui guident chaque production.</p>
-          <div class="stat-row">
-            <div class="stat"><strong>10+</strong><span>Années d'expérience</span></div>
-            <div class="stat"><strong>40+</strong><span>Projets réalisés</span></div>
-            <div class="stat"><strong>15</strong><span>Sélections &amp; prix</span></div>
+        <a class="film-card" href="devis.html">
+          <div class="film-thumb">
+            <span class="film-tag">Interviews</span>
+            <img src="assets/film-4.svg" alt="Interview professionnelle">
           </div>
-          <div class="btn-row" style="margin-top: 36px;">
-            <a href="a-propos.html" class="btn btn-ghost">En savoir plus</a>
+          <div class="film-body">
+            <h3>Interviews</h3>
+            <div class="film-meta">Témoignages &amp; portraits</div>
+            <p>Interviews professionnelles et témoignages clients, tournés avec soin.</p>
           </div>
-        </div>
+        </a>
+
+        <a class="film-card" href="devis.html">
+          <div class="film-thumb">
+            <span class="film-tag">Sport</span>
+            <img src="assets/film-6.svg" alt="Vidéo sportive">
+          </div>
+          <div class="film-body">
+            <h3>Sport</h3>
+            <div class="film-meta">Captation dynamique</div>
+            <p>Captation dynamique et vidéos lifestyle pour sportifs et clubs.</p>
+          </div>
+        </a>
+
+        <a class="film-card" href="devis.html">
+          <div class="film-thumb">
+            <span class="film-tag">Événements privés</span>
+            <img src="assets/wedding-3.svg" alt="Événement privé">
+          </div>
+          <div class="film-body">
+            <h3>Événements privés</h3>
+            <div class="film-meta">Anniversaires &amp; fêtes de famille</div>
+            <p>Captation de vos célébrations privées — anniversaires, fêtes de famille et autres moments à part.</p>
+          </div>
+        </a>
+
+        <a class="film-card" href="devis.html">
+          <div class="film-thumb">
+            <span class="film-tag">Danse</span>
+            <img src="assets/film-2.svg" alt="Captation de danse">
+          </div>
+          <div class="film-body">
+            <h3>Danse</h3>
+            <div class="film-meta">Captations chorégraphiques</div>
+            <p>Captations chorégraphiques et vidéos artistiques au service du mouvement.</p>
+          </div>
+        </a>
+
+        <a class="film-card" href="devis.html">
+          <div class="film-thumb">
+            <span class="film-tag">Mode</span>
+            <img src="assets/film-4.svg" alt="Lookbook vidéo mode">
+          </div>
+          <div class="film-body">
+            <h3>Mode</h3>
+            <div class="film-meta">Lookbooks &amp; contenus créatifs</div>
+            <p>Lookbooks vidéo et contenus créatifs pour marques et créateurs de mode.</p>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -172,11 +198,11 @@
   <section class="cta-band">
     <div class="container reveal">
       <div class="eyebrow">Collaboration</div>
-      <h2>Un projet en tête ? Parlons-en.</h2>
-      <p>Que ce soit votre mariage, un projet d'entreprise ou tout autre univers, chaque film commence par une conversation.</p>
+      <h2>Votre projet ne rentre dans aucune case ?</h2>
+      <p>C'est très bien aussi — parlons-en, chaque univers mérite un traitement sur-mesure.</p>
       <div class="btn-row">
         <a href="devis.html" class="btn btn-primary">Demande de devis</a>
-        <a href="prestations.html" class="btn btn-ghost">Voir les prestations</a>
+        <a href="contact.html" class="btn btn-ghost">Me poser une question</a>
       </div>
     </div>
   </section>
