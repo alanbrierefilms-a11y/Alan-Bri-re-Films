@@ -187,6 +187,68 @@ section {
   box-shadow: 0 1px 0 var(--border);
 }
 
+/* --- Header transparent (pages avec un hero plein écran : accueil, mariage) ---
+   Léger voile sombre dégradé pour garantir la lisibilité du texte blanc,
+   quelle que soit la clarté de l'image/vidéo affichée derrière. */
+.hero-header:not(.is-scrolled) {
+  background: linear-gradient(to bottom, rgba(20, 16, 8, 0.45) 0%, rgba(20, 16, 8, 0.15) 75%, transparent 100%);
+}
+
+.hero-header:not(.is-scrolled) .brand,
+.hero-header:not(.is-scrolled) .brand span,
+.hero-header:not(.is-scrolled) .nav-links a {
+  color: #ffffff;
+}
+
+.hero-header:not(.is-scrolled) .nav-links a.active::after {
+  background: #ffffff;
+}
+
+.hero-header:not(.is-scrolled) .nav-cta {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-header:not(.is-scrolled) .nav-cta:hover {
+  border-color: #ffffff;
+  color: #ffffff !important;
+}
+
+.hero-header:not(.is-scrolled) .nav-toggle span {
+  background: #ffffff;
+}
+
+/* Le menu plein écran mobile a toujours un fond blanc : texte toujours foncé, même sur un header transparent */
+.hero-header:not(.is-scrolled) .nav-links.is-open a {
+  color: var(--text-muted);
+}
+
+.hero-header:not(.is-scrolled) .nav-links.is-open a:hover,
+.hero-header:not(.is-scrolled) .nav-links.is-open a.active {
+  color: var(--text);
+}
+
+.hero-header:not(.is-scrolled) .nav-links.is-open a.active::after {
+  background: var(--accent-deep);
+}
+
+body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
+  background: var(--text);
+}
+
+/* --- Menu doré une fois la page défilée (toutes les pages) ------------------- */
+.site-header.is-scrolled .nav-links a {
+  color: var(--accent);
+}
+
+.site-header.is-scrolled .nav-links a:hover,
+.site-header.is-scrolled .nav-links a.active {
+  color: var(--accent-dark);
+}
+
+.site-header.is-scrolled .nav-links a.active::after {
+  background: var(--accent);
+}
+
 .site-header .container {
   display: flex;
   align-items: center;
@@ -338,7 +400,8 @@ section {
   z-index: -2;
 }
 
-.hero-bg img {
+.hero-bg img,
+.hero-bg video {
   width: 100%;
   height: 100%;
   object-fit: cover;

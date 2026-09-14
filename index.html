@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header hero-header">
   <div class="container">
     <a href="index.html" class="brand">Alan Brière<span>FILMS</span></a>
     <nav class="nav-links">
@@ -35,7 +35,11 @@
 
   <section class="hero">
     <div class="hero-bg">
-      <img src="assets/hero-bg.svg" alt="" role="presentation">
+      <!-- Déposez votre vidéo ici : assets/accueil-cover.mp4 (paysage, format large, silencieuse). En attendant, le fond provisoire s'affiche. -->
+      <video autoplay muted loop playsinline poster="assets/hero-bg.svg">
+        <source src="assets/accueil-cover.mp4" type="video/mp4">
+        <img src="assets/hero-bg.svg" alt="" role="presentation">
+      </video>
     </div>
     <div class="container">
       <div class="hero-content reveal is-visible">
