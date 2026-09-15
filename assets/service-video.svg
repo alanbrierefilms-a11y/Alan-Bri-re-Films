@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="sv" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a2013"/>
+      <stop offset="100%" stop-color="#0a0a0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sv)"/>
+  <g stroke="#d9b402" stroke-opacity="0.75" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="300" y="255" width="140" height="90" rx="10"/>
+    <path d="M440 280l60-30v110l-60-30z"/>
+    <circle cx="370" cy="300" r="22"/>
+  </g>
+  <text x="400" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="3" fill="#6b675f">VIDÉO — VISUEL À VENIR</text>
+</svg>

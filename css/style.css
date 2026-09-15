@@ -1276,3 +1276,125 @@ html.js-reveal .reveal.is-visible {
   color: var(--text);
   border-color: var(--accent);
 }
+
+/* --- Clients marquee ------------------------------------------------------ */
+.clients-marquee-section {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.marquee-row {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-row + .marquee-row {
+  margin-top: 30px;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  padding: 0 32px;
+  animation: marquee-left 30s linear infinite;
+}
+
+.marquee-row.reverse .marquee-track {
+  animation-name: marquee-right;
+}
+
+.marquee-track img {
+  height: 34px;
+  width: auto;
+  flex-shrink: 0;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.marquee-track img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* --- Services grid (Vidéo / Montage / Drone) ------------------------------ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 880px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  text-align: center;
+}
+
+.service-card .icon-badge {
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.service-card img {
+  width: 100%;
+  display: block;
+}
+
+/* --- Pricing note ----------------------------------------------------------- */
+.pricing-note {
+  text-align: center;
+}
+
+.pricing-box {
+  display: inline-block;
+  max-width: 520px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px 40px;
+  background: var(--bg-card);
+}
+
+.pricing-box strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.pricing-box span {
+  font-size: 14px;
+  color: var(--text-muted);
+}
