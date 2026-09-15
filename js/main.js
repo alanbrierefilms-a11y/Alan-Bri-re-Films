@@ -81,6 +81,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* Compteurs animés (chiffres qui s'incrémentent à l'affichage) */
+  const counters = document.querySelectorAll("[data-count-to]");
+  if (counters.length) {
+    const animateCounter = (el) => {
+      const target = parseInt(el.dataset.countTo, 10);
+      const suffix = el.dataset.suffix || "";
+      const duration = 1200;
+      const start = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if ("IntersectionObserver" in window) {
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              counterObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      counters.forEach((el) => counterObserver.observe(el));
+    } else {
+      counters.forEach((el) => animateCounter(el));
+    }
+  }
+
   /* Film filter (films.html) */
   const filterBtns = document.querySelectorAll(".filter-btn");
   const filmCards = document.querySelectorAll("[data-category]");
