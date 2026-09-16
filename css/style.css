@@ -1014,22 +1014,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   width: 260px;
   max-width: 100%;
   aspect-ratio: 9 / 19.5;
-  background: #0a0a0c;
-  border-radius: 40px;
-  padding: 12px;
-  box-shadow: var(--shadow);
-}
-
-.phone-notch {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 92px;
-  height: 22px;
-  background: #0a0a0c;
-  border-radius: 0 0 14px 14px;
-  z-index: 2;
+  box-shadow: 0 30px 70px rgba(42, 32, 19, 0.35);
 }
 
 .phone-screen {
