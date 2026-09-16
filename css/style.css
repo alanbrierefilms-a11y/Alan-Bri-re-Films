@@ -2047,13 +2047,23 @@ html.js-reveal .reveal.is-visible {
   margin-bottom: 16px;
 }
 
-@keyframes adv-title-in {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+.advantages-title-ghost {
+  position: fixed;
+  z-index: 60;
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  transition: left 0.5s ease, top 0.5s ease, font-size 0.5s ease;
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.advantages-step.is-active h3 {
-  animation: adv-title-in 0.5s ease;
+.advantages-nav-item .label.is-flying,
+.advantages-step h3.is-flying {
+  opacity: 0;
 }
 
 .advantages-step p {
