@@ -105,9 +105,12 @@
       </div>
 
       <div class="devis-form-wrap">
-        <div class="placeholder-note">Formulaire de démonstration — à connecter à Formspree, Netlify Forms ou votre propre service d'envoi d'e-mails.</div>
 
-        <form class="contact-form reveal" novalidate>
+        <form class="contact-form reveal" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="1bca9e26-5ce9-4899-8997-1526c449fa08">
+          <input type="hidden" name="subject" value="Nouvelle demande de devis — Alan Brière Films">
+          <input type="hidden" name="from_name" value="Site alanbrierefilms.fr">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="field">
               <label for="name">Nom complet</label>

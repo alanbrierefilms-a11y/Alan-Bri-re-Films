@@ -358,7 +358,11 @@
         <p>Que ce soit votre mariage, un projet d'entreprise ou tout autre univers, chaque vidéo commence par une conversation. Réponse sous 48h, sans engagement.</p>
       </div>
       <div class="reveal" style="max-width: 680px; margin: 0 auto;">
-        <form class="contact-form" novalidate>
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="1bca9e26-5ce9-4899-8997-1526c449fa08">
+          <input type="hidden" name="subject" value="Nouvelle demande — Alan Brière Films (Accueil)">
+          <input type="hidden" name="from_name" value="Site alanbrierefilms.fr">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="field">
               <label for="home-name">Nom complet</label>

@@ -132,22 +132,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* Contact form: static demo submit */
-  const form = document.querySelector(".contact-form");
-  if (form) {
-    form.addEventListener("submit", (e) => {
+  /* Formulaires (devis, contact, accueil) : envoi réel via Web3Forms */
+  document.querySelectorAll(".contact-form").forEach((form) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
       const original = btn.textContent;
-      btn.textContent = "Message envoyé";
       btn.disabled = true;
-      form.reset();
+      btn.textContent = "Envoi en cours…";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+        const result = await response.json();
+        if (result.success) {
+          btn.textContent = "Message envoyé";
+          form.reset();
+        } else {
+          throw new Error(result.message || "Échec de l'envoi");
+        }
+      } catch (err) {
+        btn.textContent = "Erreur — réessayez";
+      }
+
       setTimeout(() => {
         btn.textContent = original;
         btn.disabled = false;
-      }, 3000);
+      }, 4000);
     });
-  }
+  });
 
   /* Footer year */
   const yearEl = document.querySelector("[data-year]");
