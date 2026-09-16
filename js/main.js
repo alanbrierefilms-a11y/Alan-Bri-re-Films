@@ -207,6 +207,39 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePortfolio();
   }
 
+  /* Photo devant la vidéo "Je suis vidéaste" : glisse vers le texte et disparaît en fondu au scroll */
+  const mediaStack = document.querySelector(".media-stack");
+  const stackPhoto = document.querySelector(".stack-photo");
+  if (mediaStack && stackPhoto) {
+    let stackTicking = false;
+    const updateStackPhoto = () => {
+      stackTicking = false;
+      const rect = mediaStack.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const start = vh * 0.95;
+      const end = vh * 0.4;
+      const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+      const shiftX = -120 * progress;
+      const shiftY = 30 * progress;
+      const rotate = -6 - 10 * progress;
+      stackPhoto.style.transform = `translate(${shiftX}px, ${shiftY}px) rotate(${rotate}deg)`;
+      stackPhoto.style.opacity = 1 - progress;
+    };
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!stackTicking) {
+          stackTicking = true;
+          requestAnimationFrame(updateStackPhoto);
+        }
+      },
+      { passive: true }
+    );
+    window.addEventListener("resize", updateStackPhoto);
+    updateStackPhoto();
+  }
+
   /* Logos clients : un logo passe en couleur, puis un autre, à l'infini */
   document.querySelectorAll(".clients-marquee-section .marquee-track").forEach((track) => {
     const imgs = Array.from(track.children);

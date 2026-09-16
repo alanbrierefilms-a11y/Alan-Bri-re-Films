@@ -1021,7 +1021,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   position: relative;
   display: flex;
   justify-content: center;
-  padding: 20px 40px 40px 0;
+  padding: 50px 20px 20px 60px;
 }
 
 .phone-mockup {
@@ -1034,16 +1034,18 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .stack-photo {
   position: absolute;
-  z-index: 1;
-  right: 0;
-  bottom: 0;
+  z-index: 3;
+  left: 0;
+  top: 0;
   width: 150px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 16px;
   border: 6px solid var(--bg);
   box-shadow: 0 20px 45px rgba(42, 32, 19, 0.3);
-  transform: rotate(7deg);
+  transform: rotate(-6deg);
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .phone-screen {
