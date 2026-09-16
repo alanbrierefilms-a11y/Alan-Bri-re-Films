@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* FAQ : n'affiche que les 3 premières questions, un bouton "+" révèle les autres */
+  const faqList = document.querySelector(".faq-list");
+  const faqMoreBtn = document.querySelector(".faq-more-btn");
+  if (faqList && faqMoreBtn) {
+    faqMoreBtn.addEventListener("click", () => {
+      const expanded = faqList.classList.toggle("is-expanded");
+      faqMoreBtn.classList.toggle("is-open", expanded);
+      faqMoreBtn.querySelector(".faq-more-label").textContent = expanded
+        ? "Voir moins de questions"
+        : "Voir plus de questions";
+    });
+  }
+
   /* Avis clients : sur mobile, un seul avis visible à la fois, navigation par flèches */
   const testimonialCards = document.querySelectorAll(".testimonial-card");
   const testimonialDots = document.querySelectorAll(".testimonial-dot");
@@ -201,18 +214,15 @@ document.addEventListener("DOMContentLoaded", () => {
       portfolioTicking = false;
       const vh = window.innerHeight;
 
-      if (window.innerWidth > 780) {
-        const rect = portfolioGrid.getBoundingClientRect();
-        const progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh + rect.height)));
-        const shift = (progress - 0.5) * 130;
-        upCols.forEach((col) => {
-          col.style.transform = `translateY(${40 - shift}px)`;
-        });
-        downCols.forEach((col) => {
-          col.style.transform = `translateY(${-40 + shift}px)`;
-        });
-      }
-
+      const rect = portfolioGrid.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh + rect.height)));
+      const shift = (progress - 0.5) * 130;
+      upCols.forEach((col) => {
+        col.style.transform = `translateY(${40 - shift}px)`;
+      });
+      downCols.forEach((col) => {
+        col.style.transform = `translateY(${-40 + shift}px)`;
+      });
     };
 
     window.addEventListener(

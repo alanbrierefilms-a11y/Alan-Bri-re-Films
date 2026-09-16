@@ -1130,10 +1130,46 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
     gap: 36px;
   }
   .split.reverse .split-media { order: 0; }
-  .split.reverse .split-media-phone { order: 1; }
   .split-media-phone .stack-photo { display: none; }
   .split-media-phone .media-stack { padding: 0 0 10px; }
 }
+
+/* --- "En bref" : titre / vidéo / détails, dans cet ordre sur mobile ------- */
+.about-split {
+  grid-template-areas: "title media" "details media";
+  align-items: start;
+}
+
+.about-split .split-media { align-self: center; grid-area: media; }
+
+@media (max-width: 880px) {
+  .about-split {
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "media" "details";
+  }
+}
+
+.about-split-title { grid-area: title; }
+.about-split-details { grid-area: details; }
+
+/* --- "Coup de cœur" : titre / média / détails, dans cet ordre sur mobile - */
+.wedding-split {
+  grid-template-areas: "media title" "media details";
+  align-items: start;
+}
+
+.wedding-split .split-media { align-self: center; }
+
+@media (max-width: 880px) {
+  .wedding-split {
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "media" "details";
+  }
+}
+
+.wedding-split-title { grid-area: title; }
+.wedding-split .split-media { grid-area: media; }
+.wedding-split-details { grid-area: details; }
 
 .split-media {
   position: relative;
@@ -1603,7 +1639,22 @@ html.js-reveal .reveal.is-visible {
 }
 
 @media (max-width: 760px) {
-  .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+  .steps-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 20px 12px;
+    margin: 40px -20px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .steps-grid::-webkit-scrollbar { display: none; }
+  .step-item {
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+  }
 }
 
 .step-item {
@@ -1822,7 +1873,22 @@ html.js-reveal .reveal.is-visible {
 }
 
 @media (max-width: 880px) {
-  .services-grid { grid-template-columns: 1fr; }
+  .services-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 20px 12px;
+    margin: 0 -20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .services-grid::-webkit-scrollbar { display: none; }
+  .service-card {
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+  }
 }
 
 .service-card {
@@ -2054,15 +2120,21 @@ html.js-reveal .reveal.is-visible {
 }
 
 @media (max-width: 780px) {
-  .portfolio-grid { padding: 0 20px; margin-top: 48px; flex-wrap: wrap; }
-  .portfolio-col { flex: 1 1 calc(50% - 7px); }
-  .portfolio-col-up,
-  .portfolio-col-down { transform: none; margin-top: 0; }
-}
-
-@media (max-width: 560px) {
-  .portfolio-col:nth-child(5) { display: none; }
-  .portfolio-tile:nth-child(n+3) { display: none; }
+  .portfolio-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 20px 30px;
+    margin-top: 48px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .portfolio-grid::-webkit-scrollbar { display: none; }
+  .portfolio-col {
+    flex: 0 0 60%;
+    scroll-snap-align: center;
+  }
+  .portfolio-col:nth-child(n+4) { display: none; }
 }
 
 .audience-tags {
@@ -2484,4 +2556,51 @@ html.js-reveal .reveal.is-visible {
   font-size: 14px;
   padding-bottom: 20px;
   margin: 0;
+}
+
+.faq-list .faq-extra {
+  display: none;
+}
+
+.faq-list.is-expanded .faq-extra {
+  display: block;
+}
+
+.faq-more-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.faq-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-card);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.faq-more-btn:hover {
+  border-color: var(--accent-deep);
+  color: var(--accent-deep);
+}
+
+.faq-more-icon {
+  font-family: var(--sans);
+  font-size: 18px;
+  color: var(--accent-deep);
+  transition: transform 0.2s ease;
+}
+
+.faq-more-btn.is-open .faq-more-icon {
+  transform: rotate(45deg);
 }
