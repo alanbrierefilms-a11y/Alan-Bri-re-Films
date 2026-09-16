@@ -1457,11 +1457,55 @@ html.js-reveal .reveal.is-visible {
 .services-banner {
   background: var(--secondary);
   color: #ffffff;
+  position: relative;
+  overflow: hidden;
 }
 
 .services-banner h2 { color: #ffffff; }
 .services-banner p { color: rgba(255, 255, 255, 0.85); }
 .services-banner .eyebrow { color: #ffffff; justify-content: center; }
+
+.services-banner > .container,
+.services-banner .audience-marquee {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Icônes flottantes décoratives ------------------------------------------- */
+.floating-icons {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.float-icon {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  font-size: 24px;
+  line-height: 1;
+  animation: float-icon 5s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  opacity: 0;
+}
+
+@keyframes float-icon {
+  0% { opacity: 0; transform: translateY(20px) scale(0.85); }
+  12% { opacity: 1; transform: translateY(0) scale(1); }
+  50% { opacity: 1; transform: translateY(-12px) scale(1); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 780px) {
+  .floating-icons { display: none; }
+}
 
 .portfolio-banner {
   background: var(--tertiary);
