@@ -298,10 +298,12 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 .brand {
-  font-family: var(--serif);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(20, 16, 8, 0.35);
   display: flex;
   flex-direction: column;
   line-height: 1.1;
