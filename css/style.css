@@ -2109,16 +2109,45 @@ html.js-reveal .reveal.is-visible {
 .advantages-step .icon-badge {
   margin: 0 0 22px;
   color: var(--tertiary-deep);
+  transition: color 0.4s ease;
 }
 
 .advantages-step h3 {
+  position: relative;
+  display: inline-block;
   font-size: clamp(24px, 3vw, 32px);
   margin-bottom: 16px;
-  background: var(--brand-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent-deep);
+  transition: color 0.4s ease;
 }
+
+.advantages-step h3::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  bottom: 0.08em;
+  height: 0.3em;
+  background: currentColor;
+  opacity: 0.16;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.advantages-step[data-step="1"] h3,
+.advantages-step[data-step="1"] .icon-badge { color: var(--accent-deep); }
+
+.advantages-step[data-step="2"] h3,
+.advantages-step[data-step="2"] .icon-badge { color: var(--secondary-deep); }
+
+.advantages-step[data-step="3"] h3,
+.advantages-step[data-step="3"] .icon-badge { color: var(--tertiary-deep); }
+
+.advantages-step[data-step="4"] h3,
+.advantages-step[data-step="4"] .icon-badge { color: var(--secondary); }
+
+.advantages-step[data-step="5"] h3,
+.advantages-step[data-step="5"] .icon-badge { color: var(--accent-dark); }
 
 .advantages-step p {
   font-size: 17px;
