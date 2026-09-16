@@ -2009,12 +2009,13 @@ html.js-reveal .reveal.is-visible {
   transition: color 0.25s ease;
 }
 
-.advantages-nav-item.is-active .num {
-  color: var(--accent-deep);
-}
-
+.advantages-nav-item.is-active .num,
 .advantages-nav-item.is-active .label {
-  color: var(--text);
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .advantages-steps {
@@ -2044,6 +2045,15 @@ html.js-reveal .reveal.is-visible {
 .advantages-step h3 {
   font-size: clamp(24px, 3vw, 32px);
   margin-bottom: 16px;
+}
+
+@keyframes adv-title-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.advantages-step.is-active h3 {
+  animation: adv-title-in 0.5s ease;
 }
 
 .advantages-step p {
