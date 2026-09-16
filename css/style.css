@@ -656,7 +656,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 .cycle-badge {
-  transition: opacity 0.25s ease;
+  transition: opacity 0.15s ease;
 }
 
 .cycle-badge.is-swapping {

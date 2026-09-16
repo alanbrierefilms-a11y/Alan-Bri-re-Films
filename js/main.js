@@ -224,8 +224,8 @@ document.addEventListener("DOMContentLoaded", () => {
         i = (i + 1) % words.length;
         badge.textContent = words[i];
         badge.classList.remove("is-swapping");
-      }, 250);
-    }, 2200);
+      }, 150);
+    }, 1100);
   });
 
   /* Compteurs animés (chiffres qui s'incrémentent à l'affichage) */
