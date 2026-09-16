@@ -793,68 +793,57 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   margin-bottom: 0;
 }
 
-/* --- Prestations scroller (façon scrollytelling, groupes de cartes) --------------- */
-.prestations-scroller {
-  position: relative;
-  height: 170vh;
-}
-
-.prestations-sticky {
-  position: sticky;
-  top: calc(var(--header-h) + 60px);
+/* --- Prestations carousel (bande horizontale, navigation par boutons) --------------- */
+.prestations-carousel {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
-.prestation-skip {
-  align-self: flex-end;
-  background: none;
+.prestation-nav-btn {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: border-color 0.25s ease, color 0.25s ease;
-}
-
-.prestation-skip:hover {
-  border-color: var(--accent-dark);
   color: var(--text);
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
-.prestation-group-stack {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  height: 360px;
+.prestation-nav-btn:hover {
+  border-color: var(--accent-dark);
+  background: var(--bg-card-hover);
 }
 
-.prestation-group {
-  position: absolute;
-  inset: 0;
+.prestation-nav-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.prestation-viewport {
+  flex: 1;
+  overflow: hidden;
+}
+
+.prestation-track {
   display: flex;
   gap: 20px;
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 1s ease, transform 1s ease;
-  pointer-events: none;
-  z-index: 1;
+  transition: transform 0.5s ease;
 }
 
-.prestation-group.is-active {
-  opacity: 1;
-  transform: translateY(0);
-  z-index: 2;
-  pointer-events: auto;
+.prestation-track.no-transition {
+  transition: none;
 }
 
-.prestation-card-mini {
-  flex: 1 1 0;
+.prestation-track .prestation-card-mini {
+  flex: 0 0 calc((100% - 40px) / 3);
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -887,10 +876,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 @media (max-width: 780px) {
-  .prestation-group { flex-direction: column; position: static; opacity: 1; transform: none; display: none; }
-  .prestation-group.is-active { display: flex; }
-  .prestation-group-stack { height: auto; }
-  .prestations-scroller { height: 150vh; }
+  .prestation-track .prestation-card-mini { flex-basis: 100%; }
 }
 
 /* --- Filters (films page) ------------------------------------------------ */

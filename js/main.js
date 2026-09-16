@@ -117,53 +117,55 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* Carrousel "Une vidéo pour chaque univers" : groupes de 3 cartes en fondu au scroll */
-  const prestationScroller = document.querySelector(".prestations-scroller");
-  const prestationGroups = document.querySelectorAll(".prestation-group");
-  if (prestationScroller && prestationGroups.length) {
-    const count = prestationGroups.length;
-    let currentIndex = -1;
+  /* Carrousel "Une vidéo pour chaque univers" : bande horizontale, navigation par boutons, boucle infinie */
+  const prestationTrack = document.querySelector(".prestation-track");
+  const prestationPrev = document.querySelector(".prestation-prev");
+  const prestationNext = document.querySelector(".prestation-next");
+  if (prestationTrack && prestationPrev && prestationNext) {
+    const PREPEND = 3;
+    const REAL_COUNT = 11;
+    const FORWARD_RESET_AT = PREPEND + REAL_COUNT; // 14
+    const FORWARD_RESET_TO = PREPEND; // 3
+    const BACKWARD_RESET_AT = 0;
+    const BACKWARD_RESET_TO = REAL_COUNT; // 11
 
-    const setActiveGroup = (index) => {
-      if (index === currentIndex) return;
-      currentIndex = index;
-      prestationGroups.forEach((group) => {
-        const i = parseInt(group.dataset.group, 10);
-        group.classList.toggle("is-active", i === index);
-      });
+    let index = PREPEND;
+
+    const stepWidth = () => {
+      const first = prestationTrack.children[0];
+      const style = getComputedStyle(prestationTrack);
+      const gap = parseFloat(style.columnGap || style.gap || "20");
+      return first.getBoundingClientRect().width + gap;
     };
 
-    let ticking = false;
-    const updatePrestation = () => {
-      ticking = false;
-      const rect = prestationScroller.getBoundingClientRect();
-      const viewportCenter = window.innerHeight / 2;
-      const fraction = (viewportCenter - rect.top) / rect.height;
-      const clamped = Math.min(1, Math.max(0, fraction));
-      const index = Math.min(count - 1, Math.floor(clamped * count));
-      setActiveGroup(index);
+    const goTo = (i, animate) => {
+      prestationTrack.classList.toggle("no-transition", !animate);
+      prestationTrack.style.transform = `translateX(-${i * stepWidth()}px)`;
     };
 
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(updatePrestation);
-        }
-      },
-      { passive: true }
-    );
-    window.addEventListener("resize", updatePrestation);
-    updatePrestation();
+    goTo(index, false);
 
-    const skipBtn = document.querySelector(".prestation-skip");
-    if (skipBtn) {
-      skipBtn.addEventListener("click", () => {
-        const target = prestationScroller.getBoundingClientRect().bottom + window.scrollY - 100;
-        window.scrollTo({ top: target, behavior: "smooth" });
-      });
-    }
+    prestationTrack.addEventListener("transitionend", () => {
+      if (index === FORWARD_RESET_AT) {
+        index = FORWARD_RESET_TO;
+        goTo(index, false);
+      } else if (index === BACKWARD_RESET_AT) {
+        index = BACKWARD_RESET_TO;
+        goTo(index, false);
+      }
+    });
+
+    prestationNext.addEventListener("click", () => {
+      index += 1;
+      goTo(index, true);
+    });
+
+    prestationPrev.addEventListener("click", () => {
+      index -= 1;
+      goTo(index, true);
+    });
+
+    window.addEventListener("resize", () => goTo(index, false));
   }
 
   /* Compteurs animés (chiffres qui s'incrémentent à l'affichage) */

@@ -345,11 +345,45 @@ document.documentElement.classList.add('js-reveal');</script>
         <h2>Une vidéo pour chaque univers</h2>
         <p class="lead">Corporate, beauté &amp; bien-être, événementiel, réseaux sociaux… chaque projet a son propre langage visuel.</p>
       </div>
-      <div class="prestations-scroller">
-        <div class="prestations-sticky">
-          <button type="button" class="prestation-skip">Passer <span aria-hidden="true">→</span></button>
-          <div class="prestation-group-stack">
-            <div class="prestation-group is-active" data-group="0">
+      <div class="prestations-carousel">
+        <button type="button" class="prestation-nav-btn prestation-prev" aria-label="Prestation précédente">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="prestation-viewport">
+          <div class="prestation-track">
+              <a class="film-card prestation-card-mini" href="evenements-prives.html" aria-hidden="true" tabindex="-1">
+                <div class="film-thumb">
+                  <span class="film-tag">Événements privés</span>
+                  <img src="assets/wedding-3.svg" alt="Événement privé">
+                </div>
+                <div class="film-body">
+                  <h3>Événements privés</h3>
+                  <div class="film-meta">Anniversaires &amp; fêtes de famille</div>
+                  <p>Captation de vos célébrations privées.</p>
+                </div>
+              </a>
+              <a class="film-card prestation-card-mini" href="danse.html" aria-hidden="true" tabindex="-1">
+                <div class="film-thumb">
+                  <span class="film-tag">Danse</span>
+                  <img src="assets/film-2.svg" alt="Captation de danse">
+                </div>
+                <div class="film-body">
+                  <h3>Danse</h3>
+                  <div class="film-meta">Captations chorégraphiques</div>
+                  <p>Captations chorégraphiques et vidéos artistiques.</p>
+                </div>
+              </a>
+              <a class="film-card prestation-card-mini" href="mode.html" aria-hidden="true" tabindex="-1">
+                <div class="film-thumb">
+                  <span class="film-tag">Mode</span>
+                  <img src="assets/film-4.svg" alt="Lookbook vidéo mode">
+                </div>
+                <div class="film-body">
+                  <h3>Mode</h3>
+                  <div class="film-meta">Lookbooks &amp; contenus créatifs</div>
+                  <p>Lookbooks vidéo pour marques et créateurs de mode.</p>
+                </div>
+              </a>
               <a class="film-card prestation-card-mini" href="corporate.html">
                 <div class="film-thumb">
                   <span class="film-tag">Corporate</span>
@@ -383,8 +417,6 @@ document.documentElement.classList.add('js-reveal');</script>
                   <p>Mise en valeur de lieux, de plats et d'ambiances.</p>
                 </div>
               </a>
-            </div>
-            <div class="prestation-group" data-group="1">
               <a class="film-card prestation-card-mini" href="beaute-bien-etre.html">
                 <div class="film-thumb">
                   <span class="film-tag">Beauté &amp; Bien-être</span>
@@ -418,8 +450,6 @@ document.documentElement.classList.add('js-reveal');</script>
                   <p>Aftermovies et captation d'événements privés ou publics.</p>
                 </div>
               </a>
-            </div>
-            <div class="prestation-group" data-group="2">
               <a class="film-card prestation-card-mini" href="interviews.html">
                 <div class="film-thumb">
                   <span class="film-tag">Interviews</span>
@@ -453,8 +483,6 @@ document.documentElement.classList.add('js-reveal');</script>
                   <p>Captation de vos célébrations privées.</p>
                 </div>
               </a>
-            </div>
-            <div class="prestation-group" data-group="3">
               <a class="film-card prestation-card-mini" href="danse.html">
                 <div class="film-thumb">
                   <span class="film-tag">Danse</span>
@@ -477,9 +505,44 @@ document.documentElement.classList.add('js-reveal');</script>
                   <p>Lookbooks vidéo pour marques et créateurs de mode.</p>
                 </div>
               </a>
-            </div>
+              <a class="film-card prestation-card-mini" href="corporate.html" aria-hidden="true" tabindex="-1">
+                <div class="film-thumb">
+                  <span class="film-tag">Corporate</span>
+                  <img src="assets/film-1.svg" alt="Vidéo corporate">
+                </div>
+                <div class="film-body">
+                  <h3>Vidéos Corporate</h3>
+                  <div class="film-meta">Entreprises &amp; institutions</div>
+                  <p>Vidéos institutionnelles et de présentation d'entreprise.</p>
+                </div>
+              </a>
+              <a class="film-card prestation-card-mini" href="tourisme.html" aria-hidden="true" tabindex="-1">
+                <div class="film-thumb">
+                  <span class="film-tag">Tourisme</span>
+                  <img src="assets/film-6.svg" alt="Vidéo tourisme et territoires">
+                </div>
+                <div class="film-body">
+                  <h3>Tourisme &amp; Territoires</h3>
+                  <div class="film-meta">Offices de tourisme &amp; collectivités</div>
+                  <p>Films de valorisation de destinations et de territoires.</p>
+                </div>
+              </a>
+              <a class="film-card prestation-card-mini" href="restauration-hotellerie.html" aria-hidden="true" tabindex="-1">
+                <div class="film-thumb">
+                  <span class="film-tag">Restauration &amp; Hôtellerie</span>
+                  <img src="assets/film-2.svg" alt="Vidéo restauration et hôtellerie">
+                </div>
+                <div class="film-body">
+                  <h3>Restauration &amp; Hôtellerie</h3>
+                  <div class="film-meta">Restaurants &amp; hôtels</div>
+                  <p>Mise en valeur de lieux, de plats et d'ambiances.</p>
+                </div>
+              </a>
           </div>
         </div>
+        <button type="button" class="prestation-nav-btn prestation-next" aria-label="Prestation suivante">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
       <div class="btn-row reveal" style="margin-top: 44px; justify-content: center;">
         <a href="prestations.html" class="btn btn-ghost">Voir tous les projets</a>
