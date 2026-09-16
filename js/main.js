@@ -82,43 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* Bloc "Pourquoi travailler avec moi" : la liste numérotée reste fixe,
-     le texte défile et met en avant l'étape active (façon scrollytelling) */
+     le texte défile et met en avant l'étape active en fondu (façon scrollytelling) */
   const advSteps = document.querySelectorAll(".advantages-step");
   const advNavItems = document.querySelectorAll(".advantages-nav-item");
   if (advSteps.length && advNavItems.length) {
-    let currentAdvStep = null;
-
-    /* Fait "voler" une copie du titre d'un point A vers un point B, puis la retire */
-    const flyTitle = (fromEl, toEl) => {
-      if (!fromEl || !toEl) return;
-      const fromRect = fromEl.getBoundingClientRect();
-      const toRect = toEl.getBoundingClientRect();
-      const toFontSize = getComputedStyle(toEl).fontSize;
-
-      const ghost = document.createElement("span");
-      ghost.textContent = toEl.textContent;
-      ghost.className = "advantages-title-ghost";
-      ghost.style.left = fromRect.left + "px";
-      ghost.style.top = fromRect.top + "px";
-      ghost.style.fontSize = getComputedStyle(fromEl).fontSize;
-      document.body.appendChild(ghost);
-
-      fromEl.classList.add("is-flying");
-      toEl.classList.add("is-flying");
-
-      requestAnimationFrame(() => {
-        ghost.style.left = toRect.left + "px";
-        ghost.style.top = toRect.top + "px";
-        ghost.style.fontSize = toFontSize;
-      });
-
-      setTimeout(() => {
-        ghost.remove();
-        fromEl.classList.remove("is-flying");
-        toEl.classList.remove("is-flying");
-      }, 500);
-    };
-
     advNavItems.forEach((btn) => {
       btn.addEventListener("click", () => {
         const step = document.querySelector(
@@ -134,10 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const step = entry.target.dataset.step;
-              if (step === currentAdvStep) return;
-              const previousStep = currentAdvStep;
-              currentAdvStep = step;
-
               advSteps.forEach((s) => s.classList.remove("is-active"));
               advNavItems.forEach((n) => n.classList.remove("is-active"));
               entry.target.classList.add("is-active");
@@ -145,22 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 `.advantages-nav-item[data-step="${step}"]`
               );
               if (nav) nav.classList.add("is-active");
-
-              const newLabel = nav && nav.querySelector(".label");
-              const newTitle = entry.target.querySelector("h3");
-              flyTitle(newLabel, newTitle);
-
-              if (previousStep) {
-                const prevNav = document.querySelector(
-                  `.advantages-nav-item[data-step="${previousStep}"]`
-                );
-                const prevStepEl = document.querySelector(
-                  `.advantages-step[data-step="${previousStep}"]`
-                );
-                const prevLabel = prevNav && prevNav.querySelector(".label");
-                const prevTitle = prevStepEl && prevStepEl.querySelector("h3");
-                flyTitle(prevTitle, prevLabel);
-              }
             }
           });
         },
