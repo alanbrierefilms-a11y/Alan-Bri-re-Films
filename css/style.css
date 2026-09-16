@@ -170,6 +170,15 @@ section {
   flex-wrap: wrap;
 }
 
+@media (max-width: 640px) {
+  .btn-compact-mobile {
+    padding: 12px 18px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+}
+
 /* --- Header / Navigation ------------------------------------------------ */
 .site-header {
   position: fixed;
@@ -738,6 +747,15 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   .scroll-cue { display: none; }
 }
 
+@media (max-width: 640px) {
+  .hero .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+}
+
 /* --- Section headers ---------------------------------------------------- */
 .section-head {
   max-width: 640px;
@@ -1110,6 +1128,9 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
     gap: 36px;
   }
   .split.reverse .split-media { order: 0; }
+  .split.reverse .split-media-phone { order: 1; }
+  .split-media-phone .stack-photo { display: none; }
+  .split-media-phone .media-stack { padding: 0 0 10px; }
 }
 
 .split-media {
@@ -1621,6 +1642,66 @@ html.js-reveal .reveal.is-visible {
 
 @media (max-width: 640px) {
   .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonial-card { display: none; }
+  .testimonial-card.is-active { display: block; }
+}
+
+.testimonial-nav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 22px;
+}
+
+@media (max-width: 640px) {
+  .testimonial-nav { display: flex; }
+}
+
+.testimonial-prev,
+.testimonial-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.testimonial-prev svg,
+.testimonial-next svg {
+  width: 18px;
+  height: 18px;
+}
+
+.testimonial-prev:hover,
+.testimonial-next:hover {
+  border-color: var(--accent);
+  color: var(--accent-deep);
+}
+
+.testimonial-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.testimonial-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.testimonial-dot.is-active {
+  background: var(--accent);
+  transform: scale(1.3);
 }
 
 .testimonial-card {
@@ -1977,6 +2058,11 @@ html.js-reveal .reveal.is-visible {
   .portfolio-col-down { transform: none; margin-top: 0; }
 }
 
+@media (max-width: 560px) {
+  .portfolio-col:nth-child(5) { display: none; }
+  .portfolio-tile:nth-child(n+3) { display: none; }
+}
+
 .audience-tags {
   display: flex;
   gap: 12px;
@@ -2288,23 +2374,56 @@ html.js-reveal .reveal.is-visible {
   margin-bottom: 0;
 }
 
+.advantages-nav-item .full-desc {
+  display: block;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+}
+
 @media (max-width: 880px) {
   .advantages-scroller { grid-template-columns: 1fr; gap: 0; }
   .advantages-nav {
     position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 12px;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
   }
   .advantages-nav-item {
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 8px 16px;
+    border: none;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    padding: 18px 4px;
   }
-  .advantages-nav-item:last-child { border: 1px solid var(--border); }
+  .advantages-nav-item:last-child { border-bottom: 1px solid var(--border); }
   .advantages-nav-item .num { display: none; }
-  .advantages-step { min-height: auto; opacity: 1; padding: 22px 0; }
+  .advantages-nav-item .emoji,
+  .advantages-nav-item.is-active .emoji {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .advantages-nav-item .mini-desc,
+  .advantages-nav-item.is-active .mini-desc {
+    max-height: none;
+    opacity: 1;
+    margin-top: 4px;
+  }
+  .advantages-nav-item.is-active {
+    transform: none;
+    padding: 18px 4px;
+  }
+  .advantages-nav-item.is-open .full-desc {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 10px;
+  }
+  .advantages-steps { display: none; }
 }
 
 /* --- Process section (Étapes) ------------------------------------------------ */

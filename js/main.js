@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* Avis clients : sur mobile, un seul avis visible à la fois, navigation par flèches */
+  const testimonialCards = document.querySelectorAll(".testimonial-card");
+  const testimonialDots = document.querySelectorAll(".testimonial-dot");
+  const testimonialPrev = document.querySelector(".testimonial-prev");
+  const testimonialNext = document.querySelector(".testimonial-next");
+  if (testimonialCards.length && testimonialPrev && testimonialNext) {
+    let testimonialIndex = 0;
+    const showTestimonial = (index) => {
+      testimonialIndex = (index + testimonialCards.length) % testimonialCards.length;
+      testimonialCards.forEach((card, i) => card.classList.toggle("is-active", i === testimonialIndex));
+      testimonialDots.forEach((dot, i) => dot.classList.toggle("is-active", i === testimonialIndex));
+    };
+    testimonialPrev.addEventListener("click", () => showTestimonial(testimonialIndex - 1));
+    testimonialNext.addEventListener("click", () => showTestimonial(testimonialIndex + 1));
+  }
+
   /* Header background on scroll */
   const header = document.querySelector(".site-header");
   const onScroll = () => {
@@ -88,6 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (advSteps.length && advNavItems.length) {
     advNavItems.forEach((btn) => {
       btn.addEventListener("click", () => {
+        if (window.innerWidth <= 880) {
+          const wasOpen = btn.classList.contains("is-open");
+          advNavItems.forEach((n) => n.classList.remove("is-open"));
+          btn.classList.toggle("is-open", !wasOpen);
+          return;
+        }
         const step = document.querySelector(
           `.advantages-step[data-step="${btn.dataset.step}"]`
         );
