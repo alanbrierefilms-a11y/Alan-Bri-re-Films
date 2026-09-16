@@ -1642,7 +1642,7 @@ html.js-reveal .reveal.is-visible {
 }
 
 .services-banner {
-  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary) calc(100% - 280px), #ffffff 100%);
+  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary) calc(100% - 560px), #ffffff 100%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -1695,13 +1695,18 @@ html.js-reveal .reveal.is-visible {
 }
 
 .portfolio-banner {
-  background: linear-gradient(to bottom, #ffffff 0, #0a0a0c 150px);
+  background: linear-gradient(to bottom, #ffffff 0, #0a0a0c 380px);
   overflow: hidden;
 }
 
 .portfolio-head {
   position: relative;
   z-index: 2;
+  padding-top: 160px;
+}
+
+@media (max-width: 640px) {
+  .portfolio-head { padding-top: 90px; }
 }
 
 .portfolio-banner h2 {
