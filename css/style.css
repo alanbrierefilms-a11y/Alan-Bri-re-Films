@@ -1750,8 +1750,6 @@ html.js-reveal .reveal.is-visible {
   border-radius: 10px;
   overflow: hidden;
   background: #16161a;
-  opacity: 0;
-  transition: opacity 0.4s ease;
 }
 
 .portfolio-tile img {

@@ -168,12 +168,11 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", () => goTo(index, false));
   }
 
-  /* Grille "réalisations" : colonnes en parallaxe (une monte, une descend) + fondu au scroll */
+  /* Grille "réalisations" : colonnes en parallaxe (une monte, une descend) */
   const portfolioGrid = document.querySelector(".portfolio-grid");
   if (portfolioGrid) {
     const upCols = document.querySelectorAll(".portfolio-col-up");
     const downCols = document.querySelectorAll(".portfolio-col-down");
-    const portfolioTiles = document.querySelectorAll(".portfolio-tile");
 
     let portfolioTicking = false;
     const updatePortfolio = () => {
@@ -192,11 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      portfolioTiles.forEach((tile) => {
-        const r = tile.getBoundingClientRect();
-        const fade = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.6)));
-        tile.style.opacity = fade;
-      });
     };
 
     window.addEventListener(
