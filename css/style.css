@@ -796,7 +796,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 /* --- Prestations scroller (façon scrollytelling, groupes de cartes) --------------- */
 .prestations-scroller {
   position: relative;
-  height: 280vh;
+  height: 170vh;
 }
 
 .prestations-sticky {
@@ -841,7 +841,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   gap: 20px;
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 1s ease, transform 1s ease;
   pointer-events: none;
   z-index: 1;
 }
@@ -890,7 +890,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   .prestation-group { flex-direction: column; position: static; opacity: 1; transform: none; display: none; }
   .prestation-group.is-active { display: flex; }
   .prestation-group-stack { height: auto; }
-  .prestations-scroller { height: 220vh; }
+  .prestations-scroller { height: 150vh; }
 }
 
 /* --- Filters (films page) ------------------------------------------------ */
