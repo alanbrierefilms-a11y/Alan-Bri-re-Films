@@ -158,17 +158,21 @@ document.documentElement.classList.add('js-reveal');</script>
     <div class="container">
       <div class="split reverse reveal">
         <div class="split-media split-media-phone">
-          <div class="phone-mockup">
-            <div class="phone-screen">
-              <!-- Vidéo de présentation : déposez le fichier dans assets/presentation-film.mp4 -->
-              <div class="player" data-video="assets/presentation-film.mp4">
-                <img src="assets/portrait.svg" alt="Vidéo de présentation d'Alan Brière">
-                <button class="player-play" type="button" aria-label="Lire la vidéo de présentation">
-                  <span class="play-circle">
-                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                  </span>
-                  <span class="caption">Lire la vidéo</span>
-                </button>
+          <div class="media-stack">
+            <!-- Photo d'Alan Brière : déposez-la dans assets/about-photo.jpg -->
+            <img class="stack-photo" src="assets/about-detail.svg" onerror="this.onerror=null;this.src='assets/portrait.svg';" alt="Alan Brière en tournage">
+            <div class="phone-mockup">
+              <div class="phone-screen">
+                <!-- Vidéo de présentation : déposez le fichier dans assets/presentation-film.mp4 -->
+                <div class="player" data-video="assets/presentation-film.mp4">
+                  <img src="assets/portrait.svg" alt="Vidéo de présentation d'Alan Brière">
+                  <button class="player-play" type="button" aria-label="Lire la vidéo de présentation">
+                    <span class="play-circle">
+                      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                    <span class="caption">Lire la vidéo</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

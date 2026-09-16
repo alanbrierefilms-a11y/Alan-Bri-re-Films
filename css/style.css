@@ -1017,11 +1017,33 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   gap: 18px;
 }
 
+.media-stack {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 20px 40px 40px 0;
+}
+
 .phone-mockup {
   position: relative;
+  z-index: 2;
   width: 190px;
   max-width: 100%;
   aspect-ratio: 9 / 19.5;
+}
+
+.stack-photo {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  width: 150px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 6px solid var(--bg);
+  box-shadow: 0 20px 45px rgba(42, 32, 19, 0.3);
+  transform: rotate(7deg);
 }
 
 .phone-screen {
@@ -1554,12 +1576,14 @@ html.js-reveal .reveal.is-visible {
   flex-shrink: 0;
   filter: grayscale(1);
   opacity: 0.55;
-  transition: filter 0.25s ease, opacity 0.25s ease;
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
 }
 
-.marquee-track img:hover {
+.marquee-track img:hover,
+.marquee-track img.is-spotlight {
   filter: grayscale(0);
   opacity: 1;
+  transform: scale(1.1);
 }
 
 @keyframes marquee-left {

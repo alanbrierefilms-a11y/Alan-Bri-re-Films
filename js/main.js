@@ -207,6 +207,22 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePortfolio();
   }
 
+  /* Logos clients : un logo passe en couleur, puis un autre, à l'infini */
+  document.querySelectorAll(".clients-marquee-section .marquee-track").forEach((track) => {
+    const imgs = Array.from(track.children);
+    const half = Math.floor(imgs.length / 2);
+    if (half < 1) return;
+    let spotlightIndex = 0;
+    setInterval(() => {
+      imgs.forEach((img) => img.classList.remove("is-spotlight"));
+      imgs[spotlightIndex].classList.add("is-spotlight");
+      if (imgs[spotlightIndex + half]) {
+        imgs[spotlightIndex + half].classList.add("is-spotlight");
+      }
+      spotlightIndex = (spotlightIndex + 1) % half;
+    }, 900);
+  });
+
   /* Badge qui change de mot à l'infini ("Je suis vidéaste / monteur vidéo / pilote de drone") */
   document.querySelectorAll(".cycle-badge").forEach((badge) => {
     const words = (badge.dataset.words || "").split(",").map((w) => w.trim()).filter(Boolean);
