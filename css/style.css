@@ -616,19 +616,34 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 /* --- Titres en dégradé (même effet que "marquent les esprits" du hero) ------- */
-.section-head h2,
-.cta-band h2,
 .advantage-item h3,
 .service-card h3,
 .step-item h3,
 .service-item h3,
 .film-card h3,
-.timeline-item h3,
-.single-film h2 {
+.timeline-item h3 {
   background: var(--brand-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* --- Titres de section : Montserrat gras + mot-clé en badge ------- */
+.section-head h2,
+.cta-band h2,
+.single-film h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.title-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--text);
+  padding: 0.04em 0.32em 0.08em;
+  border-radius: 10px;
+  transform: rotate(-2deg);
 }
 
 .section-head .lead {
