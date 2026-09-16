@@ -142,7 +142,7 @@ section {
 
 .btn-primary {
   background: var(--accent);
-  color: var(--text);
+  color: #ffffff;
   border-color: var(--accent);
 }
 
@@ -330,7 +330,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .nav-devis {
   background: var(--accent);
-  color: var(--text) !important;
+  color: #ffffff !important;
   border: 1px solid var(--accent);
   padding: 11px 24px !important;
   border-radius: var(--radius);
@@ -956,7 +956,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 .filter-btn.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: var(--text);
+  color: #ffffff;
 }
 
 /* --- About teaser / split sections --------------------------------------- */
