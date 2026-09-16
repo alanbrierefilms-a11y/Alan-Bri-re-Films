@@ -655,6 +655,14 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   transform: rotate(-2deg);
 }
 
+.cycle-badge {
+  transition: opacity 0.25s ease;
+}
+
+.cycle-badge.is-swapping {
+  opacity: 0;
+}
+
 @media (max-width: 780px) {
   .section-head h2,
   .cta-band h2,

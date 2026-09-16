@@ -213,6 +213,21 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePortfolio();
   }
 
+  /* Badge qui change de mot à l'infini ("Je suis vidéaste / monteur vidéo / pilote de drone") */
+  document.querySelectorAll(".cycle-badge").forEach((badge) => {
+    const words = (badge.dataset.words || "").split(",").map((w) => w.trim()).filter(Boolean);
+    if (words.length < 2) return;
+    let i = 0;
+    setInterval(() => {
+      badge.classList.add("is-swapping");
+      setTimeout(() => {
+        i = (i + 1) % words.length;
+        badge.textContent = words[i];
+        badge.classList.remove("is-swapping");
+      }, 250);
+    }, 2200);
+  });
+
   /* Compteurs animés (chiffres qui s'incrémentent à l'affichage) */
   const counters = document.querySelectorAll("[data-count-to]");
   if (counters.length) {
