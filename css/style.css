@@ -221,6 +221,10 @@ section {
   color: #ffffff;
 }
 
+.hero-header:not(.is-scrolled) .brand {
+  text-shadow: 0 2px 8px rgba(20, 16, 8, 0.35);
+}
+
 .hero-header:not(.is-scrolled) .brand span {
   color: #ffffff;
   background: none;
@@ -301,9 +305,8 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 19px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  text-shadow: 0 2px 8px rgba(20, 16, 8, 0.35);
   display: flex;
   flex-direction: column;
   line-height: 1.1;
