@@ -1014,7 +1014,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   width: 260px;
   max-width: 100%;
   aspect-ratio: 9 / 19.5;
-  box-shadow: 0 30px 70px rgba(42, 32, 19, 0.35);
 }
 
 .phone-screen {
@@ -1024,6 +1023,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   border-radius: 28px;
   overflow: hidden;
   background: #000;
+  box-shadow: 0 30px 70px rgba(42, 32, 19, 0.35);
 }
 
 .phone-screen .player {
