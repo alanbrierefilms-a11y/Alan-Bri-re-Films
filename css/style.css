@@ -1658,23 +1658,36 @@ html.js-reveal .reveal.is-visible {
 .portfolio-banner .eyebrow { color: rgba(255, 255, 255, 0.7); justify-content: center; }
 .portfolio-banner p { color: rgba(255, 255, 255, 0.65); }
 
-/* --- Grille masonry de réalisations (façon this.design) ------------------ */
+/* --- Grille masonry de réalisations (façon this.design) : colonnes en parallaxe --- */
 .portfolio-grid {
-  columns: 5 220px;
-  column-gap: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
   max-width: 1180px;
-  margin: 56px auto 0;
+  margin: 90px auto 0;
   padding: 0 32px;
 }
+
+.portfolio-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  will-change: transform;
+}
+
+.portfolio-col-up { transform: translateY(40px); }
+.portfolio-col-down { transform: translateY(-40px); margin-top: 70px; }
 
 .portfolio-tile {
   position: relative;
   display: block;
-  break-inside: avoid;
-  margin-bottom: 14px;
   border-radius: 10px;
   overflow: hidden;
   background: #16161a;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .portfolio-tile img {
@@ -1686,8 +1699,7 @@ html.js-reveal .reveal.is-visible {
   transition: transform 0.5s ease, opacity 0.3s ease;
 }
 
-.portfolio-tile:nth-child(3n) img { aspect-ratio: 1 / 1; }
-.portfolio-tile:nth-child(4n) img { aspect-ratio: 4 / 5; }
+.portfolio-col .portfolio-tile:nth-child(even) img { aspect-ratio: 4 / 5; }
 
 .portfolio-tile:hover img {
   transform: scale(1.05);
@@ -1747,7 +1759,10 @@ html.js-reveal .reveal.is-visible {
 }
 
 @media (max-width: 780px) {
-  .portfolio-grid { columns: 2 160px; padding: 0 20px; }
+  .portfolio-grid { padding: 0 20px; margin-top: 48px; flex-wrap: wrap; }
+  .portfolio-col { flex: 1 1 calc(50% - 7px); }
+  .portfolio-col-up,
+  .portfolio-col-down { transform: none; margin-top: 0; }
 }
 
 .audience-tags {

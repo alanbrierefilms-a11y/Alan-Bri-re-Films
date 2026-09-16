@@ -168,6 +168,51 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", () => goTo(index, false));
   }
 
+  /* Grille "réalisations" : colonnes en parallaxe (une monte, une descend) + fondu au scroll */
+  const portfolioGrid = document.querySelector(".portfolio-grid");
+  if (portfolioGrid) {
+    const upCols = document.querySelectorAll(".portfolio-col-up");
+    const downCols = document.querySelectorAll(".portfolio-col-down");
+    const portfolioTiles = document.querySelectorAll(".portfolio-tile");
+
+    let portfolioTicking = false;
+    const updatePortfolio = () => {
+      portfolioTicking = false;
+      const vh = window.innerHeight;
+
+      if (window.innerWidth > 780) {
+        const rect = portfolioGrid.getBoundingClientRect();
+        const progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh + rect.height)));
+        const shift = (progress - 0.5) * 130;
+        upCols.forEach((col) => {
+          col.style.transform = `translateY(${40 - shift}px)`;
+        });
+        downCols.forEach((col) => {
+          col.style.transform = `translateY(${-40 + shift}px)`;
+        });
+      }
+
+      portfolioTiles.forEach((tile) => {
+        const r = tile.getBoundingClientRect();
+        const fade = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.6)));
+        tile.style.opacity = fade;
+      });
+    };
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!portfolioTicking) {
+          portfolioTicking = true;
+          requestAnimationFrame(updatePortfolio);
+        }
+      },
+      { passive: true }
+    );
+    window.addEventListener("resize", updatePortfolio);
+    updatePortfolio();
+  }
+
   /* Compteurs animés (chiffres qui s'incrémentent à l'affichage) */
   const counters = document.querySelectorAll("[data-count-to]");
   if (counters.length) {
