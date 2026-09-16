@@ -299,7 +299,12 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   color: var(--text-muted);
   position: relative;
   padding: 6px 0;
-  transition: color 0.2s ease;
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.25s ease;
+}
+
+.nav-links a:hover {
+  transform: translateY(-3px);
 }
 
 .nav-links a:hover,
