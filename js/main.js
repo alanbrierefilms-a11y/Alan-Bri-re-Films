@@ -12,6 +12,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* Carrousels tactiles (services, étapes) : points de pagination synchronisés au scroll */
+  document.querySelectorAll(".scroll-dots").forEach((dotsEl) => {
+    const track = document.querySelector(`.${dotsEl.dataset.for}`);
+    const dots = dotsEl.querySelectorAll(".scroll-dot");
+    if (!track || !dots.length) return;
+    let ticking = false;
+    const updateDots = () => {
+      ticking = false;
+      const items = track.children;
+      if (!items.length) return;
+      const cardWidth = items[0].getBoundingClientRect().width + 16;
+      const index = Math.min(dots.length - 1, Math.round(track.scrollLeft / cardWidth));
+      dots.forEach((dot, i) => dot.classList.toggle("is-active", i === index));
+    };
+    track.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateDots);
+        }
+      },
+      { passive: true }
+    );
+  });
+
   /* Avis clients : sur mobile, un seul avis visible à la fois, navigation par flèches */
   const testimonialCards = document.querySelectorAll(".testimonial-card");
   const testimonialDots = document.querySelectorAll(".testimonial-dot");
