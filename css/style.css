@@ -213,8 +213,12 @@ section {
   color: #ffffff;
 }
 
+.hero-header:not(.is-scrolled) .nav-links a.active {
+  color: var(--secondary);
+}
+
 .hero-header:not(.is-scrolled) .nav-links a.active::after {
-  background: #ffffff;
+  background: var(--secondary);
 }
 
 .hero-header:not(.is-scrolled) .nav-dropdown-panel a {
@@ -261,13 +265,16 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   color: var(--accent);
 }
 
-.site-header.is-scrolled .nav-links a:hover,
-.site-header.is-scrolled .nav-links a.active {
+.site-header.is-scrolled .nav-links a:hover {
   color: var(--accent-dark);
 }
 
+.site-header.is-scrolled .nav-links a.active {
+  color: var(--secondary);
+}
+
 .site-header.is-scrolled .nav-links a.active::after {
-  background: var(--accent);
+  background: var(--secondary);
 }
 
 .site-header.is-scrolled .nav-dropdown-panel a {
@@ -298,8 +305,11 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   font-family: var(--sans);
   font-size: 10px;
   letter-spacing: 0.32em;
-  color: var(--accent-deep);
   margin-top: 4px;
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nav-links {
@@ -327,9 +337,12 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   transform: translateY(-3px);
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   color: var(--text);
+}
+
+.nav-links a.active {
+  color: var(--secondary);
 }
 
 .nav-links a.active::after {
@@ -339,7 +352,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   bottom: 0;
   width: 100%;
   height: 1px;
-  background: var(--accent-deep);
+  background: var(--secondary);
 }
 
 /* --- Menu déroulant "Prestations" ------------------------------------------ */
