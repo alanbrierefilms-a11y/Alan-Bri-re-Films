@@ -615,6 +615,22 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   margin: 0 0 16px;
 }
 
+/* --- Titres en dégradé (même effet que "marquent les esprits" du hero) ------- */
+.section-head h2,
+.cta-band h2,
+.advantage-item h3,
+.service-card h3,
+.step-item h3,
+.service-item h3,
+.film-card h3,
+.timeline-item h3,
+.single-film h2 {
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .section-head .lead {
   max-width: 560px;
   margin: 0 auto;
