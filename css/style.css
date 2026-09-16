@@ -1124,7 +1124,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 .service-item .num {
-  font-family: var(--serif);
   font-size: 13px;
   color: var(--accent-deep);
   letter-spacing: 0.1em;
@@ -1458,7 +1457,6 @@ html.js-reveal .reveal.is-visible {
 }
 
 .step-item .num {
-  font-family: var(--serif);
   font-size: 42px;
   color: var(--accent-deep);
   line-height: 1;
