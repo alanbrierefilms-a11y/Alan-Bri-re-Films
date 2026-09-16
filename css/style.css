@@ -208,17 +208,18 @@ section {
 }
 
 .hero-header:not(.is-scrolled) .brand,
-.hero-header:not(.is-scrolled) .brand span,
 .hero-header:not(.is-scrolled) .nav-links a {
   color: #ffffff;
 }
 
-.hero-header:not(.is-scrolled) .nav-links a.active {
-  color: var(--secondary);
+.hero-header:not(.is-scrolled) .brand span {
+  color: #ffffff;
+  background: none;
+  -webkit-text-fill-color: #ffffff;
 }
 
 .hero-header:not(.is-scrolled) .nav-links a.active::after {
-  background: var(--secondary);
+  background: #ffffff;
 }
 
 .hero-header:not(.is-scrolled) .nav-dropdown-panel a {
@@ -269,12 +270,8 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   color: var(--accent-dark);
 }
 
-.site-header.is-scrolled .nav-links a.active {
-  color: var(--secondary);
-}
-
 .site-header.is-scrolled .nav-links a.active::after {
-  background: var(--secondary);
+  background: var(--accent);
 }
 
 .site-header.is-scrolled .nav-dropdown-panel a {
@@ -302,11 +299,13 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 .brand span {
+  align-self: flex-start;
+  width: fit-content;
   font-family: var(--sans);
   font-size: 10px;
   letter-spacing: 0.32em;
   margin-top: 4px;
-  background: var(--brand-gradient);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--secondary) 50%, var(--tertiary-deep) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -341,10 +340,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   color: var(--text);
 }
 
-.nav-links a.active {
-  color: var(--secondary);
-}
-
 .nav-links a.active::after {
   content: "";
   position: absolute;
@@ -352,7 +347,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   bottom: 0;
   width: 100%;
   height: 1px;
-  background: var(--secondary);
+  background: var(--accent-deep);
 }
 
 /* --- Menu déroulant "Prestations" ------------------------------------------ */
