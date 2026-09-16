@@ -148,7 +148,7 @@ section {
 
 .btn-primary:hover {
   background: transparent;
-  color: var(--accent-deep);
+  color: var(--accent);
 }
 
 .btn-on-banner {
@@ -344,8 +344,8 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .nav-devis:hover {
   background: transparent;
-  color: var(--accent-deep) !important;
-  border-color: var(--accent-deep);
+  color: var(--accent) !important;
+  border-color: var(--accent);
 }
 
 @media (max-width: 880px) {
