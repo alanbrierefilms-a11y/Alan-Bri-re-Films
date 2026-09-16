@@ -151,6 +151,14 @@ section {
   color: var(--accent-deep);
 }
 
+.btn-on-banner {
+  color: #ffffff;
+}
+
+.btn-on-banner:hover {
+  color: #ffffff;
+}
+
 .btn-ghost:hover {
   background: var(--accent-soft);
   border-color: var(--accent-deep);
@@ -1634,7 +1642,7 @@ html.js-reveal .reveal.is-visible {
 }
 
 .services-banner {
-  background: var(--secondary);
+  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary) calc(100% - 280px), #ffffff 100%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -1687,7 +1695,7 @@ html.js-reveal .reveal.is-visible {
 }
 
 .portfolio-banner {
-  background: #0a0a0c;
+  background: linear-gradient(to bottom, #ffffff 0, #0a0a0c 150px);
   overflow: hidden;
 }
 
