@@ -374,7 +374,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .nav-dropdown-panel {
   position: absolute;
-  top: calc(100% + 16px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   display: grid;
@@ -385,11 +385,24 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   border-radius: 10px;
   box-shadow: var(--shadow);
   padding: 14px 18px;
+  margin-top: 16px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   z-index: 60;
+}
+
+/* Pont invisible qui comble l'écart entre "Prestations" et le panneau,
+   pour que le survol ne se coupe pas en descendant vers le menu */
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 380px;
+  height: 16px;
 }
 
 .nav-dropdown:hover .nav-dropdown-panel {
