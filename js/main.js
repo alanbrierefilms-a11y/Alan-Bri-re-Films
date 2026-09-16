@@ -116,6 +116,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  /* Badges Entreprises / Particuliers : affichent le bandeau de prestations correspondant */
+  const audienceTags = document.querySelectorAll(".audience-tag");
+  const audienceMarquees = document.querySelectorAll(".audience-marquee");
+  audienceTags.forEach((tag) => {
+    tag.addEventListener("click", () => {
+      const wasActive = tag.classList.contains("is-active");
+      audienceTags.forEach((t) => t.classList.remove("is-active"));
+      audienceMarquees.forEach((m) => m.classList.remove("is-active"));
+      if (!wasActive) {
+        tag.classList.add("is-active");
+        const target = document.querySelector(
+          `.audience-marquee[data-audience="${tag.dataset.audience}"]`
+        );
+        if (target) target.classList.add("is-active");
+      }
+    });
+  });
+
   /* Film filter (films.html) */
   const filterBtns = document.querySelectorAll(".filter-btn");
   const filmCards = document.querySelectorAll("[data-category]");

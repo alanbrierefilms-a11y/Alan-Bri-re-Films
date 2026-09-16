@@ -1490,6 +1490,69 @@ html.js-reveal .reveal.is-visible {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.audience-tag:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.audience-tag.is-active {
+  background: #ffffff;
+  color: var(--secondary-deep);
+  border-color: #ffffff;
+}
+
+/* --- Bandeaux de prestations par audience (Entreprises / Particuliers) ------- */
+.audience-marquee {
+  display: none;
+  max-width: 780px;
+  margin: 26px auto 6px;
+}
+
+.audience-marquee.is-active {
+  display: block;
+}
+
+.audience-marquee .marquee-track {
+  gap: 22px;
+  animation-duration: 20s;
+}
+
+.audience-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 118px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.audience-card img {
+  width: 100%;
+  height: 76px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  filter: none;
+  opacity: 1;
+  transition: border-color 0.2s ease;
+}
+
+.audience-card:hover img {
+  border-color: #ffffff;
+}
+
+.audience-card span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.3;
 }
 
 .banner-photos {
