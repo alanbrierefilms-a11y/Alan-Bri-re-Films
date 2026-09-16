@@ -1695,18 +1695,13 @@ html.js-reveal .reveal.is-visible {
 }
 
 .portfolio-banner {
-  background: linear-gradient(to bottom, #ffffff 0, #0a0a0c 380px);
+  background: #0a0a0c;
   overflow: hidden;
 }
 
 .portfolio-head {
   position: relative;
   z-index: 2;
-  padding-top: 160px;
-}
-
-@media (max-width: 640px) {
-  .portfolio-head { padding-top: 90px; }
 }
 
 .portfolio-banner h2 {
