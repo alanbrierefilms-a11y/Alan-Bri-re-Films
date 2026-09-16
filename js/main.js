@@ -81,6 +81,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* Bloc "Pourquoi travailler avec moi" : la liste numérotée reste fixe,
+     le texte défile et met en avant l'étape active (façon scrollytelling) */
+  const advSteps = document.querySelectorAll(".advantages-step");
+  const advNavItems = document.querySelectorAll(".advantages-nav-item");
+  if (advSteps.length && advNavItems.length) {
+    advNavItems.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const step = document.querySelector(
+          `.advantages-step[data-step="${btn.dataset.step}"]`
+        );
+        if (step) step.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
+
+    if ("IntersectionObserver" in window) {
+      const advObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const step = entry.target.dataset.step;
+              advSteps.forEach((s) => s.classList.remove("is-active"));
+              advNavItems.forEach((n) => n.classList.remove("is-active"));
+              entry.target.classList.add("is-active");
+              const nav = document.querySelector(
+                `.advantages-nav-item[data-step="${step}"]`
+              );
+              if (nav) nav.classList.add("is-active");
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      advSteps.forEach((s) => advObserver.observe(s));
+    }
+  }
+
   /* Compteurs animés (chiffres qui s'incrémentent à l'affichage) */
   const counters = document.querySelectorAll("[data-count-to]");
   if (counters.length) {

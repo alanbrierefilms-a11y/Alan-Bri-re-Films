@@ -881,9 +881,19 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .stat-row .stat strong {
   display: block;
-  font-family: var(--serif);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
   font-size: 34px;
   color: var(--accent-deep);
+}
+
+/* --- Tous les chiffres du site (compteurs, numéros d'étapes, dates) en Montserrat gras --- */
+.step-item .num,
+.service-item .num,
+.timeline-item .year,
+.advantages-nav-item .num {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
 }
 
 .stat-row .stat span {
@@ -1362,7 +1372,7 @@ html.js-reveal .reveal.is-visible {
 }
 
 .marquee-track img {
-  height: 34px;
+  height: 48px;
   width: auto;
   flex-shrink: 0;
   filter: grayscale(1);
@@ -1650,6 +1660,116 @@ html.js-reveal .reveal.is-visible {
 .advantage-item p {
   font-size: 14px;
   margin-bottom: 0;
+}
+
+/* --- Advantages scroller (façon scrollytelling, liste fixe + texte qui défile) --- */
+.advantages-scroller {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: 60px;
+  margin-top: 12px;
+}
+
+.advantages-nav {
+  position: sticky;
+  top: calc(var(--header-h) + 40px);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.advantages-nav-item {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 20px 4px;
+  border-top: 1px solid var(--border);
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.advantages-nav-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.advantages-nav-item .num {
+  font-size: 14px;
+  color: var(--text-faint);
+  transition: color 0.25s ease;
+}
+
+.advantages-nav-item .label {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-faint);
+  transition: color 0.25s ease;
+}
+
+.advantages-nav-item.is-active .num {
+  color: var(--accent-deep);
+}
+
+.advantages-nav-item.is-active .label {
+  color: var(--text);
+}
+
+.advantages-steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.advantages-step {
+  min-height: 56vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 0;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.advantages-step.is-active {
+  opacity: 1;
+}
+
+.advantages-step .icon-badge {
+  margin: 0 0 22px;
+  color: var(--tertiary-deep);
+}
+
+.advantages-step h3 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin-bottom: 16px;
+}
+
+.advantages-step p {
+  font-size: 17px;
+  max-width: 520px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 880px) {
+  .advantages-scroller { grid-template-columns: 1fr; gap: 0; }
+  .advantages-nav {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .advantages-nav-item {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 16px;
+  }
+  .advantages-nav-item:last-child { border: 1px solid var(--border); }
+  .advantages-nav-item .num { display: none; }
+  .advantages-step { min-height: auto; opacity: 1; padding: 22px 0; }
 }
 
 /* --- Process section (Étapes) ------------------------------------------------ */
