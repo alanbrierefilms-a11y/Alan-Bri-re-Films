@@ -793,60 +793,104 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   margin-bottom: 0;
 }
 
-/* --- Prestations scroller (façon scrollytelling, pile de cartes) --------------- */
+/* --- Prestations scroller (façon scrollytelling, groupes de cartes) --------------- */
 .prestations-scroller {
   position: relative;
-  height: 440vh;
+  height: 280vh;
 }
 
 .prestations-sticky {
   position: sticky;
   top: calc(var(--header-h) + 60px);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
 }
 
-.prestation-card-stack {
+.prestation-skip {
+  align-self: flex-end;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.prestation-skip:hover {
+  border-color: var(--accent-dark);
+  color: var(--text);
+}
+
+.prestation-group-stack {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  height: 520px;
+  max-width: 900px;
+  height: 360px;
 }
 
-.prestation-card.prestation-card {
+.prestation-group {
   position: absolute;
   inset: 0;
+  display: flex;
+  gap: 20px;
   opacity: 0;
-  transform: scale(0.94) translateY(18px);
+  transform: translateY(22px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   pointer-events: none;
   z-index: 1;
 }
 
-.prestation-card.is-active {
+.prestation-group.is-active {
   opacity: 1;
-  transform: scale(1) translateY(0);
-  z-index: 3;
+  transform: translateY(0);
+  z-index: 2;
   pointer-events: auto;
 }
 
-.prestation-card.is-next {
-  opacity: 0.45;
-  transform: scale(0.95) translateY(38px);
-  z-index: 2;
+.prestation-card-mini {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.prestation-anchor {
-  position: absolute;
-  left: 0;
-  width: 1px;
-  height: 1px;
-  pointer-events: none;
+.prestation-card-mini .film-thumb { aspect-ratio: 4 / 3; }
+
+.prestation-card-mini .film-body {
+  padding: 16px 18px 18px;
+  flex: 1;
 }
 
-@media (max-width: 640px) {
-  .prestations-scroller { height: 330vh; }
-  .prestation-card-stack { height: 460px; }
+.prestation-card-mini .film-body h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.prestation-card-mini .film-meta {
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+
+.prestation-card-mini .film-body p {
+  font-size: 12px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 780px) {
+  .prestation-group { flex-direction: column; position: static; opacity: 1; transform: none; display: none; }
+  .prestation-group.is-active { display: flex; }
+  .prestation-group-stack { height: auto; }
+  .prestations-scroller { height: 220vh; }
 }
 
 /* --- Filters (films page) ------------------------------------------------ */

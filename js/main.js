@@ -117,21 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* Carrousel "Une vidéo pour chaque univers" : pile de cartes en fondu au scroll */
+  /* Carrousel "Une vidéo pour chaque univers" : groupes de 3 cartes en fondu au scroll */
   const prestationScroller = document.querySelector(".prestations-scroller");
-  const prestationCards = document.querySelectorAll(".prestation-card");
-  if (prestationScroller && prestationCards.length) {
-    const count = prestationCards.length;
+  const prestationGroups = document.querySelectorAll(".prestation-group");
+  if (prestationScroller && prestationGroups.length) {
+    const count = prestationGroups.length;
     let currentIndex = -1;
 
-    const setActivePrestation = (index) => {
+    const setActiveGroup = (index) => {
       if (index === currentIndex) return;
       currentIndex = index;
-      prestationCards.forEach((card) => {
-        const i = parseInt(card.dataset.index, 10);
-        card.classList.remove("is-active", "is-next");
-        if (i === index) card.classList.add("is-active");
-        else if (i === index + 1) card.classList.add("is-next");
+      prestationGroups.forEach((group) => {
+        const i = parseInt(group.dataset.group, 10);
+        group.classList.toggle("is-active", i === index);
       });
     };
 
@@ -143,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const fraction = (viewportCenter - rect.top) / rect.height;
       const clamped = Math.min(1, Math.max(0, fraction));
       const index = Math.min(count - 1, Math.floor(clamped * count));
-      setActivePrestation(index);
+      setActiveGroup(index);
     };
 
     window.addEventListener(
@@ -158,6 +156,14 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     window.addEventListener("resize", updatePrestation);
     updatePrestation();
+
+    const skipBtn = document.querySelector(".prestation-skip");
+    if (skipBtn) {
+      skipBtn.addEventListener("click", () => {
+        const target = prestationScroller.getBoundingClientRect().bottom + window.scrollY - 100;
+        window.scrollTo({ top: target, behavior: "smooth" });
+      });
+    }
   }
 
   /* Compteurs animés (chiffres qui s'incrémentent à l'affichage) */
