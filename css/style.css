@@ -1644,7 +1644,7 @@ html.js-reveal .reveal.is-visible {
     grid-template-columns: none;
     gap: 16px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     padding: 4px 20px 12px;
     margin: 40px -20px 0;
     -webkit-overflow-scrolling: touch;
@@ -1653,7 +1653,7 @@ html.js-reveal .reveal.is-visible {
   .steps-grid::-webkit-scrollbar { display: none; }
   .step-item {
     flex: 0 0 82%;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
   }
 }
 
@@ -1908,7 +1908,7 @@ html.js-reveal .reveal.is-visible {
     grid-template-columns: none;
     gap: 16px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     padding: 4px 20px 12px;
     margin: 0 -20px;
     -webkit-overflow-scrolling: touch;
@@ -1917,7 +1917,7 @@ html.js-reveal .reveal.is-visible {
   .services-grid::-webkit-scrollbar { display: none; }
   .service-card {
     flex: 0 0 82%;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
   }
 }
 
@@ -2153,7 +2153,7 @@ html.js-reveal .reveal.is-visible {
   .portfolio-grid {
     flex-wrap: nowrap;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     padding: 20px 20px 30px;
     margin-top: 48px;
     -webkit-overflow-scrolling: touch;
@@ -2162,7 +2162,7 @@ html.js-reveal .reveal.is-visible {
   .portfolio-grid::-webkit-scrollbar { display: none; }
   .portfolio-col {
     flex: 0 0 60%;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
   }
   .portfolio-col:nth-child(n+4) { display: none; }
 }

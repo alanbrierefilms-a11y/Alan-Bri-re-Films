@@ -239,6 +239,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let portfolioTicking = false;
     const updatePortfolio = () => {
       portfolioTicking = false;
+      if (window.innerWidth <= 780) {
+        upCols.forEach((col) => { col.style.transform = ""; });
+        downCols.forEach((col) => { col.style.transform = ""; });
+        return;
+      }
       const vh = window.innerHeight;
 
       const rect = portfolioGrid.getBoundingClientRect();
