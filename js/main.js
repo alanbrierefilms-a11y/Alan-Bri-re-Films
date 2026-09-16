@@ -119,8 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", () => {
         if (window.innerWidth <= 880) {
           const wasOpen = btn.classList.contains("is-open");
-          advNavItems.forEach((n) => n.classList.remove("is-open"));
+          advNavItems.forEach((n) => n.classList.remove("is-open", "is-active"));
           btn.classList.toggle("is-open", !wasOpen);
+          btn.classList.toggle("is-active", !wasOpen);
           return;
         }
         const step = document.querySelector(
