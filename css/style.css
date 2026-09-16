@@ -2165,6 +2165,11 @@ html.js-reveal .reveal.is-visible {
     scroll-snap-align: start;
   }
   .portfolio-col:nth-child(n+4) { display: none; }
+  .portfolio-col-up,
+  .portfolio-col-down {
+    transform: none;
+    margin-top: 0;
+  }
 }
 
 .audience-tags {
