@@ -117,6 +117,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  /* Carrousel "Une vidéo pour chaque univers" : pile de cartes en fondu au scroll */
+  const prestationScroller = document.querySelector(".prestations-scroller");
+  const prestationCards = document.querySelectorAll(".prestation-card");
+  if (prestationScroller && prestationCards.length) {
+    const count = prestationCards.length;
+    let currentIndex = -1;
+
+    const setActivePrestation = (index) => {
+      if (index === currentIndex) return;
+      currentIndex = index;
+      prestationCards.forEach((card) => {
+        const i = parseInt(card.dataset.index, 10);
+        card.classList.remove("is-active", "is-next");
+        if (i === index) card.classList.add("is-active");
+        else if (i === index + 1) card.classList.add("is-next");
+      });
+    };
+
+    let ticking = false;
+    const updatePrestation = () => {
+      ticking = false;
+      const rect = prestationScroller.getBoundingClientRect();
+      const viewportCenter = window.innerHeight / 2;
+      const fraction = (viewportCenter - rect.top) / rect.height;
+      const clamped = Math.min(1, Math.max(0, fraction));
+      const index = Math.min(count - 1, Math.floor(clamped * count));
+      setActivePrestation(index);
+    };
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updatePrestation);
+        }
+      },
+      { passive: true }
+    );
+    window.addEventListener("resize", updatePrestation);
+    updatePrestation();
+  }
+
   /* Compteurs animés (chiffres qui s'incrémentent à l'affichage) */
   const counters = document.querySelectorAll("[data-count-to]");
   if (counters.length) {
