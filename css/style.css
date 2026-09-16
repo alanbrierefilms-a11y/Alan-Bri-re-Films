@@ -2114,6 +2114,10 @@ html.js-reveal .reveal.is-visible {
 .advantages-step h3 {
   font-size: clamp(24px, 3vw, 32px);
   margin-bottom: 16px;
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .advantages-step p {
