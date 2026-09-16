@@ -158,9 +158,23 @@ document.documentElement.classList.add('js-reveal');</script>
   <section class="about-teaser">
     <div class="container">
       <div class="split reverse reveal">
-        <div class="split-media">
-          <img src="assets/about-detail.svg" alt="Image de tournage">
-          <span class="frame-label">Sur le tournage</span>
+        <div class="split-media split-media-phone">
+          <div class="phone-mockup">
+            <span class="phone-notch"></span>
+            <div class="phone-screen">
+              <!-- Vidéo de présentation : déposez le fichier dans assets/presentation-film.mp4 -->
+              <div class="player" data-video="assets/presentation-film.mp4">
+                <img src="assets/portrait.svg" alt="Vidéo de présentation d'Alan Brière">
+                <button class="player-play" type="button" aria-label="Lire la vidéo de présentation">
+                  <span class="play-circle">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                  <span class="caption">Lire la vidéo</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <span class="frame-label frame-label-static">Vidéo de présentation</span>
         </div>
         <div>
           <div class="eyebrow">En bref</div>

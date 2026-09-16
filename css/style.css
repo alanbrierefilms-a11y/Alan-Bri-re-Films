@@ -998,6 +998,64 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   border: 1px solid var(--border);
 }
 
+/* --- Mockup téléphone (vidéo de présentation) ------------------------------ */
+.split-media-phone {
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.phone-mockup {
+  position: relative;
+  width: 260px;
+  max-width: 100%;
+  aspect-ratio: 9 / 19.5;
+  background: #0a0a0c;
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+.phone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92px;
+  height: 22px;
+  background: #0a0a0c;
+  border-radius: 0 0 14px 14px;
+  z-index: 2;
+}
+
+.phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #000;
+}
+
+.phone-screen .player {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+  border: none;
+  border-radius: 0;
+}
+
+.split-media-phone .frame-label-static {
+  position: static;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 .stat-row {
   display: flex;
   gap: 44px;
