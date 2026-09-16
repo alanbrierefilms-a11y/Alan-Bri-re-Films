@@ -86,13 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (counters.length) {
     const animateCounter = (el) => {
       const target = parseInt(el.dataset.countTo, 10);
+      const prefix = el.dataset.prefix || "";
       const suffix = el.dataset.suffix || "";
       const duration = 1200;
       const start = performance.now();
       const step = (now) => {
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(eased * target) + suffix;
+        el.textContent = prefix + Math.round(eased * target) + suffix;
         if (progress < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
