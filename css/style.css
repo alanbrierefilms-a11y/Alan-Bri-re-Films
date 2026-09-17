@@ -305,7 +305,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 19px;
-  letter-spacing: 0.28em;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
