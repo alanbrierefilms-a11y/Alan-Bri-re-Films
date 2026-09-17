@@ -1300,6 +1300,14 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   border-radius: 0;
 }
 
+.phone-screen-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .split-media-phone .frame-label-static {
   position: static;
   background: none;

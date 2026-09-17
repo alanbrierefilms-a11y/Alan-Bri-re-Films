@@ -190,16 +190,7 @@ document.documentElement.classList.add('js-reveal');</script>
             <img class="stack-photo" src="assets/about-detail.svg" onerror="this.onerror=null;this.src='assets/portrait.svg';" alt="Alan Brière en tournage">
             <div class="phone-mockup">
               <div class="phone-screen">
-                <!-- Vidéo de présentation : déposez le fichier dans assets/presentation-film.mp4 -->
-                <div class="player" data-video="assets/presentation-film.mp4">
-                  <img src="assets/portrait.svg" alt="Vidéo de présentation d'Alan Brière">
-                  <button class="player-play" type="button" aria-label="Lire la vidéo de présentation">
-                    <span class="play-circle">
-                      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </span>
-                    <span class="caption">Lire la vidéo</span>
-                  </button>
-                </div>
+                <iframe class="phone-screen-iframe" src="https://player.vimeo.com/video/1227558888?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Présentation Alan Brière Films"></iframe>
               </div>
             </div>
           </div>
@@ -870,6 +861,7 @@ document.documentElement.classList.add('js-reveal');</script>
   </div>
 </footer>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
