@@ -604,6 +604,20 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   inset: 0;
 }
 
+/* --- Bannière de test : vidéo brute, sans texte ni overlay -------------- */
+.video-test-banner {
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.video-test-banner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .hero-bg::after {
   content: none;
 }
