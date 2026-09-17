@@ -1583,7 +1583,7 @@ form.contact-form {
 }
 
 .site-footer .brand { color: #ffffff; }
-.site-footer .brand span { color: #ffffff; opacity: 0.75; }
+.site-footer .brand span { color: #ffffff; opacity: 1; background: none; -webkit-text-fill-color: #ffffff; }
 .site-footer .footer-brand p { color: var(--text); opacity: 0.75; }
 .site-footer .footer-col h4 { color: var(--text); opacity: 0.55; }
 .site-footer .footer-col a { color: var(--text); opacity: 0.85; }
