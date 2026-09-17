@@ -13,7 +13,7 @@
       <stop offset="100%" stop-color="#8ec5ce" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="1920" height="1080" fill="#ffffff"/>
+  <rect width="1920" height="1080" fill="#2a2013"/>
   <rect width="1920" height="1080" fill="url(#heroGold)"/>
   <rect width="1920" height="1080" fill="url(#heroTerracotta)"/>
   <rect width="1920" height="1080" fill="url(#heroPowder)"/>
