@@ -664,9 +664,9 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .hero-mascot {
   position: absolute;
-  top: -0.02em;
-  left: -0.1em;
-  width: 1.05em;
+  top: -1.5em;
+  left: -0.2em;
+  width: 2.4em;
   height: auto;
   transform: rotate(-8deg);
   pointer-events: none;
