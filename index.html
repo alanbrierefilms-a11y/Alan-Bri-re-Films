@@ -129,13 +129,9 @@ document.documentElement.classList.add('js-reveal');</script>
 
   <section class="hero">
     <div class="hero-bg">
-      <img src="assets/hero-bg.svg" alt="" role="presentation">
-      <div class="hero-bg-video hero-bg-video-desktop">
-        <iframe data-src="https://player.vimeo.com/video/1227369937?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Bande démo — Alan Brière Films"></iframe>
-      </div>
-      <div class="hero-bg-video hero-bg-video-mobile">
-        <iframe data-src="https://player.vimeo.com/video/1227554102?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Bande démo téléphone — Alan Brière Films"></iframe>
-      </div>
+      <video class="hero-bg-video" autoplay muted loop playsinline poster="assets/hero-bg.svg" title="Bande démo — Alan Brière Films">
+        <source src="assets/hero-bg-video.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="container">
       <div class="hero-content reveal is-visible">

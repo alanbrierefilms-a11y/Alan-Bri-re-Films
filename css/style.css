@@ -604,32 +604,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   inset: 0;
 }
 
-.hero-bg-video iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 56.25vw; /* ratio 16:9 */
-  min-height: 100%;
-  min-width: 177.78vh; /* ratio 16:9 */
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  border: none;
-}
-
-.hero-bg-video-mobile { display: none; }
-
-@media (max-width: 880px) {
-  .hero-bg-video-desktop { display: none; }
-  .hero-bg-video-mobile { display: block; }
-  .hero-bg-video-mobile iframe {
-    width: 100vw;
-    height: 133.33vw; /* ratio 3:4 */
-    min-height: 100%;
-    min-width: 75vh; /* ratio 3:4 */
-  }
-}
-
 .hero-bg::after {
   content: none;
 }
