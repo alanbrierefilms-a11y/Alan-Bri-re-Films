@@ -657,6 +657,22 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   text-shadow: none;
 }
 
+.hero-title-mascot-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-mascot {
+  position: absolute;
+  top: -0.02em;
+  left: -0.1em;
+  width: 1.05em;
+  height: auto;
+  transform: rotate(-8deg);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(20, 16, 8, 0.45));
+}
+
 .hero .lead {
   font-size: 18px;
   max-width: 520px;
