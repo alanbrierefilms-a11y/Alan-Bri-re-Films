@@ -673,6 +673,14 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   filter: drop-shadow(0 2px 6px rgba(20, 16, 8, 0.45));
 }
 
+@media (max-width: 640px) {
+  .hero-mascot {
+    top: -2.3em;
+    left: -0.15em;
+    width: 1.7em;
+  }
+}
+
 .hero .lead {
   font-size: 18px;
   max-width: 520px;
