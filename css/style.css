@@ -573,7 +573,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 /* --- Hero ----------------------------------------------------------------- */
 .hero {
   position: relative;
-  z-index: 0;
   min-height: 100vh;
   display: flex;
   align-items: flex-end;
@@ -584,7 +583,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 .hero-bg {
   position: absolute;
   inset: 0;
-  z-index: -2;
   overflow: hidden;
 }
 
@@ -603,20 +601,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 .hero-bg-video {
   position: absolute;
   inset: 0;
-}
-
-/* --- Bannière de test : structure différente, sans position absolue ----- */
-.video-test-banner {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-
-.video-test-banner video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 .hero-bg::after {
