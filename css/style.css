@@ -581,12 +581,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   overflow: hidden;
 }
 
-/* Test : fond jaune uni à la place de la vidéo, pour isoler si le voile
-   vient de la vidéo ou d'autre chose (texte, overlay...). */
-.hero-test-yellow {
-  background: var(--accent);
-}
-
 .hero-bg {
   position: absolute;
   inset: 0;
