@@ -30,7 +30,11 @@ document.documentElement.classList.add('js-reveal');</script>
   .hero { align-items: center; }
   .hero .container { text-align: center; }
   .hero .hero-content { max-width: 760px; margin: 0 auto; }
-  .hero .eyebrow { justify-content: center; }
+  .hero .eyebrow {
+    justify-content: center;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(20, 16, 8, 0.4);
+  }
   .hero .btn-row { justify-content: center; }
   .hero h1 {
     font-family: 'Montserrat', sans-serif;
@@ -38,16 +42,28 @@ document.documentElement.classList.add('js-reveal');</script>
     text-transform: uppercase;
     letter-spacing: 0.01em;
     font-size: clamp(30px, 5vw, 52px);
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(20, 16, 8, 0.4);
   }
   .hero-tagline {
     margin: 26px 0 0;
     font-size: 15px;
-    color: var(--text-muted);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(20, 16, 8, 0.4);
   }
   .hero-tagline strong {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    color: var(--accent-deep);
+    color: #ffffff;
+  }
+  .hero .btn-ghost {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+  .hero .btn-ghost:hover {
+    background: transparent;
+    border-color: #ffffff;
+    color: var(--accent);
   }
 </style>
 <script type="application/ld+json">

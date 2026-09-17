@@ -129,7 +129,7 @@ section {
   gap: 10px;
   padding: 15px 32px;
   border: 1px solid var(--accent-deep);
-  border-radius: var(--radius);
+  border-radius: 999px;
   font-family: var(--sans);
   font-size: 13px;
   font-weight: 600;
@@ -636,9 +636,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to top, var(--bg) 0%, rgba(255, 255, 255, 0.2) 55%, rgba(255, 255, 255, 0) 100%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.55), transparent 60%);
+  background: linear-gradient(to top, var(--bg) 0%, transparent 18%);
 }
 
 .hero-content {
