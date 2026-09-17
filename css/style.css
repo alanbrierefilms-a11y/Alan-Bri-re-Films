@@ -587,20 +587,11 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   overflow: hidden;
 }
 
-.hero-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: rgba(10, 8, 4, 0.32);
-}
-
 .hero-bg img,
 .hero-bg video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.9;
 }
 
 .hero-bg img {
@@ -611,7 +602,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 .hero-bg-video {
   position: absolute;
   inset: 0;
-  opacity: 0.9;
 }
 
 .hero-bg-video iframe {
@@ -641,10 +631,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 .hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(20, 16, 8, 0.4) 0%, transparent 14%);
+  content: none;
 }
 
 .hero-content {
