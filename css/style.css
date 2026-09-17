@@ -654,6 +654,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
 .hero .lead {
