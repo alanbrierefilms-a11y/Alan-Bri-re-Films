@@ -338,18 +338,19 @@ document.addEventListener("DOMContentLoaded", () => {
     updateStackPhoto();
   }
 
-  /* Logos clients : un logo passe en couleur, puis un autre, à l'infini */
+  /* Logos clients : deux logos passent en couleur par ligne, puis deux autres, à l'infini */
   document.querySelectorAll(".clients-marquee-section .marquee-track").forEach((track) => {
     const imgs = Array.from(track.children);
     const half = Math.floor(imgs.length / 2);
-    if (half < 1) return;
+    if (half < 2) return;
+    const step = Math.floor(half / 2) || 1;
     let spotlightIndex = 0;
     setInterval(() => {
       imgs.forEach((img) => img.classList.remove("is-spotlight"));
-      imgs[spotlightIndex].classList.add("is-spotlight");
-      if (imgs[spotlightIndex + half]) {
-        imgs[spotlightIndex + half].classList.add("is-spotlight");
-      }
+      [spotlightIndex, (spotlightIndex + step) % half].forEach((i) => {
+        imgs[i].classList.add("is-spotlight");
+        if (imgs[i + half]) imgs[i + half].classList.add("is-spotlight");
+      });
       spotlightIndex = (spotlightIndex + 1) % half;
     }, 900);
   });
