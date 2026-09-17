@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* Vidéo de fond du hero : charge uniquement la version (ordinateur 16:9
+     ou téléphone 3:4) visible pour l'écran actuel, pas les deux à la fois */
+  const heroDesktopFrame = document.querySelector(".hero-bg-video-desktop iframe");
+  const heroMobileFrame = document.querySelector(".hero-bg-video-mobile iframe");
+  if (heroDesktopFrame && heroMobileFrame) {
+    const mobileQuery = window.matchMedia("(max-width: 880px)");
+    const loadHeroVideo = () => {
+      const frame = mobileQuery.matches ? heroMobileFrame : heroDesktopFrame;
+      if (frame.dataset.src && !frame.src) frame.src = frame.dataset.src;
+    };
+    loadHeroVideo();
+    mobileQuery.addEventListener("change", loadHeroVideo);
+  }
+
   /* FAQ : n'affiche que les 3 premières questions, un bouton "+" révèle les autres */
   const faqList = document.querySelector(".faq-list");
   const faqMoreBtn = document.querySelector(".faq-more-btn");
