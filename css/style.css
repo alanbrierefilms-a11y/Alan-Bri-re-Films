@@ -587,6 +587,14 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   overflow: hidden;
 }
 
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(10, 8, 4, 0.32);
+}
+
 .hero-bg img,
 .hero-bg video {
   width: 100%;
