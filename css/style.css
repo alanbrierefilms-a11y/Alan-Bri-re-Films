@@ -180,7 +180,7 @@ section {
   }
 }
 
-/* --- Bandeau d'annonces défilant, tout en haut du site ------------------- */
+/* --- Bandeau d'annonces, tout en haut du site : un texte à la fois ------- */
 .site-ticker {
   position: fixed;
   top: 0;
@@ -191,47 +191,25 @@ section {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: #14100a;
-}
-
-.ticker-track {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  width: max-content;
-  white-space: nowrap;
-  padding-left: 48px;
-  animation: ticker-left 28s linear infinite;
+  justify-content: center;
+  background: var(--brand-gradient);
 }
 
 .ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   font-family: var(--sans);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #ffffff;
+  text-align: center;
+  padding: 0 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
-.ticker-item::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
-@keyframes ticker-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track { animation: none; }
+.ticker-item.is-swapping {
+  opacity: 0;
 }
 
 /* --- Header / Navigation ------------------------------------------------ */

@@ -13,6 +13,26 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileQuery.addEventListener("change", loadHeroVideo);
   }
 
+  /* Bandeau d'annonces : un texte à la fois, en fondu */
+  const tickerItem = document.querySelector(".site-ticker .ticker-item");
+  if (tickerItem) {
+    const messages = (tickerItem.dataset.words || "")
+      .split(",")
+      .map((w) => w.trim())
+      .filter(Boolean);
+    if (messages.length > 1) {
+      let tickerIndex = 0;
+      setInterval(() => {
+        tickerItem.classList.add("is-swapping");
+        setTimeout(() => {
+          tickerIndex = (tickerIndex + 1) % messages.length;
+          tickerItem.textContent = messages[tickerIndex];
+          tickerItem.classList.remove("is-swapping");
+        }, 300);
+      }, 3200);
+    }
+  }
+
   /* FAQ : n'affiche que les 3 premières questions, un bouton "+" révèle les autres */
   const faqList = document.querySelector(".faq-list");
   const faqMoreBtn = document.querySelector(".faq-more-btn");
