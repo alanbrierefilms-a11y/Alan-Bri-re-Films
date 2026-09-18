@@ -118,10 +118,6 @@ section {
   display: none;
 }
 
-.wedding-spotlight .eyebrow::before {
-  display: block;
-}
-
 /* --- Buttons ------------------------------------------------------------ */
 .btn {
   display: inline-flex;
@@ -1150,6 +1146,55 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   fill: none;
 }
 
+.prestation-tile-featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.prestation-tile-featured::after {
+  background: linear-gradient(to top, rgba(10, 10, 12, 0.92) 0%, rgba(10, 10, 12, 0.3) 50%, transparent 82%);
+}
+
+.prestation-tile-featured .prestation-tile-title {
+  font-size: 24px;
+}
+
+.prestation-tile-featured .prestation-tile-tag {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.prestation-tile-featured .prestation-tile-desc {
+  font-size: 13px;
+}
+
+.prestation-tile-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-deep));
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 640px) {
+  .prestation-tile-featured {
+    grid-column: span 2;
+    grid-row: span 1;
+    aspect-ratio: 16 / 10;
+  }
+}
+
 /* --- Filters (films page) ------------------------------------------------ */
 .filters {
   display: flex;
@@ -1233,25 +1278,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .about-split-title { grid-area: title; }
 .about-split-details { grid-area: details; }
-
-/* --- "Coup de cœur" : titre / média / détails, dans cet ordre sur mobile - */
-.wedding-split {
-  grid-template-areas: "media title" "media details";
-  align-items: start;
-}
-
-.wedding-split .split-media { align-self: center; }
-
-@media (max-width: 880px) {
-  .wedding-split {
-    grid-template-columns: 1fr;
-    grid-template-areas: "title" "media" "details";
-  }
-}
-
-.wedding-split-title { grid-area: title; }
-.wedding-split .split-media { grid-area: media; }
-.wedding-split-details { grid-area: details; }
 
 .split-media {
   position: relative;
