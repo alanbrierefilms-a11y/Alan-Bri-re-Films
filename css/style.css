@@ -2072,13 +2072,50 @@ html.js-reveal .reveal.is-visible {
   border-radius: 18px;
   overflow: hidden;
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow);
   border-color: var(--accent-dark);
+}
+
+/* Entrée en cascade des 3 cartes au scroll */
+html.js-reveal .service-card {
+  opacity: 0;
+}
+
+html.js-reveal .services-grid.is-visible .service-card {
+  opacity: 1;
+}
+
+html.js-reveal .services-grid.is-visible .service-card:nth-child(1) {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease 0.05s;
+}
+
+html.js-reveal .services-grid.is-visible .service-card:nth-child(2) {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease 0.2s;
+}
+
+html.js-reveal .services-grid.is-visible .service-card:nth-child(3) {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease 0.35s;
+}
+
+/* Balayage de lumière sur la photo au survol */
+.service-card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
+  transform: translateX(-130%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.service-card:hover .service-card-media::after {
+  transform: translateX(130%);
 }
 
 .service-card-media {
@@ -2113,6 +2150,21 @@ html.js-reveal .reveal.is-visible {
   border: 2px solid #ffffff;
   filter: drop-shadow(0 1px 4px rgba(20, 16, 8, 0.5));
   transition: all 0.35s ease;
+  animation: vf-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes vf-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.service-card:hover .vf-corner {
+  animation: none;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vf-corner { animation: none; opacity: 1; }
 }
 
 .vf-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
