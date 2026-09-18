@@ -651,9 +651,9 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 @media (max-width: 640px) {
   .hero-mascot {
-    top: -3.6em;
-    left: 4%;
-    width: 1.7em;
+    top: -2.6em;
+    left: -18%;
+    width: 2.6em;
   }
 }
 
