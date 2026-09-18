@@ -26,6 +26,10 @@ document.documentElement.classList.add('js-reveal');</script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* Pas de fondu à l'arrivée sur cette page : le contenu s'affiche directement */
+  html.js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+</style>
 </head>
 <body>
 
@@ -51,7 +55,7 @@ document.documentElement.classList.add('js-reveal');</script>
           <a href="evenementiel.html">Aftermovie &amp; conférence</a>
           <a href="mariage.html">Mariage &amp; célébrations</a>
           <a href="clip-contenus-creatifs.html">Clip, danse, mode &amp; sport</a>
-          <a href="visites-immersives.html">Visite immobilière &amp; établissement</a>
+          <a href="visites-immersives.html">Visite immobilière</a>
           <a href="post-production.html">Post-production seule</a>
           <a href="court-metrages.html">Courts métrages</a>
         </div>
@@ -199,7 +203,7 @@ document.documentElement.classList.add('js-reveal');</script>
               <a class="film-card" href="clip-contenus-creatifs.html">
                 <div class="film-thumb">
                   <span class="film-tag">Créatif</span>
-                  <video src="assets/danse-loisir-mode.mp4" autoplay muted loop playsinline aria-label="Clip musical, vidéo de danse, mode ou sport réalisé par Alan Brière Films"></video>
+                  <video src="assets/danse-loisir-mode.mp4" autoplay muted loop playsinline aria-label="Clip musical, vidéo de danse, mode ou sport réalisé par Alan Brière Films" style="object-position: 50% 15%;"></video>
                 </div>
                 <div class="film-body">
                   <h3>Clip, danse, mode &amp; sport</h3>
@@ -322,7 +326,7 @@ document.documentElement.classList.add('js-reveal');</script>
               <a class="film-card" href="photo.html#entreprise">
                 <div class="film-thumb">
                   <span class="film-tag">Entreprise</span>
-                  <img src="assets/film-1.svg" alt="Reportage photo d'entreprise et de locaux par Alan Brière Films">
+                  <img src="assets/reportage-entreprise.jpg" alt="Reportage photo d'entreprise et de locaux par Alan Brière Films">
                 </div>
                 <div class="film-body">
                   <h3>Reportage d'entreprise</h3>
@@ -334,7 +338,7 @@ document.documentElement.classList.add('js-reveal');</script>
               <a class="film-card" href="photo.html#immobiliere">
                 <div class="film-thumb">
                   <span class="film-tag">Immobilier</span>
-                  <img src="assets/film-3.svg" alt="Photo immobilière par Alan Brière Films">
+                  <img src="assets/photo-immobiliere.jpg" alt="Photo immobilière par Alan Brière Films">
                 </div>
                 <div class="film-body">
                   <h3>Photo immobilière</h3>
@@ -346,7 +350,7 @@ document.documentElement.classList.add('js-reveal');</script>
               <a class="film-card" href="photo.html#aerienne">
                 <div class="film-thumb">
                   <span class="film-tag">Aérien</span>
-                  <img src="assets/film-6.svg" alt="Photo aérienne au drone par Alan Brière Films">
+                  <img src="assets/photo-aerienne.jpg" alt="Photo aérienne au drone par Alan Brière Films">
                 </div>
                 <div class="film-body">
                   <h3>Photo aérienne au drone</h3>
@@ -358,7 +362,7 @@ document.documentElement.classList.add('js-reveal');</script>
               <a class="film-card" href="photo.html#portraits">
                 <div class="film-thumb">
                   <span class="film-tag">Portraits</span>
-                  <img src="assets/film-4.svg" alt="Portrait photo réalisé par Alan Brière Films">
+                  <img src="assets/portraits-personnes.jpg" alt="Portrait photo réalisé par Alan Brière Films" style="object-position: 50% 15%;">
                 </div>
                 <div class="film-body">
                   <h3>Portraits &amp; personnes</h3>
@@ -370,7 +374,7 @@ document.documentElement.classList.add('js-reveal');</script>
               <a class="film-card" href="photo.html#animaliere">
                 <div class="film-thumb">
                   <span class="film-tag">Animalier</span>
-                  <img src="assets/film-2.svg" alt="Photo animalière réalisée par Alan Brière Films">
+                  <img src="assets/photo-animaliere.jpg" alt="Photo animalière réalisée par Alan Brière Films" style="object-position: 50% 25%;">
                 </div>
                 <div class="film-body">
                   <h3>Photo animalière</h3>
@@ -382,7 +386,7 @@ document.documentElement.classList.add('js-reveal');</script>
               <a class="film-card" href="photo.html#produit">
                 <div class="film-thumb">
                   <span class="film-tag">Produit</span>
-                  <img src="assets/film-4.svg" alt="Photo de produit réalisée par Alan Brière Films">
+                  <img src="assets/photo-produit.png" alt="Photo de produit réalisée par Alan Brière Films">
                 </div>
                 <div class="film-body">
                   <h3>Photo produit</h3>
@@ -470,9 +474,30 @@ document.documentElement.classList.add('js-reveal');</script>
             <li><a href="evenementiel.html">Aftermovie &amp; conférence</a></li>
             <li><a href="mariage.html">Mariage &amp; célébrations</a></li>
             <li><a href="clip-contenus-creatifs.html">Clip, danse, mode &amp; sport</a></li>
-            <li><a href="visites-immersives.html">Visite immobilière &amp; établissement</a></li>
+            <li><a href="visites-immersives.html">Visite immobilière</a></li>
             <li><a href="post-production.html">Post-production seule</a></li>
             <li><a href="court-metrages.html">Courts métrages</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Prestations drone</h4>
+          <ul>
+            <li><a href="drone.html#cinematique">Prises de vues aériennes</a></li>
+            <li><a href="drone.html#photo-aerienne">Photo aérienne</a></li>
+            <li><a href="drone.html#tourisme">Valorisation touristique</a></li>
+            <li><a href="drone.html#chantier">Suivi de chantier</a></li>
+            <li><a href="drone.html#pilote-drone">Pilote + drone à disposition</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Prestations photo</h4>
+          <ul>
+            <li><a href="photo.html#entreprise">Reportage d'entreprise</a></li>
+            <li><a href="photo.html#immobiliere">Photo immobilière</a></li>
+            <li><a href="photo.html#aerienne">Photo aérienne</a></li>
+            <li><a href="photo.html#portraits">Portraits &amp; personnes</a></li>
+            <li><a href="photo.html#produit">Photo produit</a></li>
+            <li><a href="photo.html#animaliere">Photo animalière</a></li>
           </ul>
         </div>
         <div class="footer-col">
