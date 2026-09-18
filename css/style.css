@@ -515,7 +515,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   color: #ffffff !important;
   border: 1px solid var(--accent);
   padding: 11px 24px !important;
-  border-radius: var(--radius);
+  border-radius: 999px;
   font-weight: 700;
 }
 
