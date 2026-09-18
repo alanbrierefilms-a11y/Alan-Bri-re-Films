@@ -1699,13 +1699,33 @@ html.js-reveal .reveal.is-visible {
 
 /* --- Steps (déroulé de prestation) --------------------------------------- */
 .steps-grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin-top: 40px;
 }
 
+.steps-grid::before {
+  content: "";
+  position: absolute;
+  top: 58px;
+  left: 6%;
+  right: 6%;
+  height: 3px;
+  background: var(--brand-gradient);
+  z-index: 0;
+}
+
+.steps-grid .step-item {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 760px) {
+  .steps-grid::before {
+    display: none;
+  }
   .steps-grid {
     display: flex;
     grid-template-columns: none;
