@@ -1265,6 +1265,12 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   aspect-ratio: 9 / 19.5;
 }
 
+@media (min-width: 881px) {
+  .phone-mockup {
+    width: 260px;
+  }
+}
+
 .stack-photo {
   position: absolute;
   z-index: 3;

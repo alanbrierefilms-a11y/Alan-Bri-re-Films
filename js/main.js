@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* Vidéo de présentation : lecture au survol, pause quand on quitte */
+  const presentationVideo = document.querySelector(".phone-screen-video");
+  if (presentationVideo) {
+    const phoneMockup = presentationVideo.closest(".phone-mockup");
+    phoneMockup.addEventListener("mouseenter", () => presentationVideo.play());
+    phoneMockup.addEventListener("mouseleave", () => presentationVideo.pause());
+  }
+
   /* Bandeau d'annonces : un texte à la fois, en fondu */
   const tickerItem = document.querySelector(".site-ticker .ticker-item");
   if (tickerItem) {
