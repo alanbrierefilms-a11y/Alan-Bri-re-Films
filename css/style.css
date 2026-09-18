@@ -3273,7 +3273,7 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
 .audience-card-landscape video,
 .audience-card-landscape .audience-card-video-wrap {
   width: auto;
-  height: 124px;
+  height: 148px;
   aspect-ratio: 16 / 9;
 }
 
@@ -3281,7 +3281,7 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
 .audience-card-portrait video,
 .audience-card-portrait .audience-card-video-wrap {
   width: auto;
-  height: 124px;
+  height: 148px;
   aspect-ratio: 9 / 16;
 }
 
@@ -3310,7 +3310,7 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   text-transform: none;
 }
 
-.audience-card span {
+.audience-card span:not(.audience-card-video-wrap) {
   max-width: 150px;
   font-size: 12px;
   font-weight: 700;
