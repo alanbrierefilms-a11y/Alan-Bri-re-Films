@@ -377,6 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* Onglets Prestations (Vidéo / Drone / Photo) : affichent la liste correspondante */
+  const prestationTabsWrap = document.querySelector(".prestation-tabs");
   const prestationTabs = document.querySelectorAll(".prestation-tab");
   const prestationPanels = document.querySelectorAll(".prestation-panel");
   prestationTabs.forEach((tab) => {
@@ -384,6 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
       prestationTabs.forEach((t) => t.classList.remove("is-active"));
       prestationPanels.forEach((p) => p.classList.remove("is-active"));
       tab.classList.add("is-active");
+      if (prestationTabsWrap) prestationTabsWrap.dataset.active = tab.dataset.tab;
       const target = document.querySelector(
         `.prestation-panel[data-panel="${tab.dataset.tab}"]`
       );
