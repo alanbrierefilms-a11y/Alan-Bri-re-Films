@@ -21,6 +21,11 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://alanbrierefilms.fr/reels-reseaux-sociaux.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://alanbrierefilms.fr/a-propos.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
