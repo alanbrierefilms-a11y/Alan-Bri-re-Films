@@ -3170,7 +3170,6 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
     flex: 0 0 60%;
     scroll-snap-align: start;
   }
-  .portfolio-col:nth-child(n+4) { display: none; }
   .portfolio-col-up,
   .portfolio-col-down {
     transform: none;
