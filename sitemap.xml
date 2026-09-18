@@ -26,6 +26,36 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://alanbrierefilms.fr/drone.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://alanbrierefilms.fr/photo.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alanbrierefilms.fr/publicite-spot.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alanbrierefilms.fr/clip-contenus-creatifs.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alanbrierefilms.fr/visites-immersives.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alanbrierefilms.fr/post-production.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://alanbrierefilms.fr/a-propos.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

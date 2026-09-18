@@ -420,19 +420,34 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   display: grid;
-  grid-template-columns: repeat(2, 170px);
-  gap: 2px 24px;
+  grid-template-columns: repeat(3, 190px);
+  gap: 2px 28px;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: var(--shadow);
-  padding: 14px 18px;
+  padding: 18px 20px;
   margin-top: 16px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   z-index: 60;
+}
+
+.nav-dropdown-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-dropdown-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 4px 4px 10px;
 }
 
 /* Pont invisible qui comble l'écart entre "Prestations" et le panneau,
@@ -492,6 +507,11 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
     text-align: center;
     padding: 0;
   }
+  .nav-dropdown-heading {
+    text-align: center;
+    padding: 10px 4px 2px;
+  }
+  .nav-dropdown-group:first-child .nav-dropdown-heading { padding-top: 0; }
   .nav-chevron { display: none; }
 }
 
@@ -1037,7 +1057,8 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 @media (max-width: 640px) {
-  .prestation-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .prestation-grid { grid-template-columns: 1fr; gap: 12px; }
+  .prestation-tile { aspect-ratio: 16 / 10; }
 }
 
 .prestation-tile {
@@ -1140,55 +1161,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   height: 15px;
   stroke: currentColor;
   fill: none;
-}
-
-.prestation-tile-featured {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.prestation-tile-featured::after {
-  background: linear-gradient(to top, rgba(10, 10, 12, 0.92) 0%, rgba(10, 10, 12, 0.3) 50%, transparent 82%);
-}
-
-.prestation-tile-featured .prestation-tile-title {
-  font-size: 24px;
-}
-
-.prestation-tile-featured .prestation-tile-tag {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.prestation-tile-featured .prestation-tile-desc {
-  font-size: 13px;
-}
-
-.prestation-tile-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 13px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--secondary), var(--secondary-deep));
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.03em;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 640px) {
-  .prestation-tile-featured {
-    grid-column: span 2;
-    grid-row: span 1;
-    aspect-ratio: 16 / 10;
-  }
 }
 
 /* --- Filters (films page) ------------------------------------------------ */
