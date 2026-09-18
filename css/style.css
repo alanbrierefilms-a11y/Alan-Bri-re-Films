@@ -2614,11 +2614,29 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   transition: color 0.4s ease;
 }
 
-.advantages-nav-item .emoji {
-  font-size: 16px;
+.advantages-nav-item .nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
   opacity: 0;
-  transform: scale(0.6);
+  transform: scale(0.5) rotate(-25deg);
   transition: opacity 0.4s ease, transform 0.4s ease;
+  color: var(--accent-deep);
+}
+
+.advantages-nav-item:nth-child(1) .nav-icon { color: var(--accent-deep); }
+.advantages-nav-item:nth-child(2) .nav-icon { color: var(--secondary-deep); }
+.advantages-nav-item:nth-child(3) .nav-icon { color: var(--tertiary-deep); }
+.advantages-nav-item:nth-child(4) .nav-icon { color: var(--secondary); }
+.advantages-nav-item:nth-child(5) .nav-icon { color: var(--accent-dark); }
+
+.advantages-nav-item .nav-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
 }
 
 .advantages-nav-item .label {
@@ -2657,9 +2675,9 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   color: transparent;
 }
 
-.advantages-nav-item.is-active .emoji {
+.advantages-nav-item.is-active .nav-icon {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) rotate(0deg);
 }
 
 .advantages-nav-item.is-active .mini-desc {
@@ -2674,12 +2692,14 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
 }
 
 .advantages-step {
-  min-height: 56vh;
+  position: relative;
+  min-height: 34vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 30px 0;
   opacity: 0.3;
+  overflow: hidden;
   transition: opacity 0.5s ease;
 }
 
@@ -2687,10 +2707,30 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   opacity: 1;
 }
 
+.advantages-step::before {
+  content: attr(data-step);
+  position: absolute;
+  top: 50%;
+  right: -0.1em;
+  transform: translateY(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(110px, 16vw, 200px);
+  line-height: 1;
+  opacity: 0.07;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .advantages-step .icon-badge {
   margin: 0 0 22px;
   color: var(--tertiary-deep);
-  transition: color 0.4s ease;
+  transition: color 0.4s ease, transform 0.4s ease;
+  transform: scale(0.8) rotate(-8deg);
+}
+
+.advantages-step.is-active .icon-badge {
+  transform: scale(1) rotate(0deg);
 }
 
 .advantages-step h3 {
@@ -2716,19 +2756,24 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
 }
 
 .advantages-step[data-step="1"] h3,
-.advantages-step[data-step="1"] .icon-badge { color: var(--accent-deep); }
+.advantages-step[data-step="1"] .icon-badge,
+.advantages-step[data-step="1"]::before { color: var(--accent-deep); }
 
 .advantages-step[data-step="2"] h3,
-.advantages-step[data-step="2"] .icon-badge { color: var(--secondary-deep); }
+.advantages-step[data-step="2"] .icon-badge,
+.advantages-step[data-step="2"]::before { color: var(--secondary-deep); }
 
 .advantages-step[data-step="3"] h3,
-.advantages-step[data-step="3"] .icon-badge { color: var(--tertiary-deep); }
+.advantages-step[data-step="3"] .icon-badge,
+.advantages-step[data-step="3"]::before { color: var(--tertiary-deep); }
 
 .advantages-step[data-step="4"] h3,
-.advantages-step[data-step="4"] .icon-badge { color: var(--secondary); }
+.advantages-step[data-step="4"] .icon-badge,
+.advantages-step[data-step="4"]::before { color: var(--secondary); }
 
 .advantages-step[data-step="5"] h3,
-.advantages-step[data-step="5"] .icon-badge { color: var(--accent-dark); }
+.advantages-step[data-step="5"] .icon-badge,
+.advantages-step[data-step="5"]::before { color: var(--accent-dark); }
 
 .advantages-step p {
   font-size: 17px;
@@ -2765,10 +2810,10 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   }
   .advantages-nav-item:last-child { border-bottom: 1px solid var(--border); }
   .advantages-nav-item .num { display: none; }
-  .advantages-nav-item .emoji,
-  .advantages-nav-item.is-active .emoji {
+  .advantages-nav-item .nav-icon,
+  .advantages-nav-item.is-active .nav-icon {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
   }
   .advantages-nav-item .mini-desc,
   .advantages-nav-item.is-active .mini-desc {
