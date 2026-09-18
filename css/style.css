@@ -1050,6 +1050,17 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 /* --- Prestations : onglets interactifs (Vidéo / Drone / Photo) ----------- */
+.prestation-tabs {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 36px;
+}
+
+@media (max-width: 640px) {
+  .prestation-tabs { padding: 20px; border-radius: 20px; }
+}
+
 .prestation-tabs-nav {
   display: flex;
   gap: 14px;
@@ -1060,39 +1071,76 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 .prestation-tab {
   flex: 1 1 220px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  padding: 20px 22px;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 18px;
   background: var(--bg);
   cursor: pointer;
   text-align: left;
-  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .prestation-tab:hover {
-  border-color: var(--accent-deep);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
 }
 
-.prestation-tab.is-active {
-  border-color: var(--accent-deep);
-  background: var(--accent-soft);
+.prestation-tab-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.prestation-tab-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--text-muted);
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+.prestation-tab-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .prestation-tab-label {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 17px;
   color: var(--text);
 }
 
 .prestation-tab-desc {
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--text-muted);
+  line-height: 1.4;
 }
+
+.prestation-tab[data-tab="video"]:hover { border-color: var(--accent-deep); }
+.prestation-tab[data-tab="video"].is-active { border-color: var(--accent-deep); background: var(--accent-soft); }
+.prestation-tab[data-tab="video"].is-active .prestation-tab-icon { background: var(--accent); border-color: var(--accent); transform: scale(1.08) rotate(-4deg); }
+.prestation-tab[data-tab="video"].is-active .prestation-tab-icon svg { stroke: #ffffff; }
+
+.prestation-tab[data-tab="drone"]:hover { border-color: var(--secondary-deep); }
+.prestation-tab[data-tab="drone"].is-active { border-color: var(--secondary-deep); background: var(--secondary-soft); }
+.prestation-tab[data-tab="drone"].is-active .prestation-tab-icon { background: var(--secondary); border-color: var(--secondary); transform: scale(1.08) rotate(-4deg); }
+.prestation-tab[data-tab="drone"].is-active .prestation-tab-icon svg { stroke: #ffffff; }
+
+.prestation-tab[data-tab="photo"]:hover { border-color: var(--tertiary-deep); }
+.prestation-tab[data-tab="photo"].is-active { border-color: var(--tertiary-deep); background: var(--tertiary-soft); }
+.prestation-tab[data-tab="photo"].is-active .prestation-tab-icon { background: var(--tertiary-deep); border-color: var(--tertiary-deep); transform: scale(1.08) rotate(-4deg); }
+.prestation-tab[data-tab="photo"].is-active .prestation-tab-icon svg { stroke: #ffffff; }
 
 .prestation-panel {
   display: none;
@@ -1100,6 +1148,12 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .prestation-panel.is-active {
   display: block;
+  animation: prestationPanelIn 0.4s ease;
+}
+
+@keyframes prestationPanelIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .prestation-panel-grid {
@@ -1119,25 +1173,36 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 .prestation-panel-link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 14px 18px;
+  padding: 14px 18px 14px 22px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: var(--text);
   background: var(--bg);
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .prestation-panel-link:hover {
-  border-color: var(--accent-deep);
-  background: var(--accent-soft);
-  color: var(--accent-deep);
+  transform: translateX(2px);
+}
+
+.prestation-panel-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background 0.2s ease;
 }
 
 .prestation-panel-link svg {
@@ -1146,8 +1211,23 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   stroke: currentColor;
   fill: none;
   flex-shrink: 0;
-  opacity: 0.6;
+  opacity: 0.5;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
+
+.prestation-panel-link:hover svg {
+  transform: translateX(3px);
+  opacity: 1;
+}
+
+.prestation-panel[data-panel="video"] .prestation-panel-link:hover { border-color: var(--accent-deep); background: var(--accent-soft); color: var(--accent-deep); }
+.prestation-panel[data-panel="video"] .prestation-panel-link:hover::before { background: var(--accent); }
+
+.prestation-panel[data-panel="drone"] .prestation-panel-link:hover { border-color: var(--secondary-deep); background: var(--secondary-soft); color: var(--secondary-deep); }
+.prestation-panel[data-panel="drone"] .prestation-panel-link:hover::before { background: var(--secondary); }
+
+.prestation-panel[data-panel="photo"] .prestation-panel-link:hover { border-color: var(--tertiary-deep); background: var(--tertiary-soft); color: var(--tertiary-deep); }
+.prestation-panel[data-panel="photo"] .prestation-panel-link:hover::before { background: var(--tertiary-deep); }
 
 /* --- Filters (films page) ------------------------------------------------ */
 .filters {
