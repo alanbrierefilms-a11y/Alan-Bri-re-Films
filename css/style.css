@@ -1870,7 +1870,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .contact-info-item:nth-child(2) { border-left-color: var(--secondary); }
 .contact-info-item:nth-child(3) { border-left-color: var(--tertiary-deep); }
-.contact-info-item:nth-child(4) { border-left-color: var(--accent); }
 
 .contact-info-item .label {
   font-size: 11px;
@@ -1883,8 +1882,9 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .contact-info-item a,
 .contact-info-item span.value {
-  font-family: var(--serif);
-  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
   color: var(--text);
 }
 
