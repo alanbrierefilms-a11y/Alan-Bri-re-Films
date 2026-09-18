@@ -3099,6 +3099,13 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   border-color: #ffffff;
 }
 
+.audience-card-icon {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 13px;
+  text-transform: none;
+}
+
 .audience-card span {
   font-size: 12px;
   font-weight: 700;
