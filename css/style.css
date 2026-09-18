@@ -630,8 +630,12 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
     inset: 0;
     background: var(--bg);
     flex-direction: column;
-    justify-content: center;
-    gap: 34px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 28px;
+    padding: 110px 24px 48px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
@@ -1096,7 +1100,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 @media (max-width: 780px) {
   .about-hero-inner {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: flex-start;
     gap: 28px;
   }
@@ -1338,11 +1342,27 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 .film-thumb-video-wrap iframe {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
   border: 0;
   pointer-events: none;
+}
+
+/* Vimeo's "background" embed fits the video at its native aspect inside the
+   iframe (no true cover-crop) — oversize + center it ourselves so it fills
+   the 4:3 thumb box regardless of the source video's own orientation. */
+.film-thumb-video-wrap--landscape iframe {
+  top: 50%;
+  left: 50%;
+  width: 133.34%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.film-thumb-video-wrap--portrait iframe {
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 237.04%;
+  transform: translate(-50%, -50%);
 }
 
 .film-tag {
@@ -2266,6 +2286,16 @@ form.contact-form {
 .footer-brand p {
   max-width: 320px;
   font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .footer-top { flex-direction: column; }
+  .footer-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 20px;
+    width: 100%;
+  }
 }
 
 .footer-cols {
