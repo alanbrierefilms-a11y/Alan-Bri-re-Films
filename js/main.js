@@ -217,57 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* Carrousel "Une vidéo pour chaque univers" : bande horizontale, navigation par boutons, boucle infinie */
-  const prestationTrack = document.querySelector(".prestation-track");
-  const prestationPrev = document.querySelector(".prestation-prev");
-  const prestationNext = document.querySelector(".prestation-next");
-  if (prestationTrack && prestationPrev && prestationNext) {
-    const PREPEND = 3;
-    const REAL_COUNT = 11;
-    const FORWARD_RESET_AT = PREPEND + REAL_COUNT; // 14
-    const FORWARD_RESET_TO = PREPEND; // 3
-    const BACKWARD_RESET_AT = 0;
-    const BACKWARD_RESET_TO = REAL_COUNT; // 11
-
-    let index = PREPEND;
-
-    const stepWidth = () => {
-      const first = prestationTrack.children[0];
-      const style = getComputedStyle(prestationTrack);
-      const gap = parseFloat(style.columnGap || style.gap || "20");
-      return first.getBoundingClientRect().width + gap;
-    };
-
-    const goTo = (i, animate) => {
-      prestationTrack.classList.toggle("no-transition", !animate);
-      prestationTrack.style.transform = `translateX(-${i * stepWidth()}px)`;
-    };
-
-    goTo(index, false);
-
-    prestationTrack.addEventListener("transitionend", () => {
-      if (index === FORWARD_RESET_AT) {
-        index = FORWARD_RESET_TO;
-        goTo(index, false);
-      } else if (index === BACKWARD_RESET_AT) {
-        index = BACKWARD_RESET_TO;
-        goTo(index, false);
-      }
-    });
-
-    prestationNext.addEventListener("click", () => {
-      index += 1;
-      goTo(index, true);
-    });
-
-    prestationPrev.addEventListener("click", () => {
-      index -= 1;
-      goTo(index, true);
-    });
-
-    window.addEventListener("resize", () => goTo(index, false));
-  }
-
   /* Grille "réalisations" : colonnes en parallaxe (une monte, une descend) */
   const portfolioGrid = document.querySelector(".portfolio-grid");
   if (portfolioGrid) {
