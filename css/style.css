@@ -815,7 +815,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   position: relative;
   overflow: hidden;
   text-align: center;
-  padding: calc(var(--header-h) + var(--ticker-h) + 56px) 0 48px;
+  padding: calc(var(--header-h) + var(--ticker-h) + 36px) 0 32px;
   background: linear-gradient(135deg, var(--accent-deep) 0%, var(--secondary-deep) 50%, var(--tertiary-deep) 100%);
 }
 
@@ -877,7 +877,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 24px;
 }
 
 .prestations-hero-tabs .prestation-tab {
@@ -913,9 +913,10 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   }
 }
 
-.prestations-hero-tabs .prestation-tab.is-active {
+.prestations-hero .prestations-hero-tabs .prestation-tab.is-active {
   background: #ffffff;
   border-color: #ffffff;
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.35);
 }
 
 .prestations-hero-tabs .prestation-tab.is-active .prestation-tab-desc {
@@ -938,12 +939,31 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 .prestations-content {
-  padding-top: 56px;
+  padding-top: 28px;
 }
 
-@media (max-width: 640px) {
+.prestations-content .prestation-tabs-full {
+  padding-top: 24px;
+}
+
+@media (max-width: 780px) {
   .prestations-hero-tabs .prestation-tab {
-    flex: 1 1 100%;
+    flex: 1 1 0;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  .prestations-hero-tabs .prestation-tab-desc {
+    display: none;
+  }
+  .prestations-hero-tabs .prestation-tab-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .prestations-hero-tabs .prestation-tab-emoji {
+    font-size: 15px;
+  }
+  .prestations-hero-tabs .prestation-tab-label {
+    font-size: 13px;
   }
 }
 
@@ -3210,6 +3230,12 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   animation-duration: 20s;
 }
 
+/* La rangée Entreprises a près de 2x plus de cartes que Particuliers : durée
+   allongée pour garder la même vitesse de défilement (px/s) entre les deux. */
+.audience-marquee[data-audience="entreprises"] .marquee-track {
+  animation-duration: 52s;
+}
+
 .audience-card {
   display: flex;
   flex-direction: column;
@@ -3220,7 +3246,8 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   text-decoration: none;
 }
 
-.audience-card img {
+.audience-card img,
+.audience-card video {
   width: 100%;
   height: 100px;
   object-fit: cover;
@@ -3229,9 +3256,11 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   filter: none;
   opacity: 1;
   transition: border-color 0.2s ease;
+  display: block;
 }
 
-.audience-card:hover img {
+.audience-card:hover img,
+.audience-card:hover video {
   border-color: #ffffff;
 }
 
