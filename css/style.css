@@ -2329,6 +2329,12 @@ form.contact-form {
   font-size: 14px;
 }
 
+.footer-cols {
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 640px) {
   .footer-top { flex-direction: column; }
   .footer-cols {
@@ -2337,12 +2343,6 @@ form.contact-form {
     gap: 32px 20px;
     width: 100%;
   }
-}
-
-.footer-cols {
-  display: flex;
-  gap: 64px;
-  flex-wrap: wrap;
 }
 
 .footer-col h4 {
@@ -3104,12 +3104,12 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   }
   .float-icon:nth-child(1) { top: 4% !important; left: 5% !important; }
   .float-icon:nth-child(2) { top: 4% !important; left: 78% !important; }
-  .float-icon:nth-child(3) { top: 90% !important; left: 6% !important; }
-  .float-icon:nth-child(4) { top: 90% !important; left: 76% !important; }
+  .float-icon:nth-child(3) { top: 60% !important; left: 6% !important; }
+  .float-icon:nth-child(4) { top: 60% !important; left: 76% !important; }
   .float-icon:nth-child(5) { top: 9% !important; left: 40% !important; }
-  .float-icon:nth-child(6) { top: 95% !important; left: 42% !important; }
+  .float-icon:nth-child(6) { top: 64% !important; left: 42% !important; }
   .float-icon:nth-child(7) { top: 6% !important; left: 90% !important; }
-  .float-icon:nth-child(8) { top: 87% !important; left: 90% !important; }
+  .float-icon:nth-child(8) { top: 55% !important; left: 90% !important; }
 }
 
 .portfolio-banner {
