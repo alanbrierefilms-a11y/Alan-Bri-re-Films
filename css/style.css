@@ -2099,17 +2099,38 @@ html.js-reveal .reveal.is-visible {
   transform: scale(1.08);
 }
 
-.service-card > .icon-badge {
-  position: relative;
-  left: 20px;
-  margin: -26px 0 0;
-  background: var(--bg-card);
-  box-shadow: 0 8px 20px rgba(42, 32, 19, 0.18);
+.viewfinder {
+  position: absolute;
+  inset: 16px;
+  pointer-events: none;
   z-index: 2;
 }
 
+.vf-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ffffff;
+  filter: drop-shadow(0 1px 4px rgba(20, 16, 8, 0.5));
+  transition: all 0.35s ease;
+}
+
+.vf-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+.vf-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+.vf-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+.vf-br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.service-card:hover .vf-tl { top: 8px; left: 8px; }
+.service-card:hover .vf-tr { top: 8px; right: 8px; }
+.service-card:hover .vf-bl { bottom: 8px; left: 8px; }
+.service-card:hover .vf-br { bottom: 8px; right: 8px; }
+
+.service-card:nth-child(1) .vf-corner { border-color: var(--accent); }
+.service-card:nth-child(2) .vf-corner { border-color: var(--secondary); }
+.service-card:nth-child(3) .vf-corner { border-color: var(--tertiary); }
+
 .service-card-body {
-  padding: 44px 28px 30px;
+  padding: 24px 28px 30px;
 }
 
 .service-card h3 {
