@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            presentationVideo.play();
+            presentationVideo.play().catch(() => {});
           } else {
             presentationVideo.pause();
           }
