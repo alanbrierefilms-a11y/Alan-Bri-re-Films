@@ -376,6 +376,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* Onglets Prestations (Vidéo / Drone / Photo) : affichent la liste correspondante */
+  const prestationTabs = document.querySelectorAll(".prestation-tab");
+  const prestationPanels = document.querySelectorAll(".prestation-panel");
+  prestationTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      prestationTabs.forEach((t) => t.classList.remove("is-active"));
+      prestationPanels.forEach((p) => p.classList.remove("is-active"));
+      tab.classList.add("is-active");
+      const target = document.querySelector(
+        `.prestation-panel[data-panel="${tab.dataset.tab}"]`
+      );
+      if (target) target.classList.add("is-active");
+    });
+  });
+
   /* Film filter (films.html) */
   const filterBtns = document.querySelectorAll(".filter-btn");
   const filmCards = document.querySelectorAll("[data-category]");

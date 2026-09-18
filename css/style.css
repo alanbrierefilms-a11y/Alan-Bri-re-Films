@@ -1049,118 +1049,104 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   margin-bottom: 0;
 }
 
-/* --- Prestations : grille de tuiles avec légende au survol ------------------ */
-.prestation-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+/* --- Prestations : onglets interactifs (Vidéo / Drone / Photo) ----------- */
+.prestation-tabs-nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
 }
 
-@media (max-width: 640px) {
-  .prestation-grid { grid-template-columns: 1fr; gap: 12px; }
-  .prestation-tile { aspect-ratio: 16 / 10; }
-}
-
-.prestation-tile {
-  position: relative;
-  display: block;
-  aspect-ratio: 4 / 5;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #16161a;
-}
-
-.prestation-tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s ease;
-}
-
-.prestation-tile:hover img {
-  transform: scale(1.08);
-}
-
-.prestation-tile::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(10, 10, 12, 0.9) 0%, rgba(10, 10, 12, 0.25) 55%, transparent 78%);
-  transition: background 0.3s ease;
-}
-
-.prestation-tile-caption {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  z-index: 1;
+.prestation-tab {
+  flex: 1 1 220px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
 }
 
-.prestation-tile-tag {
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
+.prestation-tab:hover {
+  border-color: var(--accent-deep);
+  transform: translateY(-2px);
 }
 
-.prestation-tile-title {
+.prestation-tab.is-active {
+  border-color: var(--accent-deep);
+  background: var(--accent-soft);
+}
+
+.prestation-tab-label {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 16px;
-  color: #ffffff;
-  margin-top: 4px;
+  font-size: 18px;
+  color: var(--text);
 }
 
-.prestation-tile-desc {
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.8);
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  margin-top: 0;
-  transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+.prestation-tab-desc {
+  font-size: 13px;
+  color: var(--text-muted);
 }
 
-.prestation-tile:hover .prestation-tile-desc {
-  max-height: 60px;
-  opacity: 1;
-  margin-top: 6px;
+.prestation-panel {
+  display: none;
 }
 
-.prestation-tile-arrow {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 1;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(4px);
+.prestation-panel.is-active {
+  display: block;
+}
+
+.prestation-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 780px) {
+  .prestation-panel-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .prestation-panel-grid { grid-template-columns: 1fr; }
+  .prestation-tab { flex: 1 1 100%; }
+}
+
+.prestation-panel-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  opacity: 0;
-  transform: scale(0.7) rotate(-30deg);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.prestation-tile:hover .prestation-tile-arrow {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
+.prestation-panel-link:hover {
+  border-color: var(--accent-deep);
+  background: var(--accent-soft);
+  color: var(--accent-deep);
 }
 
-.prestation-tile-arrow svg {
-  width: 15px;
-  height: 15px;
+.prestation-panel-link svg {
+  width: 14px;
+  height: 14px;
   stroke: currentColor;
   fill: none;
+  flex-shrink: 0;
+  opacity: 0.6;
 }
 
 /* --- Filters (films page) ------------------------------------------------ */
