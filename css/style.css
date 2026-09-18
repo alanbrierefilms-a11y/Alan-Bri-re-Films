@@ -212,6 +212,15 @@ section {
   opacity: 0;
 }
 
+@media (max-width: 640px) {
+  :root { --ticker-h: 50px; }
+  .ticker-item {
+    white-space: normal;
+    line-height: 1.4;
+    padding: 6px 16px;
+  }
+}
+
 /* --- Header / Navigation ------------------------------------------------ */
 .site-header {
   position: fixed;
