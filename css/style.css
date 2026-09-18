@@ -2035,7 +2035,7 @@ html.js-reveal .reveal.is-visible {
 }
 
 .services-banner {
-  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary) calc(100% - 560px), #ffffff 100%);
+  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary) calc(100% - 140px), #ffffff 100%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
