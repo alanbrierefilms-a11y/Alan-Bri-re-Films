@@ -531,44 +531,10 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 @media (max-width: 880px) {
-  .nav-dropdown-panel {
-    position: static;
-    grid-template-columns: 1fr;
-    transform: none;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    box-shadow: none;
-    border: none;
-    background: none;
-    padding: 4px 0 0;
-    margin-top: 6px;
-    display: grid;
-    gap: 10px;
-  }
-  .nav-dropdown-panel::before { display: none; }
-  .nav-dropdown-group {
-    padding: 0;
-  }
-  .nav-dropdown-group + .nav-dropdown-group {
-    border-left: none;
-    border-top: 1px solid var(--border);
-    padding-top: 6px;
-  }
-  .nav-dropdown-panel a {
-    font-size: 14px;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-  .nav-dropdown-panel a:hover { background: none; }
-  .nav-dropdown-heading {
-    justify-content: center;
-    text-align: center;
-    padding: 10px 4px 2px;
-  }
-  .nav-dropdown-group:first-child .nav-dropdown-heading { padding-top: 0; }
+  /* Menu mobile simplifié : Prestations reste un simple lien, pas de méga-menu déplié */
+  .nav-dropdown-panel { display: none; }
   .nav-chevron { display: none; }
+  .nav-links > a[href="mariage.html"] { display: none; }
 }
 
 .nav-cta {
@@ -1045,6 +1011,9 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 .about-hero-text { max-width: 520px; }
+
+.about-hero-no-photo .about-hero-inner { justify-content: flex-start; }
+.about-hero-no-photo .about-hero-text { max-width: 640px; }
 
 .about-hero-badges {
   display: flex;
@@ -1870,6 +1839,12 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   aspect-ratio: 16 / 9;
 }
 
+.split-media-video-wrap--portrait {
+  aspect-ratio: 9 / 16;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
 .split-media-video-wrap iframe {
   position: absolute;
   inset: 0;
@@ -2385,6 +2360,53 @@ form.contact-form {
   color: var(--text-faint);
   margin-bottom: 18px;
   font-family: var(--sans);
+}
+
+.footer-col summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.footer-col summary::-webkit-details-marker,
+.footer-col summary::marker {
+  display: none;
+  content: "";
+}
+
+.footer-col summary h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.footer-col summary h4::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  opacity: 0.6;
+}
+
+.footer-col[open] summary h4::after {
+  transform: rotate(-135deg);
+}
+
+@media (min-width: 641px) {
+  .footer-col summary {
+    cursor: default;
+    pointer-events: none;
+  }
+  .footer-col summary h4::after {
+    display: none;
+  }
+  .footer-col > :not(summary) {
+    display: block !important;
+  }
 }
 
 .footer-col ul li {
