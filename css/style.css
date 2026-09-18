@@ -2023,11 +2023,10 @@ html.js-reveal .reveal.is-visible {
   transform: scale(1.08);
 }
 
-.service-card-media .icon-badge {
-  position: absolute;
+.service-card > .icon-badge {
+  position: relative;
   left: 20px;
-  bottom: -26px;
-  margin: 0;
+  margin: -26px 0 0;
   background: var(--bg-card);
   box-shadow: 0 8px 20px rgba(42, 32, 19, 0.18);
   z-index: 2;
