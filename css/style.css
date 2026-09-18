@@ -1178,6 +1178,14 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 }
 
 /* --- "En bref" : titre / vidéo / détails, dans cet ordre sur mobile ------- */
+.about-teaser {
+  padding-bottom: 50px;
+}
+
+.advantages-section {
+  padding-top: 50px;
+}
+
 .about-split {
   grid-template-areas: "title media" "details media";
   align-items: start;
@@ -2035,10 +2043,11 @@ html.js-reveal .reveal.is-visible {
 }
 
 .services-banner {
-  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary) calc(100% - 140px), #ffffff 100%);
+  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary) calc(100% - 240px), #ffffff 100%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
+  padding-bottom: 220px;
 }
 
 .services-banner h2 { color: #ffffff; }
