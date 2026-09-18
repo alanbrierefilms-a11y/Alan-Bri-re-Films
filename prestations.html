@@ -85,41 +85,40 @@ document.documentElement.classList.add('js-reveal');</script>
 
 <main>
 
-  <section class="page-hero page-hero-compact">
+  <section class="prestations-hero">
     <div class="container">
       <div class="eyebrow">Prestations</div>
       <h1>Vidéo, drone &amp; photo pour <span class="title-badge">chaque projet</span></h1>
       <p class="lead">Trois expertises complémentaires, un seul interlocuteur. Choisissez un univers ci-dessous pour découvrir le détail de chaque prestation — ou passez directement par secteur d'activité, plus bas.</p>
+      <div class="prestations-hero-tabs">
+        <button type="button" class="prestation-tab is-active" data-tab="video">
+          <span class="prestation-tab-icon prestation-tab-emoji" aria-hidden="true">🎥</span>
+          <span class="prestation-tab-text">
+            <span class="prestation-tab-label">Vidéo</span>
+            <span class="prestation-tab-desc">Tournée au sol &amp; au drone — 9 formats</span>
+          </span>
+        </button>
+        <button type="button" class="prestation-tab" data-tab="drone">
+          <span class="prestation-tab-icon prestation-tab-emoji" aria-hidden="true">🚁</span>
+          <span class="prestation-tab-text">
+            <span class="prestation-tab-label">Drone</span>
+            <span class="prestation-tab-desc">Pilote certifié &amp; drone professionnel</span>
+          </span>
+        </button>
+        <button type="button" class="prestation-tab" data-tab="photo">
+          <span class="prestation-tab-icon prestation-tab-emoji" aria-hidden="true">📸</span>
+          <span class="prestation-tab-text">
+            <span class="prestation-tab-label">Photo</span>
+            <span class="prestation-tab-desc">En complément de la vidéo</span>
+          </span>
+        </button>
+      </div>
     </div>
   </section>
 
-  <section>
+  <section class="prestations-content">
     <div class="container">
       <div class="prestation-tabs prestation-tabs-full reveal" data-active="video">
-        <div class="prestation-tabs-nav">
-          <button type="button" class="prestation-tab is-active" data-tab="video">
-            <span class="prestation-tab-icon prestation-tab-emoji" aria-hidden="true">🎥</span>
-            <span class="prestation-tab-text">
-              <span class="prestation-tab-label">Vidéo</span>
-              <span class="prestation-tab-desc">Tournée au sol &amp; au drone — 9 formats</span>
-            </span>
-          </button>
-          <button type="button" class="prestation-tab" data-tab="drone">
-            <span class="prestation-tab-icon prestation-tab-emoji" aria-hidden="true">🚁</span>
-            <span class="prestation-tab-text">
-              <span class="prestation-tab-label">Drone</span>
-              <span class="prestation-tab-desc">Pilote certifié &amp; drone professionnel</span>
-            </span>
-          </button>
-          <button type="button" class="prestation-tab" data-tab="photo">
-            <span class="prestation-tab-icon prestation-tab-emoji" aria-hidden="true">📸</span>
-            <span class="prestation-tab-text">
-              <span class="prestation-tab-label">Photo</span>
-              <span class="prestation-tab-desc">En complément de la vidéo</span>
-            </span>
-          </button>
-        </div>
-
         <div class="prestation-tabs-panels">
           <div class="prestation-panel is-active" data-panel="video">
             <div class="film-grid">
