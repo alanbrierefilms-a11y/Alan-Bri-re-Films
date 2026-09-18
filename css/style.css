@@ -1986,6 +1986,8 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   .services-list { grid-template-columns: 1fr; }
 }
 
+.services-dots { display: none; }
+
 @media (max-width: 640px) {
   .services-list.services-list-mobile-swipe {
     display: flex;
@@ -2020,8 +2022,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
     transform: scale(1.3);
   }
 }
-
-.services-dots { display: none; }
 
 .service-item {
   background: var(--bg);
