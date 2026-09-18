@@ -1,10 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* Vidéo de présentation : lecture au survol, pause quand on quitte */
+  /* Vidéo de présentation : lecture dès qu'elle est visible à l'écran (scroll), pause sinon — ordinateur et téléphone */
   const presentationVideo = document.querySelector(".phone-screen-video");
-  if (presentationVideo) {
-    const phoneMockup = presentationVideo.closest(".phone-mockup");
-    phoneMockup.addEventListener("mouseenter", () => presentationVideo.play());
-    phoneMockup.addEventListener("mouseleave", () => presentationVideo.pause());
+  if (presentationVideo && "IntersectionObserver" in window) {
+    const presentationObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            presentationVideo.play();
+          } else {
+            presentationVideo.pause();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    presentationObserver.observe(presentationVideo);
   }
 
   /* Bandeau d'annonces : un texte à la fois, en fondu */
