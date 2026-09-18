@@ -2010,6 +2010,7 @@ html.js-reveal .reveal.is-visible {
 .service-card p {
   font-size: 14px;
   margin-bottom: 0;
+  min-height: 72px;
 }
 
 .service-card img {
