@@ -2714,7 +2714,7 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   transform: translateY(-50%);
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(90px, 13vw, 160px);
+  font-size: clamp(150px, 22vw, 280px);
   line-height: 1;
   opacity: 0.07;
   z-index: -1;
