@@ -810,6 +810,11 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   position: relative;
 }
 
+.page-hero-compact {
+  min-height: 0;
+  padding: calc(var(--header-h) + var(--ticker-h) + 40px) 0 40px;
+}
+
 .page-hero::before {
   content: "";
   position: absolute;
@@ -1355,6 +1360,26 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   stroke: var(--text-muted);
   fill: none;
   transition: stroke 0.3s ease;
+}
+
+.prestation-tab-emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* --- Onglets en pastilles (page Prestations) : même esprit que les pastilles secteurs --- */
+.prestation-tabs-full .prestation-tab {
+  border-radius: 999px;
+  padding: 12px 24px 12px 12px;
+}
+
+.prestation-tabs-full .prestation-tab-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.prestation-tabs-full .prestation-tab-emoji {
+  font-size: 19px;
 }
 
 .prestation-tab-text {
@@ -2788,7 +2813,7 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
 }
 
 .services-banner {
-  background: linear-gradient(170deg, var(--accent-deep) 0%, var(--secondary-deep) 45%, var(--tertiary-deep) 75%, var(--tertiary-deep) calc(100% - 240px), #ffffff 100%);
+  background: linear-gradient(to bottom, var(--accent-deep) 0%, var(--secondary-deep) 45%, var(--tertiary-deep) 75%, var(--tertiary-deep) calc(100% - 240px), #ffffff 100%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
