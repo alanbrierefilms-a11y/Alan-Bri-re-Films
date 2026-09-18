@@ -692,6 +692,24 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   content: none;
 }
 
+/* --- Hero en dégradé (pages prestations vidéo sans photo de couverture dédiée) --- */
+.hero-gradient .hero-bg {
+  background: linear-gradient(135deg, var(--accent-deep) 0%, var(--secondary-deep) 50%, var(--tertiary-deep) 100%);
+}
+.hero-gradient .hero-bg img { display: none; }
+.hero-gradient .hero-content .eyebrow { color: rgba(255, 255, 255, 0.85); }
+.hero-gradient .hero-content .eyebrow::before { background: rgba(255, 255, 255, 0.6); }
+.hero-gradient .hero-content h1,
+.hero-gradient .hero-content h1 em {
+  color: #ffffff;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: #ffffff;
+}
+.hero-gradient .hero-content .lead { color: rgba(255, 255, 255, 0.85); }
+.hero-gradient .scroll-cue { color: rgba(255, 255, 255, 0.75); }
+
 .hero-content {
   max-width: 760px;
 }
@@ -1840,9 +1858,24 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   border: 1px solid var(--border);
 }
 
-.split-media img {
+.split-media img,
+.split-media video {
   width: 100%;
   display: block;
+}
+
+.split-media-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.split-media-video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .split-media .frame-label {
