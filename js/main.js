@@ -1,4 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* Carrousel "Ce que je propose" (mobile) : points de pagination synchronisés au swipe */
+  const swipeList = document.querySelector(".services-list-mobile-swipe");
+  const swipeDots = document.querySelectorAll(".services-dot");
+  if (swipeList && swipeDots.length) {
+    const swipeItems = Array.from(swipeList.querySelectorAll(".service-item"));
+    swipeDots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const item = swipeItems[Number(dot.dataset.index)];
+        if (item) item.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      });
+    });
+    if ("IntersectionObserver" in window) {
+      const dotObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = swipeItems.indexOf(entry.target);
+              if (idx > -1) {
+                swipeDots.forEach((d) => d.classList.remove("is-active"));
+                if (swipeDots[idx]) swipeDots[idx].classList.add("is-active");
+              }
+            }
+          });
+        },
+        { root: swipeList, threshold: 0.6 }
+      );
+      swipeItems.forEach((item) => dotObserver.observe(item));
+    }
+  }
+
   /* Vidéo de présentation : lecture dès qu'elle est visible à l'écran (scroll), pause sinon — ordinateur et téléphone */
   const presentationVideo = document.querySelector(".phone-screen-video");
   if (presentationVideo && "IntersectionObserver" in window) {

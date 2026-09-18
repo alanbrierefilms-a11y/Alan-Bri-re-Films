@@ -1804,6 +1804,10 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   padding-bottom: 50px;
 }
 
+@media (max-width: 880px) {
+  .about-teaser { margin-top: 0; }
+}
+
 .advantages-section {
   padding-top: 50px;
 }
@@ -1981,6 +1985,43 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 @media (max-width: 640px) {
   .services-list { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 640px) {
+  .services-list.services-list-mobile-swipe {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .services-list.services-list-mobile-swipe::-webkit-scrollbar { display: none; }
+  .services-list.services-list-mobile-swipe .service-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+  }
+  .services-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .services-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .services-dot.is-active {
+    background: var(--accent);
+    transform: scale(1.3);
+  }
+}
+
+.services-dots { display: none; }
 
 .service-item {
   background: var(--bg);
@@ -3192,25 +3233,31 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   font-size: 15px;
 }
 
+.portfolio-mobile-marquee { display: none; }
+
 @media (max-width: 780px) {
-  .portfolio-grid {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x proximity;
-    padding: 20px 20px 30px;
-    margin-top: 48px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+  .portfolio-grid { display: none; }
+
+  .portfolio-mobile-marquee {
+    display: block;
+    margin-top: 40px;
   }
-  .portfolio-grid::-webkit-scrollbar { display: none; }
-  .portfolio-col {
-    flex: 0 0 60%;
-    scroll-snap-align: start;
+  .portfolio-mobile-marquee .marquee-track {
+    gap: 14px;
+    animation-duration: 38s;
   }
-  .portfolio-col-up,
-  .portfolio-col-down {
-    transform: none;
-    margin-top: 0;
+  .portfolio-mobile-tile {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: block;
+  }
+  .portfolio-mobile-tile img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
   }
 }
 

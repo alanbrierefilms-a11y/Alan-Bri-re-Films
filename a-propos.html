@@ -151,7 +151,7 @@ document.documentElement.classList.add('js-reveal');</script>
         </div>
         <p class="lead">De l'idée à la diffusion, un accompagnement complet sur chaque étape de production.</p>
       </div>
-      <div class="services-list reveal">
+      <div class="services-list services-list-mobile-swipe reveal" id="ce-que-je-propose">
         <div class="service-item">
           <span class="num">01</span>
           <h3>Réalisation</h3>
@@ -187,6 +187,15 @@ document.documentElement.classList.add('js-reveal');</script>
           <h3>Montage &amp; étalonnage</h3>
           <p>Post-production complète : montage, habillage sonore, étalonnage colorimétrique et livraison finale.</p>
         </div>
+      </div>
+      <div class="services-dots" role="tablist" aria-label="Naviguer entre les prestations">
+        <button type="button" class="services-dot is-active" data-target="ce-que-je-propose" data-index="0" aria-label="Réalisation"></button>
+        <button type="button" class="services-dot" data-target="ce-que-je-propose" data-index="1" aria-label="Écriture &amp; scénario"></button>
+        <button type="button" class="services-dot" data-target="ce-que-je-propose" data-index="2" aria-label="Direction photo"></button>
+        <button type="button" class="services-dot" data-target="ce-que-je-propose" data-index="3" aria-label="Direction d'acteurs"></button>
+        <button type="button" class="services-dot" data-target="ce-que-je-propose" data-index="4" aria-label="Production"></button>
+        <button type="button" class="services-dot" data-target="ce-que-je-propose" data-index="5" aria-label="Prises de vues par drone"></button>
+        <button type="button" class="services-dot" data-target="ce-que-je-propose" data-index="6" aria-label="Montage &amp; étalonnage"></button>
       </div>
     </div>
   </section>
