@@ -2404,9 +2404,6 @@ form.contact-form {
   .footer-col summary h4::after {
     display: none;
   }
-  .footer-col > :not(summary) {
-    display: block !important;
-  }
 }
 
 .footer-col ul li {

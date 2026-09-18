@@ -1,4 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* Accordéon du footer : ouvert par défaut dans le HTML (visible même sans JS,
+     et sur ordinateur), replié uniquement sur mobile où CSS seul ne peut pas
+     forcer la fermeture du contenu d'un <details> ouvert */
+  const footerCols = document.querySelectorAll(".footer-col");
+  if (footerCols.length) {
+    const mobileQuery = window.matchMedia("(max-width: 640px)");
+    const syncFooterCols = () => {
+      footerCols.forEach((col) => {
+        if (mobileQuery.matches) {
+          col.removeAttribute("open");
+        } else {
+          col.setAttribute("open", "");
+        }
+      });
+    };
+    syncFooterCols();
+    mobileQuery.addEventListener("change", syncFooterCols);
+  }
+
   /* Carrousel "Ce que je propose" (mobile) : points de pagination synchronisés au swipe */
   const swipeList = document.querySelector(".services-list-mobile-swipe");
   const swipeDots = document.querySelectorAll(".services-dot");
