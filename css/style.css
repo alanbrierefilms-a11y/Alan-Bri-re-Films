@@ -808,6 +808,27 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   text-align: center;
 }
 
+.services-hero-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: 0 12px 30px rgba(42, 32, 19, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--accent-deep);
+}
+
+.services-hero-icon svg {
+  width: 40px;
+  height: 40px;
+  stroke: currentColor;
+  fill: none;
+}
+
 .section-head .eyebrow {
   justify-content: center;
 }
@@ -2060,9 +2081,14 @@ html.js-reveal .reveal.is-visible {
     scrollbar-width: none;
   }
   .services-grid::-webkit-scrollbar { display: none; }
-  .service-card {
+  .service-card-enter {
     flex: 0 0 82%;
     scroll-snap-align: start;
+  }
+  html.js-reveal .service-card-enter {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
@@ -2072,7 +2098,7 @@ html.js-reveal .reveal.is-visible {
   border-radius: 18px;
   overflow: hidden;
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .service-card:hover {
@@ -2081,26 +2107,29 @@ html.js-reveal .reveal.is-visible {
   border-color: var(--accent-dark);
 }
 
-/* Entrée en cascade des 3 cartes au scroll */
-html.js-reveal .service-card {
+/* Répartition des 3 cartes depuis la caméra centrale au scroll */
+.service-card-enter {
+  --cx: 0px;
+}
+
+.service-card-enter:nth-child(1) { --cx: 90px; }
+.service-card-enter:nth-child(2) { --cx: 0px; }
+.service-card-enter:nth-child(3) { --cx: -90px; }
+
+html.js-reveal .service-card-enter {
   opacity: 0;
+  transform: translate(var(--cx), -70px) scale(0.35);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-html.js-reveal .services-grid.is-visible .service-card {
+html.js-reveal .services-grid.is-visible .service-card-enter {
   opacity: 1;
+  transform: translate(0, 0) scale(1);
 }
 
-html.js-reveal .services-grid.is-visible .service-card:nth-child(1) {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease 0.05s;
-}
-
-html.js-reveal .services-grid.is-visible .service-card:nth-child(2) {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease 0.2s;
-}
-
-html.js-reveal .services-grid.is-visible .service-card:nth-child(3) {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease 0.35s;
-}
+html.js-reveal .services-grid.is-visible .service-card-enter:nth-child(1) { transition-delay: 0.05s; }
+html.js-reveal .services-grid.is-visible .service-card-enter:nth-child(2) { transition-delay: 0.2s; }
+html.js-reveal .services-grid.is-visible .service-card-enter:nth-child(3) { transition-delay: 0.35s; }
 
 /* Balayage de lumière sur la photo au survol */
 .service-card-media::after {
