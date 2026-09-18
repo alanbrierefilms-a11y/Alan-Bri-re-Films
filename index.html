@@ -85,6 +85,18 @@ document.documentElement.classList.add('js-reveal');</script>
   "priceRange": "Sur devis"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Présentation — Alan Brière Films, vidéaste professionnel",
+  "description": "Alan Brière se présente : vidéaste et pilote de drone basé à La Rochelle, spécialisé en corporate, événementiel et mariage.",
+  "thumbnailUrl": "https://alanbrierefilms.fr/assets/presentation-alan-briere-films-poster.webp",
+  "uploadDate": "2026-09-18",
+  "contentUrl": "https://alanbrierefilms.fr/assets/presentation-alan-briere-films.mp4",
+  "duration": "PT24S"
+}
+</script>
 </head>
 <body>
 
@@ -130,6 +142,7 @@ document.documentElement.classList.add('js-reveal');</script>
   <section class="hero">
     <div class="hero-bg">
       <video class="hero-bg-video" autoplay muted loop playsinline poster="assets/hero-bg.svg?v=2" title="Bande démo — Alan Brière Films">
+        <source src="assets/hero-bg-video-mobile.mp4" type="video/mp4" media="(max-width: 880px)">
         <source src="assets/hero-bg-video.mp4" type="video/mp4">
       </video>
     </div>
@@ -203,7 +216,9 @@ document.documentElement.classList.add('js-reveal');</script>
             <img class="stack-photo" src="assets/alan-briere-videaste.webp" alt="Alan Brière, vidéaste professionnel basé à La Rochelle, spécialisé en corporate, événementiel et mariage" loading="lazy">
             <div class="phone-mockup">
               <div class="phone-screen">
-                <iframe class="phone-screen-iframe" src="https://player.vimeo.com/video/1227558888?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Présentation Alan Brière Films"></iframe>
+                <video class="phone-screen-video" controls playsinline preload="metadata" poster="assets/presentation-alan-briere-films-poster.webp" title="Présentation Alan Brière Films">
+                  <source src="assets/presentation-alan-briere-films.mp4" type="video/mp4">
+                </video>
               </div>
             </div>
           </div>
@@ -874,7 +889,6 @@ document.documentElement.classList.add('js-reveal');</script>
   </div>
 </footer>
 
-<script src="https://player.vimeo.com/api/player.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
