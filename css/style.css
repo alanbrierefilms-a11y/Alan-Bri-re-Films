@@ -1179,7 +1179,8 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 /* --- "En bref" : titre / vidéo / détails, dans cet ordre sur mobile ------- */
 .about-teaser {
-  padding-top: 40px;
+  margin-top: -100px;
+  padding-top: 20px;
   padding-bottom: 50px;
 }
 
