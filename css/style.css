@@ -2120,7 +2120,7 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) {
 
 .service-card-media {
   position: relative;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
 }
 
