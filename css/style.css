@@ -2623,20 +2623,11 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   opacity: 0;
   transform: scale(0.5) rotate(-25deg);
   transition: opacity 0.4s ease, transform 0.4s ease;
-  color: var(--accent-deep);
 }
 
-.advantages-nav-item:nth-child(1) .nav-icon { color: var(--accent-deep); }
-.advantages-nav-item:nth-child(2) .nav-icon { color: var(--secondary-deep); }
-.advantages-nav-item:nth-child(3) .nav-icon { color: var(--tertiary-deep); }
-.advantages-nav-item:nth-child(4) .nav-icon { color: var(--secondary); }
-.advantages-nav-item:nth-child(5) .nav-icon { color: var(--accent-dark); }
-
-.advantages-nav-item .nav-icon svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  fill: none;
+.advantages-nav-item .nav-icon img {
+  width: 20px;
+  height: 20px;
 }
 
 .advantages-nav-item .label {
