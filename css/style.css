@@ -1338,6 +1338,12 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   opacity: 0.65;
 }
 
+.player.player--portrait {
+  aspect-ratio: 9 / 16;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
 .player-play {
   position: absolute;
   inset: 0;
