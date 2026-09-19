@@ -24,6 +24,7 @@
   --tertiary-deep: #4c8892;
   --tertiary-soft: rgba(142, 197, 206, 0.18);
   --brand-gradient: linear-gradient(120deg, var(--accent) 0%, var(--secondary) 55%, var(--tertiary) 100%);
+  --brand-gradient-deep: linear-gradient(120deg, var(--accent-deep) 0%, var(--secondary-deep) 55%, var(--tertiary-deep) 100%);
 
   --shadow: 0 20px 60px rgba(42, 32, 19, 0.10);
   --radius: 4px;
@@ -873,7 +874,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 .hero-photo-overlay .hero-content .lead { color: var(--text); }
 .hero-photo-overlay .hero-content h1,
 .hero-photo-overlay .hero-content h1 em {
-  background: var(--brand-gradient);
+  background: var(--brand-gradient-deep);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -4228,7 +4229,7 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   font-weight: 800;
   font-size: 24px;
   line-height: 1.15;
-  background: linear-gradient(120deg, var(--accent-deep) 0%, var(--secondary-deep) 55%, var(--tertiary-deep) 100%);
+  background: var(--brand-gradient-deep);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -4237,6 +4238,23 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
 .price-tag-detail {
   font-size: 13px;
   color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .price-tag {
+    max-width: 320px;
+    padding: 16px 20px;
+  }
+  .hero-centered .price-tag {
+    padding: 20px 20px 16px;
+  }
+  .price-tag-value {
+    font-size: 18px;
+  }
+  .price-tag-detail {
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
 }
 
 /* --- FAQ prestation --------------------------------------------------------- */
