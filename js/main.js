@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       video.addEventListener("error", () => {
         player.innerHTML =
-          '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-faint);font-size:13px;text-align:center;padding:20px;">Vidéo introuvable — déposez le fichier à l\'emplacement&nbsp;<strong>' +
+          '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-faint);font-size:13px;text-align:center;padding:20px;">Vidéo introuvable, déposez le fichier à l\'emplacement&nbsp;<strong>' +
           src +
           "</strong></div>";
       });
@@ -521,7 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
           throw new Error(result.message || "Échec de l'envoi");
         }
       } catch (err) {
-        btn.textContent = "Erreur — réessayez";
+        btn.textContent = "Erreur, réessayez";
       }
 
       setTimeout(() => {
