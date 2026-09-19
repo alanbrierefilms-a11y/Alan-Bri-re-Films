@@ -57,5 +57,5 @@
   RewriteRule ^(.*)$ https://alanbrierefilms.fr/$1 [L,R=301]
 </IfModule>
 
-# Custom 404 page (create assets/404.html if you want a branded one; falls back to host default otherwise)
-# ErrorDocument 404 /404.html
+# Custom 404 page
+ErrorDocument 404 /404.html
