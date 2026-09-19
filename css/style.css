@@ -248,6 +248,16 @@ section {
   box-shadow: 0 1px 0 var(--border);
 }
 
+/* backdrop-filter sur .site-header crée un nouveau bloc de positionnement pour
+   ses enfants en position:fixed (dont .nav-links, le panneau plein écran du
+   menu mobile) : au lieu de couvrir tout l'écran, il se retrouve confiné à la
+   hauteur du header (84px) une fois qu'on a scrollé. On désactive le flou tant
+   que le menu mobile est ouvert pour que .nav-links redevienne relatif au
+   viewport. */
+body.nav-open .site-header {
+  backdrop-filter: none;
+}
+
 /* --- Header transparent (pages avec un hero plein écran : accueil, mariage) ---
    Léger voile sombre dégradé pour garantir la lisibilité du texte blanc,
    quelle que soit la clarté de l'image/vidéo affichée derrière. */
@@ -810,9 +820,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 
 @media (max-width: 640px) {
   .hero-mascot {
-    top: -2.6em;
-    left: -18%;
-    width: 2.6em;
+    display: none;
   }
 }
 

@@ -43,9 +43,14 @@
 </IfModule>
 
 # Force HTTPS and the www-less canonical host
+# (checks X-Forwarded-Proto too: on hosts that terminate SSL on a proxy in front
+# of Apache, %{HTTPS} alone stays "off" even over a real https:// connection,
+# which causes an infinite redirect loop - the site intermittently refusing to
+# open on mobile).
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   RewriteCond %{HTTP_HOST} ^www\.alanbrierefilms\.fr$ [NC]
