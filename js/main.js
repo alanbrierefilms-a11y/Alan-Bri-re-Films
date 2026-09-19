@@ -55,35 +55,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const reelNext = document.querySelector(".reel-arrow-next");
   if (reelRow) {
     const reelItems = Array.from(reelRow.querySelectorAll(".reel-card"));
-    let reelIndex = 0;
+    const reelStep = reelItems.length > 1 ? reelItems[1].offsetLeft - reelItems[0].offsetLeft : reelItems[0].offsetWidth;
+    const setActiveReelDot = (index) => {
+      reelDots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+    };
     const goToReel = (index) => {
-      reelIndex = Math.max(0, Math.min(index, reelItems.length - 1));
-      const item = reelItems[reelIndex];
-      if (item) item.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      const clamped = Math.max(0, Math.min(index, reelItems.length - 1));
+      const item = reelItems[clamped];
+      if (item) item.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
     };
     reelDots.forEach((dot) => {
       dot.addEventListener("click", () => goToReel(Number(dot.dataset.index)));
     });
-    if (reelPrev) reelPrev.addEventListener("click", () => goToReel(reelIndex - 1));
-    if (reelNext) reelNext.addEventListener("click", () => goToReel(reelIndex + 1));
-    if ("IntersectionObserver" in window && reelDots.length) {
-      const reelObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const idx = reelItems.indexOf(entry.target);
-              if (idx > -1) {
-                reelIndex = idx;
-                reelDots.forEach((d) => d.classList.remove("is-active"));
-                if (reelDots[idx]) reelDots[idx].classList.add("is-active");
-              }
-            }
-          });
-        },
-        { root: reelRow, threshold: 0.6 }
-      );
-      reelItems.forEach((item) => reelObserver.observe(item));
+    if (reelPrev) {
+      reelPrev.addEventListener("click", () => goToReel(Math.round(reelRow.scrollLeft / reelStep) - 1));
     }
+    if (reelNext) {
+      reelNext.addEventListener("click", () => goToReel(Math.round(reelRow.scrollLeft / reelStep) + 1));
+    }
+    /* Index piloté par la position de défilement plutôt que par IntersectionObserver :
+       plusieurs cartes peuvent être visibles en même temps sur grand écran, ce qui
+       rend le suivi par visibilité peu fiable dès que la largeur dépasse une carte. */
+    let reelScrollTimer = null;
+    reelRow.addEventListener("scroll", () => {
+      if (reelScrollTimer) window.clearTimeout(reelScrollTimer);
+      reelScrollTimer = window.setTimeout(() => {
+        const index = Math.max(0, Math.min(Math.round(reelRow.scrollLeft / reelStep), reelItems.length - 1));
+        setActiveReelDot(index);
+      }, 100);
+    });
   }
 
   /* Vidéo de présentation : lecture dès qu'elle est visible à l'écran (scroll), pause sinon — ordinateur et téléphone */
