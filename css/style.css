@@ -698,14 +698,12 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   overflow-x: auto;
   padding: 8px 4px 24px;
   margin-top: 32px;
-  scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 .instagram-reel-row::-webkit-scrollbar { display: none; }
 .instagram-reel-row > * {
   flex: 0 0 auto;
-  scroll-snap-align: start;
 }
 .instagram-reel-row .reel-card {
   position: relative;
