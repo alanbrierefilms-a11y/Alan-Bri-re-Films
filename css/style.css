@@ -4228,7 +4228,7 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   font-weight: 800;
   font-size: 24px;
   line-height: 1.15;
-  background: var(--brand-gradient);
+  background: linear-gradient(120deg, var(--accent-deep) 0%, var(--secondary-deep) 55%, var(--tertiary-deep) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
