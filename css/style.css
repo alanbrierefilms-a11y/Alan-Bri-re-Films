@@ -684,29 +684,6 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   color: var(--accent);
 }
 
-/* --- Hero avec vraie photo + texte blanc (ex. mariage.html) --------------- */
-.hero-photo-overlay .hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 12, 0.25) 0%, rgba(10, 10, 12, 0.58) 100%);
-}
-.hero-photo-overlay .hero-content .eyebrow { color: rgba(255, 255, 255, 0.85); }
-.hero-photo-overlay .hero-content .eyebrow::before { background: rgba(255, 255, 255, 0.6); }
-.hero-photo-overlay .hero-content h1,
-.hero-photo-overlay .hero-content h1 em {
-  color: #ffffff;
-  background: none;
-  -webkit-background-clip: initial;
-  background-clip: initial;
-  -webkit-text-fill-color: #ffffff;
-}
-.hero-photo-overlay .hero-content .lead { color: rgba(255, 255, 255, 0.9); }
-.hero-photo-overlay .scroll-cue { color: rgba(255, 255, 255, 0.75); }
-.hero-photo-overlay .btn-ghost {
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.7);
-}
 .hero-gradient .hero-content h1,
 .hero-photo-overlay .hero-content h1 {
   font-size: clamp(28px, 4vw, 46px);
@@ -730,11 +707,20 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   flex: 0 0 auto;
   scroll-snap-align: start;
 }
-
-.hero-photo-overlay .btn-ghost:hover {
-  background: transparent;
-  border-color: var(--accent);
-  color: var(--accent);
+.instagram-reel-row .reel-card {
+  position: relative;
+  width: 220px;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+}
+.instagram-reel-row .reel-card iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .hero-content {
@@ -824,6 +810,25 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 .hero-centered .hero-bg::after {
   background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.75) 55%, rgba(255, 255, 255, 0.88) 100%);
 }
+
+/* --- Hero avec vraie photo + éclaircissement + texte sombre (ex. mariage.html) --- */
+.hero-photo-overlay .hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.55) 55%, rgba(255, 255, 255, 0.75) 100%);
+}
+.hero-photo-overlay .hero-content .eyebrow { color: var(--accent-deep); }
+.hero-photo-overlay .hero-content .lead { color: var(--text); }
+.hero-photo-overlay .hero-content h1,
+.hero-photo-overlay .hero-content h1 em {
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+.hero-photo-overlay .scroll-cue { color: var(--text-faint); }
 
 /* --- Icon badge (rond avec icône, centré au-dessus d'un titre) --------------- */
 .icon-badge {
