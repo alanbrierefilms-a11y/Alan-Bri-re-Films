@@ -55,6 +55,7 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -2032,6 +2033,7 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 .split-media img,
 .split-media video {
   width: 100%;
+  height: auto;
   display: block;
 }
 
