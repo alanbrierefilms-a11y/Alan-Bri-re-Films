@@ -4194,53 +4194,61 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
 }
 
 /* --- Tarif indicatif ------------------------------------------------------ */
+/* Étiquette "ticket" : légèrement inclinée, coins façon viseur d'appareil photo
+   (repris du motif .vf-corner utilisé sur les cartes de service), posée sur un
+   papier crème sur fond clair ou en verre dépoli sur fond coloré/photo - texte
+   toujours en encre sombre pour rester lisible dans les deux cas. */
 .price-tag {
   position: relative;
   display: inline-flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 18px 26px 18px 28px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  box-shadow: 0 4px 24px rgba(42, 32, 19, 0.08);
-  margin: 22px 0;
+  gap: 8px;
+  padding: 22px 30px;
+  border-radius: 6px;
+  background: var(--bg-alt);
+  box-shadow: 0 10px 30px rgba(42, 32, 19, 0.14);
+  margin: 24px 0;
+  transform: rotate(-1.2deg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.price-tag::before {
+.price-tag::after {
   content: "";
   position: absolute;
-  left: 0;
-  top: 10px;
-  bottom: 10px;
-  width: 4px;
-  border-radius: 4px;
-  background: var(--brand-gradient);
+  inset: 9px;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, var(--accent-deep) 2px, transparent 2px) 0 0 / 18px 2px no-repeat,
+    linear-gradient(to bottom, var(--accent-deep) 2px, transparent 2px) 0 0 / 2px 18px no-repeat,
+    linear-gradient(to left, var(--tertiary-deep) 2px, transparent 2px) 100% 0 / 18px 2px no-repeat,
+    linear-gradient(to bottom, var(--tertiary-deep) 2px, transparent 2px) 100% 0 / 2px 18px no-repeat,
+    linear-gradient(to right, var(--tertiary-deep) 2px, transparent 2px) 0 100% / 18px 2px no-repeat,
+    linear-gradient(to top, var(--tertiary-deep) 2px, transparent 2px) 0 100% / 2px 18px no-repeat,
+    linear-gradient(to left, var(--accent-deep) 2px, transparent 2px) 100% 100% / 18px 2px no-repeat,
+    linear-gradient(to top, var(--accent-deep) 2px, transparent 2px) 100% 100% / 2px 18px no-repeat;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .price-tag:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 0 16px 40px rgba(42, 32, 19, 0.2);
   }
 }
 
-.hero-centered .price-tag {
+.hero-centered .price-tag,
+.hero-photo-overlay .price-tag {
   align-items: center;
-  padding: 22px 26px 18px;
-}
-
-.hero-centered .price-tag::before {
-  left: 50%;
-  top: 0;
-  bottom: auto;
-  width: 40px;
-  height: 3px;
-  transform: translateX(-50%);
+  padding: 24px 30px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px rgba(20, 16, 8, 0.25);
 }
 
 .price-tag-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -4248,15 +4256,37 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
   color: var(--accent-deep);
 }
 
+.price-tag-label::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-deep);
+  flex-shrink: 0;
+}
+
 .price-tag-value {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1.15;
-  background: var(--brand-gradient-deep);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text);
+}
+
+.price-tag-value::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-top: 7px;
+  border-radius: 2px;
+  background: var(--brand-gradient);
+}
+
+.hero-centered .price-tag-value::after,
+.hero-photo-overlay .price-tag-value::after {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .price-tag-detail {
@@ -4267,13 +4297,14 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
 @media (max-width: 640px) {
   .price-tag {
     max-width: 320px;
-    padding: 16px 20px;
+    padding: 18px 22px;
   }
-  .hero-centered .price-tag {
-    padding: 20px 20px 16px;
+  .hero-centered .price-tag,
+  .hero-photo-overlay .price-tag {
+    padding: 20px 22px;
   }
   .price-tag-value {
-    font-size: 18px;
+    font-size: 19px;
   }
   .price-tag-detail {
     font-size: 11.5px;
