@@ -722,6 +722,59 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   height: 100%;
   border: 0;
 }
+.reel-carousel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+.reel-carousel .instagram-reel-row {
+  margin-top: 0;
+  flex: 1 1 auto;
+}
+.reel-arrow {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.reel-arrow svg { width: 18px; height: 18px; }
+.reel-arrow:hover {
+  border-color: var(--accent);
+  color: var(--accent-deep);
+}
+@media (max-width: 640px) {
+  .reel-arrow { display: none; }
+}
+.reel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+.reel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.reel-dot.is-active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
 
 .hero-content {
   max-width: 760px;

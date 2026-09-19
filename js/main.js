@@ -48,6 +48,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  /* Carrousel des courts métrages : flèches + points de navigation synchronisés au scroll */
+  const reelRow = document.querySelector(".instagram-reel-row");
+  const reelDots = document.querySelectorAll(".reel-dot");
+  const reelPrev = document.querySelector(".reel-arrow-prev");
+  const reelNext = document.querySelector(".reel-arrow-next");
+  if (reelRow) {
+    const reelItems = Array.from(reelRow.querySelectorAll(".reel-card"));
+    let reelIndex = 0;
+    const goToReel = (index) => {
+      reelIndex = Math.max(0, Math.min(index, reelItems.length - 1));
+      const item = reelItems[reelIndex];
+      if (item) item.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    };
+    reelDots.forEach((dot) => {
+      dot.addEventListener("click", () => goToReel(Number(dot.dataset.index)));
+    });
+    if (reelPrev) reelPrev.addEventListener("click", () => goToReel(reelIndex - 1));
+    if (reelNext) reelNext.addEventListener("click", () => goToReel(reelIndex + 1));
+    if ("IntersectionObserver" in window && reelDots.length) {
+      const reelObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = reelItems.indexOf(entry.target);
+              if (idx > -1) {
+                reelIndex = idx;
+                reelDots.forEach((d) => d.classList.remove("is-active"));
+                if (reelDots[idx]) reelDots[idx].classList.add("is-active");
+              }
+            }
+          });
+        },
+        { root: reelRow, threshold: 0.6 }
+      );
+      reelItems.forEach((item) => reelObserver.observe(item));
+    }
+  }
+
   /* Vidéo de présentation : lecture dès qu'elle est visible à l'écran (scroll), pause sinon — ordinateur et téléphone */
   const presentationVideo = document.querySelector(".phone-screen-video");
   if (presentationVideo && "IntersectionObserver" in window) {
