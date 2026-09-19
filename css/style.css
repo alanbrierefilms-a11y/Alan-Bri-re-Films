@@ -253,9 +253,12 @@ section {
    menu mobile) : au lieu de couvrir tout l'écran, il se retrouve confiné à la
    hauteur du header (84px) une fois qu'on a scrollé. On désactive le flou tant
    que le menu mobile est ouvert pour que .nav-links redevienne relatif au
-   viewport. */
+   viewport - et on coupe la transition sur cette propriété précise, sinon le
+   flou continue de s'estomper pendant 0.3s et le panneau reste visuellement
+   coincé dans la hauteur du header le temps de cette animation. */
 body.nav-open .site-header {
   backdrop-filter: none;
+  transition-property: background, box-shadow;
 }
 
 /* --- Header transparent (pages avec un hero plein écran : accueil, mariage) ---
