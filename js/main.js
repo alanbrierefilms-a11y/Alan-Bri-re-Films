@@ -54,35 +54,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const reelPrev = document.querySelector(".reel-arrow-prev");
   const reelNext = document.querySelector(".reel-arrow-next");
   if (reelRow) {
-    const reelItems = Array.from(reelRow.querySelectorAll(".reel-card"));
-    const reelStep = reelItems.length > 1 ? reelItems[1].offsetLeft - reelItems[0].offsetLeft : reelItems[0].offsetWidth;
+    const reelStopCount = reelDots.length;
+    /* Chaque point correspond à une fraction égale du défilement réellement possible,
+       pas à "une carte" : sur grand écran plusieurs cartes tiennent déjà dans la
+       largeur visible, donc la fin de la rangée est atteinte bien avant qu'un pas
+       fixe par carte n'ait parcouru les 6 points — les derniers points seraient
+       alors inatteignables. */
+    const getReelDotStep = () => {
+      const maxScroll = reelRow.scrollWidth - reelRow.clientWidth;
+      return reelStopCount > 1 ? maxScroll / (reelStopCount - 1) : 0;
+    };
     const setActiveReelDot = (index) => {
       reelDots.forEach((d, i) => d.classList.toggle("is-active", i === index));
     };
     const goToReel = (index) => {
-      const clamped = Math.max(0, Math.min(index, reelItems.length - 1));
-      const item = reelItems[clamped];
-      if (item) item.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+      const clamped = Math.max(0, Math.min(index, reelStopCount - 1));
+      reelRow.scrollTo({ left: getReelDotStep() * clamped, behavior: "smooth" });
+    };
+    const currentReelIndex = () => {
+      const step = getReelDotStep();
+      return step > 0 ? Math.round(reelRow.scrollLeft / step) : 0;
     };
     reelDots.forEach((dot) => {
       dot.addEventListener("click", () => goToReel(Number(dot.dataset.index)));
     });
-    if (reelPrev) {
-      reelPrev.addEventListener("click", () => goToReel(Math.round(reelRow.scrollLeft / reelStep) - 1));
-    }
-    if (reelNext) {
-      reelNext.addEventListener("click", () => goToReel(Math.round(reelRow.scrollLeft / reelStep) + 1));
-    }
-    /* Index piloté par la position de défilement plutôt que par IntersectionObserver :
-       plusieurs cartes peuvent être visibles en même temps sur grand écran, ce qui
-       rend le suivi par visibilité peu fiable dès que la largeur dépasse une carte. */
+    if (reelPrev) reelPrev.addEventListener("click", () => goToReel(currentReelIndex() - 1));
+    if (reelNext) reelNext.addEventListener("click", () => goToReel(currentReelIndex() + 1));
     let reelScrollTimer = null;
     reelRow.addEventListener("scroll", () => {
       if (reelScrollTimer) window.clearTimeout(reelScrollTimer);
-      reelScrollTimer = window.setTimeout(() => {
-        const index = Math.max(0, Math.min(Math.round(reelRow.scrollLeft / reelStep), reelItems.length - 1));
-        setActiveReelDot(index);
-      }, 100);
+      reelScrollTimer = window.setTimeout(() => setActiveReelDot(currentReelIndex()), 100);
     });
   }
 
