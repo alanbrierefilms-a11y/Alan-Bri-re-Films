@@ -836,6 +836,18 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
   margin: 0 auto;
 }
 
+@media (max-width: 640px) {
+  /* Sur mobile, le contenu (eyebrow + titre + tarif + boutons) peut devenir
+     plus haut que l'espace disponible pour un centrage vertical dans 90vh,
+     ce qui le pousse sous le header fixe. On garantit un dégagement fixe
+     en haut plutôt que de compter sur le centrage. */
+  .hero-centered {
+    min-height: auto;
+    padding-top: calc(var(--header-h) + var(--ticker-h) + 32px);
+    padding-bottom: 56px;
+  }
+}
+
 .hero-centered .lead {
   max-width: 560px;
   margin-left: auto;
@@ -874,10 +886,11 @@ body.nav-open .hero-header:not(.is-scrolled) .nav-toggle span {
 .hero-photo-overlay .hero-content .lead { color: var(--text); }
 .hero-photo-overlay .hero-content h1,
 .hero-photo-overlay .hero-content h1 em {
-  background: var(--brand-gradient-deep);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent-deep);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
   text-shadow: none;
 }
 .hero-photo-overlay .scroll-cue { color: var(--text-faint); }
