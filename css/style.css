@@ -4170,33 +4170,68 @@ html.js-reveal .services-grid.is-visible .service-card:nth-child(3) { transition
 
 /* --- Tarif indicatif ------------------------------------------------------ */
 .price-tag {
+  position: relative;
   display: inline-flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 14px 20px;
-  border-radius: var(--radius);
+  gap: 6px;
+  padding: 18px 26px 18px 28px;
+  border-radius: 14px;
   border: 1px solid var(--border);
-  background: var(--bg-alt);
-  margin: 20px 0;
+  background: var(--bg-card);
+  box-shadow: 0 4px 24px rgba(42, 32, 19, 0.08);
+  margin: 22px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.price-tag::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--brand-gradient);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .price-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
 }
 
 .hero-centered .price-tag {
   align-items: center;
+  padding: 22px 26px 18px;
+}
+
+.hero-centered .price-tag::before {
+  left: 50%;
+  top: 0;
+  bottom: auto;
+  width: 40px;
+  height: 3px;
+  transform: translateX(-50%);
 }
 
 .price-tag-label {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--accent-deep);
 }
 
 .price-tag-value {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 20px;
-  color: var(--text);
+  font-size: 24px;
+  line-height: 1.15;
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .price-tag-detail {
